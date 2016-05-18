@@ -11,7 +11,7 @@ import {
   View
 } from 'react-native';
 
-class curato extends Component {
+class Curato extends Component {
   render() {
     return (
       <View style={styles.container}>
@@ -48,4 +48,4 @@ const styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('curato', () => curato);
+AppRegistry.registerComponent('Curato', () => Curato);

@@ -1,0 +1,21 @@
+dependencies: \
+  /Users/alexngo/github/curato/mobile-curato/node_modules/react-native/React/Executors/RCTJSCExecutor.m \
+  /Users/alexngo/github/curato/mobile-curato/node_modules/react-native/React/Executors/RCTJSCExecutor.h \
+  /Users/alexngo/github/curato/mobile-curato/node_modules/react-native/React/Base/RCTJavaScriptExecutor.h \
+  /Users/alexngo/github/curato/mobile-curato/node_modules/react-native/React/Base/RCTBridgeModule.h \
+  /Users/alexngo/github/curato/mobile-curato/node_modules/react-native/React/Base/RCTDefines.h \
+  /Users/alexngo/github/curato/mobile-curato/node_modules/react-native/React/Base/RCTInvalidating.h \
+  /Users/alexngo/github/curato/mobile-curato/node_modules/react-native/React/Base/RCTAssert.h \
+  /Users/alexngo/github/curato/mobile-curato/node_modules/react-native/React/Base/RCTBridge+Private.h \
+  /Users/alexngo/github/curato/mobile-curato/node_modules/react-native/React/Base/RCTBridge.h \
+  /Users/alexngo/github/curato/mobile-curato/node_modules/react-native/React/Base/RCTBridgeDelegate.h \
+  /Users/alexngo/github/curato/mobile-curato/node_modules/react-native/React/Base/RCTFrameUpdate.h \
+  /Users/alexngo/github/curato/mobile-curato/node_modules/react-native/React/Modules/RCTDevMenu.h \
+  /Users/alexngo/github/curato/mobile-curato/node_modules/react-native/React/Base/RCTJavaScriptLoader.h \
+  /Users/alexngo/github/curato/mobile-curato/node_modules/react-native/React/Base/RCTLog.h \
+  /Users/alexngo/github/curato/mobile-curato/node_modules/react-native/React/Profiler/RCTProfile.h \
+  /Users/alexngo/github/curato/mobile-curato/node_modules/react-native/React/Base/RCTPerformanceLogger.h \
+  /Users/alexngo/github/curato/mobile-curato/node_modules/react-native/React/Base/RCTUtils.h \
+  /Users/alexngo/github/curato/mobile-curato/node_modules/react-native/React/Profiler/RCTJSCProfiler.h \
+  /Users/alexngo/github/curato/mobile-curato/node_modules/react-native/React/Modules/RCTRedBox.h \
+  /Users/alexngo/github/curato/mobile-curato/node_modules/react-native/React/Modules/RCTSourceCode.h
