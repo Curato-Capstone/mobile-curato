@@ -1,0 +1,17 @@
+{
+  "name": "react-native-android-tab",
+  "version": "0.0.1",
+  "description": "A react-native implementation of the Android tab bar",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react-native",
+    "android",
+    "tabs",
+    "bottom bar"
+  ],
+  "author": "mmmscott",
+  "license": "ISC"
+}
