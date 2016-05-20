@@ -2,13 +2,16 @@ import React, { Component } from 'react';
 import {
   StyleSheet,
   Text,
-  View
+  View,
+  Image,
+  TouchableNativeFeedback
 } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import Test from './Test';
-import Loading from '../components/reusable/Loading/Loading';
+import AndroidTabBar from '../components/reusable/react-native-android-tabbar';
+import { primaryColor } from '../utils/colors.js';
+import Intro from './Routes/Intro';
 
 export default class App extends Component {
     render() {
@@ -16,9 +19,7 @@ export default class App extends Component {
 
         return (
             <View style={STYLES.container}>
-                <Test />
-                <Loading />
-                <Test />
+                <Intro />
             </View>
         );
     }
@@ -35,7 +36,10 @@ export default class App extends Component {
 const STYLES = StyleSheet.create({
     container: {
         flex: 1,
-        position: 'relative',
+        backgroundColor: primaryColor,
+        justifyContent: 'center',
+        paddingLeft: 10,
+        paddingRight: 10
     }
 });
 
