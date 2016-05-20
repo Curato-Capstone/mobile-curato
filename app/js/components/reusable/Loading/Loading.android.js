@@ -3,11 +3,11 @@ import {
   StyleSheet,
   Text,
   View,
-  ProgressBar
+  ProgressBarAndroid
 } from 'react-native';
 
 export default class Loading extends Component {
     render () {
-        return <ProgressBar animating />
+        return <ProgressBarAndroid animating />
     }
 }

@@ -6,6 +6,6 @@
 
 import React, { Component } from 'react';
 import { AppRegistry } from 'react-native';
-import Root from './app/containers/Root';
+import Root from './app/js/containers/Root';
 
 AppRegistry.registerComponent('curato', () => Root);
