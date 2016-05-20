@@ -5,6 +5,7 @@ import {
   View,
   ActivityIndicatorIOS
 } from 'react-native';
+
 import { primaryColor } from '../../../utils/colors';
 
 export default class Loading extends Component {
