@@ -10,22 +10,50 @@ import { primaryColor } from '../../../utils/colors';
 import Button from 'apsl-react-native-button';
 
 export default class iOSButton extends Component {
+    static defaultProps = {
+        disabled    : false,
+    };
+    props: {
+        label       : string,
+        handlePress : (event: Object) => void,
+        disabled    : boolean,
+    };
+    state: void;
+
     render () {
+        const { label, handlePress, disabled } = this.props;
+
         return (
-            <Button
-                style={STYLES.button}
-                textStyle={STYLES.buttonText}
+            <View
+                style={disabled ? STYLES.disabled : {}}
+                pointerEvents={disabled ? 'none' : 'auto'}
             >
-                Words
-            </Button>
+                <Button
+                    style={[
+                        STYLES.button,
+                        this.props.style,
+                    ]}
+                    textStyle={STYLES.buttonText}
+                    onPress={handlePress}
+                    disabled={disabled}
+                >
+                    {label}
+                </Button>
+            </View>
         );
     }
 }
 
 const STYLES = StyleSheet.create({
     button: {
+        marginLeft: 50,
+        marginRight: 50,
         backgroundColor: primaryColor,
-        borderColor: 'white'
+        borderColor: 'white',
+    },
+
+    disabled: {
+        opacity: 0.5,
     },
 
     buttonText: {

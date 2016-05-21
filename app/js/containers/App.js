@@ -3,32 +3,41 @@ import {
   StyleSheet,
   Text,
   View,
-  Image,
-  TouchableNativeFeedback
 } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import AndroidTabBar from '../components/reusable/react-native-android-tabbar';
+import Loading from '../components/reusable/Loading/Loading';
+import Button from '../components/reusable/Button/Button';
 import { primaryColor } from '../utils/colors.js';
-import Intro from './Routes/Intro';
 
-export default class App extends Component {
+class App extends Component {
     render() {
         const { global } = this.props;
 
         return (
             <View style={STYLES.container}>
-                <Intro />
+                {this.renderComponents()}
+                <Button label="hiii bruh" handlePress={() => console.log('hi bruhhh')}/>
+                <Button label="hiii bruh" disabled />
             </View>
         );
+    }
+
+    renderComponents() {
+        return (
+            <View>
+                {this.renderLoading()}
+            </View>
+        )
     }
 
     renderLoading() {
         const { global } = this.props;
 
         if (global.get('loading')) {
-            return
+            return <Loading />
         }
     }
 }
@@ -36,10 +45,10 @@ export default class App extends Component {
 const STYLES = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: primaryColor,
         justifyContent: 'center',
         paddingLeft: 10,
-        paddingRight: 10
+        paddingRight: 10,
+        backgroundColor: '#F6F6F6',
     }
 });
 
