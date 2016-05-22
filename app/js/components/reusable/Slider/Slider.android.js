@@ -6,19 +6,21 @@ import {
   View,
 } from 'react-native';
 
-import Button from './Button';
-
-export default class ButtonExample extends Component {
+export default class SliderAndroid extends Component {
     static defaultProps = {};
     props: {};
     state: void;
 
     render () {
+        const { } = this.props;
+
         return (
             <View>
-                <Button label="hiii bruh" handlePress={() => console.log('hi bruhhh')}/>
-                <Button label="hiii bruh" disabled />
             </View>
         );
     }
 }
+
+const STYLES = StyleSheet.create({
+
+});

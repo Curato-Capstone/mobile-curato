@@ -6,18 +6,21 @@ import {
   View,
 } from 'react-native';
 
-import Button from './Button';
+import Slider from './Slider';
 
-export default class ButtonExample extends Component {
+export default class SliderExample extends Component {
     static defaultProps = {};
     props: {};
-    state: void;
+
+    state = { value: 1 }
+    state : void;
 
     render () {
+        const { value } = this.state;
+
         return (
             <View>
-                <Button label="hiii bruh" handlePress={() => console.log('hi bruhhh')}/>
-                <Button label="hiii bruh" disabled />
+                <Slider value={value} handleChange={(v) => console.log(v)}/>
             </View>
         );
     }

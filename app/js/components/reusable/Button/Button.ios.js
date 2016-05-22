@@ -11,12 +11,12 @@ import Button from 'apsl-react-native-button';
 
 export default class iOSButton extends Component {
     static defaultProps = {
-        disabled    : false,
+        disabled    : false
     };
     props: {
         label       : string,
         handlePress : (event: Object) => void,
-        disabled    : boolean,
+        disabled    : boolean
     };
     state: void;
 

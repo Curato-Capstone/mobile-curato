@@ -9,7 +9,8 @@ import { bindActionCreators } from 'redux';
 
 import AndroidTabBar from '../components/reusable/react-native-android-tabbar';
 import Loading from '../components/reusable/Loading/Loading';
-import Button from '../components/reusable/Button/Button';
+import ButtonExample from '../components/reusable/Button/Example';
+import SliderExample from '../components/reusable/Slider/Example';
 import { primaryColor } from '../utils/colors.js';
 
 class App extends Component {
@@ -19,8 +20,6 @@ class App extends Component {
         return (
             <View style={STYLES.container}>
                 {this.renderComponents()}
-                <Button label="hiii bruh" handlePress={() => console.log('hi bruhhh')}/>
-                <Button label="hiii bruh" disabled />
             </View>
         );
     }
@@ -28,6 +27,7 @@ class App extends Component {
     renderComponents() {
         return (
             <View>
+                <SliderExample />
                 {this.renderLoading()}
             </View>
         )
@@ -45,10 +45,14 @@ class App extends Component {
 const STYLES = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        paddingLeft: 10,
-        paddingRight: 10,
+        // justifyContent: 'center',
+        marginTop: 20,
         backgroundColor: '#F6F6F6',
+    },
+
+    topBar: {
+        height: 100,
+        opacity: 0
     }
 });
 
