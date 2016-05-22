@@ -9,6 +9,8 @@ import { bindActionCreators } from 'redux';
 
 import AndroidTabBar from '../components/reusable/react-native-android-tabbar';
 import Loading from '../components/reusable/Loading/Loading';
+import MessageBar from '../components/reusable/MessageBar/MessageBar';
+
 import ButtonExample from '../components/reusable/Button/Example';
 import SliderExample from '../components/reusable/Slider/Example';
 import { primaryColor } from '../utils/colors.js';
@@ -26,9 +28,10 @@ class App extends Component {
 
     renderComponents() {
         return (
-            <View>
+            <View style={STYLES.app}>
                 <SliderExample />
                 {this.renderLoading()}
+                {this.renderMessageBar()}
             </View>
         )
     }
@@ -40,20 +43,28 @@ class App extends Component {
             return <Loading />
         }
     }
+
+    renderMessageBar() {
+        const { global } = this.props;
+        const { errorMessage, successMessage } = global;
+
+        if (errorMessage) {
+            return <MessageBar type="error" message={errorMesage} />;
+        } else if (successMessage) {
+            return <MessageBar type="success" message={successMessage} />;
+        }
+    }
 }
 
 const STYLES = StyleSheet.create({
     container: {
         flex: 1,
-        // justifyContent: 'center',
+        position: 'relative',
         marginTop: 20,
         backgroundColor: '#F6F6F6',
     },
 
-    topBar: {
-        height: 100,
-        opacity: 0
-    }
+    app: {}
 });
 
 function mapStateToProps(state, ownProps) {
