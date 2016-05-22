@@ -22,6 +22,7 @@ import MessageBar from '../components/reusable/MessageBar/MessageBar';
 
 import ButtonExample from '../components/reusable/Button/Example';
 import SliderExample from '../components/reusable/Slider/Example';
+import InputExample from '../components/reusable/Input/Example';
 import { primaryColor } from '../utils/colors.js';
 
 class App extends Component {
@@ -46,7 +47,7 @@ class App extends Component {
     renderRoute() {
         return (
             <View style={STYLES.route}>
-                {this.props.children.map((child) => <child.component />)}
+                {this.props.children.map((child) => <child.component key={child.key} />)}
             </View>
         );
     }
@@ -75,7 +76,7 @@ const STYLES = StyleSheet.create({
     container: {
         flex: 1,
         position: 'relative',
-        backgroundColor: '#F6F6F6',
+        // backgroundColor: '#F6F6F6',
     },
 
     app: {},
