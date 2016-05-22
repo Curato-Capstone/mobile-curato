@@ -52,7 +52,7 @@ export default class Intro extends Component {
                     </View>
                 </Card.Body>
             </Card>
-          );
+        );
     }
 }
 
