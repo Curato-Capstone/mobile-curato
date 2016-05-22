@@ -6,6 +6,15 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import {Scene, Router} from 'react-native-router-flux';
+
+import Account from './Routes/Account';
+import Search from './Routes/Search';
+import Favorites from './Routes/Favorites';
+import Suggestions from './Routes/Suggestions';
+import Preferences from './Routes/Preferences';
+import SignIn from './Routes/SignIn';
+import Place from './Routes/Place';
 
 import AndroidTabBar from '../components/reusable/react-native-android-tabbar';
 import Loading from '../components/reusable/Loading/Loading';
@@ -17,8 +26,6 @@ import { primaryColor } from '../utils/colors.js';
 
 class App extends Component {
     render() {
-        const { global } = this.props;
-
         return (
             <View style={STYLES.container}>
                 {this.renderComponents()}
@@ -29,18 +36,26 @@ class App extends Component {
     renderComponents() {
         return (
             <View style={STYLES.app}>
-                <SliderExample />
                 {this.renderLoading()}
                 {this.renderMessageBar()}
+                {this.renderRoute()}
             </View>
         )
+    }
+
+    renderRoute() {
+        return (
+            <View style={STYLES.route}>
+                {this.props.children.map((child) => <child.component />)}
+            </View>
+        );
     }
 
     renderLoading() {
         const { global } = this.props;
 
         if (global.get('loading')) {
-            return <Loading />
+            return <Loading />;
         }
     }
 
@@ -60,11 +75,14 @@ const STYLES = StyleSheet.create({
     container: {
         flex: 1,
         position: 'relative',
-        marginTop: 20,
         backgroundColor: '#F6F6F6',
     },
 
-    app: {}
+    app: {},
+
+    route: {
+        marginTop: 70
+    }
 });
 
 function mapStateToProps(state, ownProps) {
