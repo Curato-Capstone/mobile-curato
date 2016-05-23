@@ -1,9 +1,9 @@
 // @flow
 import React, { Component } from 'react';
 import {
-  StyleSheet,
-  Text,
-  View,
+    StyleSheet,
+    Text,
+    View,
 } from 'react-native';
 
 export default class SliderAndroid extends Component {

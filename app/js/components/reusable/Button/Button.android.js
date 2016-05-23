@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import {
-  StyleSheet,
-  Text,
-  View,
-  ProgressBarAndroid
+    StyleSheet,
+    Text,
+    View,
+    ProgressBarAndroid
 } from 'react-native';
 
 import { Button as AndroidButton } from 'react-native-material-design';

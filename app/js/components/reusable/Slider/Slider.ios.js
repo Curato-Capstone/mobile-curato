@@ -1,10 +1,10 @@
 // @flow
 import React, { Component } from 'react';
 import {
-  StyleSheet,
-  Text,
-  View,
-  Slider
+    StyleSheet,
+    Text,
+    View,
+    Slider
 } from 'react-native';
 
 export default class SliderIOS extends Component {

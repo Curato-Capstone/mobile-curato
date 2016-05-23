@@ -1,11 +1,11 @@
 // @flow
 import React, { Component } from 'react';
 import {
-  StyleSheet,
-  Text,
-  View,
-  ListView,
-  TouchableOpacity
+    StyleSheet,
+    Text,
+    View,
+    ListView,
+    TouchableOpacity
 } from 'react-native';
 
 export default class AutoComplete extends Component {
@@ -21,13 +21,10 @@ export default class AutoComplete extends Component {
     render () {
         const { show, results, handleResultTap } = this.props;
 
-        const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-        const dataSource = ds.cloneWithRows(results);
-
         return (
             <View style={[STYLES.autoComplete, results.length && show ? {} : STYLES.hide]}>
                 {results.map((result) => (
-                    <TouchableOpacity onPress={() => handleResultTap(result)}>
+                    <TouchableOpacity key={result} onPress={() => handleResultTap(result)}>
                         <Text style={STYLES.text}>{result}</Text>
                     </TouchableOpacity>
                 ))}

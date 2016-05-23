@@ -1,10 +1,10 @@
 // @flow
 import React, { Component } from 'react';
 import {
-  StyleSheet,
-  Text,
-  View,
-  TextInput
+    StyleSheet,
+    Text,
+    View,
+    TextInput
 } from 'react-native';
 
 export default class TextField extends Component {
