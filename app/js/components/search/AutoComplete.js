@@ -53,6 +53,7 @@ const STYLES = StyleSheet.create({
 
     text: {
         fontSize: 20,
-        padding: 4
+        padding: 4,
+        fontFamily: 'Montserrat-Light'
     }
 });

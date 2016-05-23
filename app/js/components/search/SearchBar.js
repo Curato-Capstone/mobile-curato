@@ -78,7 +78,7 @@ export default class SearchBar extends Component {
 
 const STYLES = StyleSheet.create({
     container: {
-        flex: 1
+        flex: 1,
     },
 
     searchBarContainer: {
@@ -102,7 +102,8 @@ const STYLES = StyleSheet.create({
         paddingTop: 10,
         paddingBottom: 10,
         textAlign: 'center',
-        fontSize: 20
+        fontSize: 20,
+        fontFamily: 'Montserrat-Light'
     },
 
     iconContainer: {
