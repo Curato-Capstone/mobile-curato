@@ -32,7 +32,7 @@ class Search extends Component {
 
 const STYLES = StyleSheet.create({
     container: {
-
+        flex: 1
     }
 });
 

@@ -79,9 +79,12 @@ const STYLES = StyleSheet.create({
         // backgroundColor: '#F6F6F6',
     },
 
-    app: {},
+    app: {
+        flex: 1
+    },
 
     route: {
+        flex: 1,
         marginTop: 70
     }
 });

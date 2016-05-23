@@ -25,15 +25,12 @@ export default class AutoComplete extends Component {
         const dataSource = ds.cloneWithRows(results);
 
         return (
-            <View style={[STYLES.autoComplete, results.length && show ? {} : STYLES.empty]}>
-                <ListView
-                  dataSource={dataSource}
-                  renderRow={(rowData) => (
-                    <TouchableOpacity onPress={() => handleResultTap(rowData)}>
-                        <Text style={STYLES.text}>{rowData}</Text>
+            <View style={[STYLES.autoComplete, results.length && show ? {} : STYLES.hide]}>
+                {results.map((result) => (
+                    <TouchableOpacity onPress={() => handleResultTap(result)}>
+                        <Text style={STYLES.text}>{result}</Text>
                     </TouchableOpacity>
-                  )}
-                />
+                ))}
             </View>
         );
     }
@@ -47,19 +44,19 @@ const STYLES = StyleSheet.create({
         padding: 6,
         backgroundColor: 'white',
         shadowColor: 'black',
-        shadowOffset: {width: 2, height: 3},
+        shadowOffset: { width: 2, height: 3 },
         shadowOpacity: 0.25,
         shadowRadius: 2,
         elevation: 2
     },
 
-    empty: {
+    hide: {
         padding: 0,
-        margin: 0
+        margin: 0,
     },
 
     text: {
         fontSize: 20,
-        margin: 4
+        padding: 4
     }
 });

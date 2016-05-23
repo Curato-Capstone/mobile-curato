@@ -49,7 +49,7 @@ const STYLES = StyleSheet.create({
         marginLeft: 50,
         marginRight: 50,
         backgroundColor: primaryColor,
-        borderColor: 'white',
+        borderColor: 'rgba(0, 0, 0, 0)',
     },
 
     disabled: {
