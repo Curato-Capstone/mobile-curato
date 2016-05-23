@@ -60,7 +60,7 @@ const STYLES = StyleSheet.create({
   logo: {
       resizeMode: 'center',
       height: 150,
-      width: 400
+      width: 350
   },
   buttonContainer: {
       flex: 1,
