@@ -14,7 +14,7 @@ export default class ButtonExample extends Component {
     render() {
         return (
             <View>
-                <Button label="hiii bruh" handlePress={() => {}}/>
+                <Button label="hiii bruh" handlePress={() => {}} />
                 <Button label="hiii bruh" disabled />
             </View>
         );

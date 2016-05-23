@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 import {
     StyleSheet,
-    Text,
-    View,
     ActivityIndicatorIOS
 } from 'react-native';
 
 import { primaryColor } from '../../../utils/colors';
 
 export default class Loading extends Component {
-    render () {
+    render() {
         return (
             <ActivityIndicatorIOS
                 animating

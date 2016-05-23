@@ -2,8 +2,6 @@
 import React, { Component } from 'react';
 import {
     StyleSheet,
-    Text,
-    View,
     Slider
 } from 'react-native';
 
@@ -15,7 +13,7 @@ export default class SliderIOS extends Component {
     };
     state: void;
 
-    render () {
+    render() {
         const { value, handleChange } = this.props;
 
         return (

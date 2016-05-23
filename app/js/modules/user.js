@@ -1,5 +1,5 @@
 import { fromJS, Map, List } from 'immutable';
-import type { Place, Preferences, User, Action } from '../../types/index';
+import type { Place, Preferences, User, Action } from '../../../flow/types';
 import request from 'superagent-bluebird-promise';
 
 import * as placesActions from './places';
@@ -199,7 +199,7 @@ export function getUserData() {
     return async (dispatch, getState) => {
         try {
             dispatch(authActions.setIsAuthenticating(true));
-            dispatch(authActions.setToken(localStorage.getItem('accessToken')))
+            dispatch(authActions.setToken(localStorage.getItem('accessToken')));
 
             const res = await request
                 .get(`${baseURL}/user`)

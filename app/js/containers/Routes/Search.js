@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {
   StyleSheet,
-  Text,
   View
 } from 'react-native';
 import { connect } from 'react-redux';
@@ -36,9 +35,9 @@ const STYLES = StyleSheet.create({
     }
 });
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
     return {
-        searchText: state.get('suggestions').toJS().searchText,
+        searchText: state.get('suggestions').get('searchText'),
     };
 }
 

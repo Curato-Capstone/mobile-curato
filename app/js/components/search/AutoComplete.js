@@ -4,7 +4,6 @@ import {
     StyleSheet,
     Text,
     View,
-    ListView,
     TouchableOpacity
 } from 'react-native';
 
@@ -18,7 +17,7 @@ export default class AutoComplete extends Component {
     };
     state : void;
 
-    render () {
+    render() {
         const { show, results, handleResultTap } = this.props;
 
         return (

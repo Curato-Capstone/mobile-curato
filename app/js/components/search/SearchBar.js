@@ -2,7 +2,6 @@
 import React, { Component } from 'react';
 import {
     StyleSheet,
-    Text,
     TextInput,
     TouchableOpacity,
     View,
@@ -31,7 +30,7 @@ export default class SearchBar extends Component {
     state = { focused: false };
     state : { focused: boolean };
 
-    render () {
+    render() {
         const { value, handleChange } = this.props;
 
         let results = autoCompleteTrie.find(value) || [];
@@ -89,7 +88,7 @@ const STYLES = StyleSheet.create({
     searchBarWrapper: {
         flex: 1,
         shadowColor: 'black',
-        shadowOffset: {width: 2, height: 3},
+        shadowOffset: { width: 2, height: 3 },
         shadowOpacity: 0.25,
         shadowRadius: 2,
         elevation: 2,

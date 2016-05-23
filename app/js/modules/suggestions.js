@@ -1,5 +1,5 @@
 import { fromJS, Map, List } from 'immutable';
-import type { Place, Action } from '../..flow/types';
+import type { Place, Action } from '../../../flow/types';
 import request from 'superagent-bluebird-promise';
 
 import * as globalActions from './global';

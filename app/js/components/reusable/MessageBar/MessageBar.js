@@ -16,7 +16,7 @@ export default class MessageBar extends Component {
 
     render() {
         const { message, type } = this.props;
-        console.log('here')
+
         return (
             <View style={[STYLES.messageBar, this.getBarColor(type)]}>
                 <Text>{message}</Text>

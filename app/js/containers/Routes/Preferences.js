@@ -8,6 +8,10 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 class Preferences extends Component {
+    static defaultProps = {};
+    props: {};
+    state : void;
+    
     render() {
         const { } = this.props;
 

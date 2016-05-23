@@ -1,8 +1,6 @@
 // @flow
 import React, { Component } from 'react';
 import {
-    StyleSheet,
-    Text,
     View,
 } from 'react-native';
 
@@ -15,12 +13,12 @@ export default class SliderExample extends Component {
     state = { value: 1 }
     state : void;
 
-    render () {
+    render() {
         const { value } = this.state;
 
         return (
             <View>
-                <Slider value={value} handleChange={(v) => console.log(v)}/>
+                <Slider value={value} handleChange={(v) => this.setState({ value: v })} />
             </View>
         );
     }
