@@ -6,6 +6,7 @@ import {
   View,
   Slider
 } from 'react-native';
+import { primaryColor } from '../../../utils/colors';
 
 export default class SliderIOS extends Component {
     static defaultProps = {};
@@ -25,11 +26,15 @@ export default class SliderIOS extends Component {
                 maximumValue={5}
                 value={value}
                 onSlidingComplete={handleChange}
+                style={STYLES.slider}
+                minimumTrackTintColor={primaryColor}
             />
         );
     }
 }
 
 const STYLES = StyleSheet.create({
-
+    slider: {
+        width: 100
+    }
 });
