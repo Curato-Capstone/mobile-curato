@@ -6,14 +6,25 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { user as userActions, suggestions as suggestionsActions } from '../../modules/index';
+
+import SearchBar from '../../components/search/SearchBar';
 
 class Search extends Component {
+    static defaultProps = {};
+    props: { searchText: string, actions: Object };
+    state: void;
+
     render() {
-        const { } = this.props;
+        const { searchText, actions } = this.props;
 
         return (
             <View style={STYLES.container}>
-                <Text>This is the search page yo</Text>
+                <SearchBar
+                    value={searchText}
+                    handleChange={actions.changeSearchText}
+                    handleSubmit={() => {}}
+                />
             </View>
         );
     }
@@ -27,13 +38,13 @@ const STYLES = StyleSheet.create({
 
 function mapStateToProps(state, ownProps) {
     return {
-        // user: state.get('user'),
+        searchText: state.get('suggestions').toJS().searchText,
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        // actions : bindActionCreators({ ...userActions, ...suggestionsActions }, dispatch),
+        actions : bindActionCreators({ ...userActions, ...suggestionsActions }, dispatch),
     };
 }
 
