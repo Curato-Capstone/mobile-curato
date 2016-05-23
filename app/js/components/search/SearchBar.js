@@ -13,6 +13,7 @@ import autoCompleteTrie from '../../utils/trie';
 import { primaryColor } from '../../utils/colors';
 
 import AutoComplete from './AutoComplete';
+import Overlay from './Overlay';
 import Button from '../reusable/Button/Button';
 
 export default class SearchBar extends Component {
@@ -71,7 +72,7 @@ export default class SearchBar extends Component {
 
     renderOverlay() {
         if (this.state.focused) {
-            return <View style={STYLES.overlay} />;
+            return <Overlay />;
         }
     }
 }
@@ -117,17 +118,5 @@ const STYLES = StyleSheet.create({
     icon: {
         color: 'white',
         fontSize: 24
-    },
-
-    overlay: {
-        position: 'absolute',
-        flex: 1,
-        top: 0,
-        bottom: 0,
-        left: 0,
-        right: 0,
-        backgroundColor: 'grey',
-        opacity: 0.6,
-        marginTop: -10
     }
 });
