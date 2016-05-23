@@ -35,14 +35,14 @@ export default function reducer(state: State = initialState, action: Action): St
 
     switch (action.type) {
         case SET_PLACES:
-            for (let place of action.places) {
+            for (const place of action.places) {
                 places[place.id] = fromJS(place);
             }
 
             return fromJS(places);
 
         case ADD_PLACES:
-            for (let place of action.places) {
+            for (const place of action.places) {
                 places[place.id] = fromJS(place);
             }
 

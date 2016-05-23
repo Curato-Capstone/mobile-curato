@@ -34,7 +34,6 @@ export default class SearchBar extends Component {
             results = results.slice(1);
         }
 
-        console.log(this.refs.search.isFocused());
         return (
             <View>
                 <View style={STYLES.searchBarWrapper}>

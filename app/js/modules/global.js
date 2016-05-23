@@ -74,7 +74,7 @@ export function setMessage(type: 'success'|'error', message: string, persistent:
             dispatch(setErrorMessage(message));
 
         if (!persistent) {
-            setTimeout(() => dispatch(clearMessages()), 3000);
+            setTimeout(() => dispatch(clearMessages()), 3500);
         }
     };
 }

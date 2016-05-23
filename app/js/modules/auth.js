@@ -63,7 +63,7 @@ export default function reducer(state: State = initialState, action: Action): St
 }
 
 
-// Reducers
+// Thunks
 // -----------------------------------
 const baseURL = 'http://ec2-54-186-80-121.us-west-2.compute.amazonaws.com:8000';
 import { SubmissionError } from 'redux-form';
