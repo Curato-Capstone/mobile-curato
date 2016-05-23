@@ -1,9 +1,9 @@
 // @flow
 import React, { Component } from 'react';
 import {
-  StyleSheet,
-  Text,
-  View,
+    StyleSheet,
+    Text,
+    View,
 } from 'react-native';
 
 export default class MessageBar extends Component {
@@ -16,7 +16,7 @@ export default class MessageBar extends Component {
 
     render() {
         const { message, type } = this.props;
-        console.log('here')
+
         return (
             <View style={[STYLES.messageBar, this.getBarColor(type)]}>
                 <Text>{message}</Text>

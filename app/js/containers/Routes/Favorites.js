@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 import {
-  StyleSheet,
-  Text,
-  View
+    StyleSheet,
+    Text,
+    View
 } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 class Favorites extends Component {
+    static defaultProps = {};
+    props: {};
+    state : void;
+    
     render() {
         const { } = this.props;
 

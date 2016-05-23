@@ -1,10 +1,9 @@
 // @flow
 import React, { Component } from 'react';
 import {
-  StyleSheet,
-  Text,
-  View,
-  TextInput
+    StyleSheet,
+    View,
+    TextInput
 } from 'react-native';
 
 export default class TextField extends Component {
@@ -16,7 +15,7 @@ export default class TextField extends Component {
     };
     state: void;
 
-    render () {
+    render() {
         const { value, handleChange, placeholder, ...other } = this.props;
 
         return (

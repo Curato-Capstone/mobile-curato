@@ -1,5 +1,5 @@
 import { fromJS, Map, List } from 'immutable';
-import type { Place, Action } from '../..flow/types';
+import type { Place, Action } from '../../../flow/types';
 import request from 'superagent-bluebird-promise';
 
 import * as globalActions from './global';
@@ -93,15 +93,12 @@ export function getSuggestions({ random = false } = {}) {
         try {
             dispatch(globalActions.setLoading(true));
 
-            const preferences = getState().getIn(['user', 'preferences']).toJS();
             const query = random ? '' : getState().getIn(['suggestions', 'searchText']);
 
             const res = await request
-                .post(`${baseURL}/suggestions`)
-                .send({
-                    preferences,
-                    q: query
-                });
+                .get(`${baseURL}/suggestions`)
+                .query({ q: query })
+                .set('Authorization', getState().getIn(['auth', 'token']));
 
             dispatch(placesActions.addPlaces(res.body));
 

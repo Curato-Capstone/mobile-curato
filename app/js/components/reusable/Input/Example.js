@@ -1,8 +1,6 @@
 // @flow
 import React, { Component } from 'react';
 import {
-  StyleSheet,
-  Text,
   View,
 } from 'react-native';
 
@@ -15,7 +13,7 @@ export default class Example extends Component {
     state = { value: '' }
     state : { value: string };
 
-    render () {
+    render() {
         const { value } = this.state;
 
         return (

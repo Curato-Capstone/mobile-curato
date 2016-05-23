@@ -1,31 +1,26 @@
 import React, { Component } from 'react';
 import {
   StyleSheet,
-  Text,
   View,
 } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import {Scene, Router} from 'react-native-router-flux';
-
-import Account from './Routes/Account';
-import Search from './Routes/Search';
-import Favorites from './Routes/Favorites';
-import Suggestions from './Routes/Suggestions';
-import Preferences from './Routes/Preferences';
-import SignIn from './Routes/SignIn';
-import Place from './Routes/Place';
 
 import AndroidTabBar from '../components/reusable/react-native-android-tabbar';
 import Loading from '../components/reusable/Loading/Loading';
 import MessageBar from '../components/reusable/MessageBar/MessageBar';
 
-import ButtonExample from '../components/reusable/Button/Example';
-import SliderExample from '../components/reusable/Slider/Example';
-import InputExample from '../components/reusable/Input/Example';
-import { primaryColor } from '../utils/colors.js';
+// import ButtonExample from '../components/reusable/Button/Example';
+// import SliderExample from '../components/reusable/Slider/Example';
+// import InputExample from '../components/reusable/Input/Example';
 
 class App extends Component {
+    static defaultProps = {};
+    props: {
+        children: Array<any>
+    };
+    state : void;
+
     render() {
         return (
             <View style={STYLES.container}>
@@ -41,7 +36,7 @@ class App extends Component {
                 {this.renderMessageBar()}
                 {this.renderRoute()}
             </View>
-        )
+        );
     }
 
     renderRoute() {
@@ -79,9 +74,12 @@ const STYLES = StyleSheet.create({
         // backgroundColor: '#F6F6F6',
     },
 
-    app: {},
+    app: {
+        flex: 1
+    },
 
     route: {
+        flex: 1,
         marginTop: 70
     }
 });
@@ -98,7 +96,7 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        // actions : bindActionCreators({ ...userActions, ...suggestionsActions }, dispatch),
+        actions : bindActionCreators({}, dispatch),
     };
 }
 

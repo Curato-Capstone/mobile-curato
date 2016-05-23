@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 import {
-  StyleSheet,
-  Text,
-  View,
-  ProgressBarAndroid
+    StyleSheet,
+    ProgressBarAndroid
 } from 'react-native';
 
 import { primaryColor } from '../../../utils/colors';
 
 export default class Loading extends Component {
-    render () {
+    render() {
         return (
             <ProgressBarAndroid
                 color={primaryColor}
