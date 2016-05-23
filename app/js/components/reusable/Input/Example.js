@@ -15,7 +15,7 @@ export default class Example extends Component {
     state = { value: '' }
     state : { value: string };
 
-    render () {
+    render() {
         const { value } = this.state;
 
         return (

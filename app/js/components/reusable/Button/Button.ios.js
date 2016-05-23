@@ -2,7 +2,6 @@
 import React, { Component } from 'react';
 import {
     StyleSheet,
-    Text,
     View,
 } from 'react-native';
 import { primaryColor } from '../../../utils/colors';
@@ -16,11 +15,12 @@ export default class iOSButton extends Component {
     props: {
         label       : string,
         handlePress : (event: Object) => void,
-        disabled    : boolean
+        disabled    : boolean,
+        style       : Object
     };
     state: void;
 
-    render () {
+    render() {
         const { label, handlePress, disabled } = this.props;
 
         return (

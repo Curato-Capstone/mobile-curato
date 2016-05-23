@@ -1,8 +1,6 @@
 // @flow
 import React, { Component } from 'react';
 import {
-    StyleSheet,
-    Text,
     View,
 } from 'react-native';
 
@@ -13,10 +11,10 @@ export default class ButtonExample extends Component {
     props: {};
     state: void;
 
-    render () {
+    render() {
         return (
             <View>
-                <Button label="hiii bruh" handlePress={() => console.log('hi bruhhh')}/>
+                <Button label="hiii bruh" handlePress={() => {}}/>
                 <Button label="hiii bruh" disabled />
             </View>
         );
