@@ -73,7 +73,8 @@ export default class MyRouter extends Component {
                             icon={TabIcon}
                             navigationBarStyle={{ backgroundColor: primaryColor }}
                             titleStyle={{ color: 'white', fontFamily: 'Montserrat-Light' }}
-                            rightTitle="account"
+                            rightButtonImage={require('../../images/person_white.png')}
+                            rightButtonIconStyle={{height: 30, width: 30}}
                             onRight={() => {}}
                         >
                             <Scene initial key="search" component={Search} title="Search" />
@@ -86,7 +87,8 @@ export default class MyRouter extends Component {
                             icon={TabIcon}
                             navigationBarStyle={{ backgroundColor: primaryColor }}
                             titleStyle={{ color: 'white', fontFamily: 'Montserrat-Light' }}
-                            rightTitle="account"
+                            rightButtonImage={require('../../images/person_white.png')}
+                            rightButtonIconStyle={{height: 30, width: 30}}
                             onRight={() => {}}
                         >
                             <Scene key="favorites" component={Favorites} title="Favorites" />
@@ -98,7 +100,8 @@ export default class MyRouter extends Component {
                             icon={TabIcon}
                             navigationBarStyle={{ backgroundColor: primaryColor }}
                             titleStyle={{ color: 'white', fontFamily: 'Montserrat-Light' }}
-                            rightTitle="account"
+                            rightButtonImage={require('../../images/person_white.png')}
+                            rightButtonIconStyle={{height: 30, width: 30}}
                             onRight={() => {}}
                         >
                             <Scene key="preferences" component={Preferences} title="Preferences" />
