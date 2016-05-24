@@ -23,7 +23,7 @@ class Search extends Component {
                 <SearchBar
                     value={searchText}
                     handleChange={actions.changeSearchText}
-                    handleSubmit={() => routerActions.tab2()}
+                    handleSubmit={() => routerActions.suggestions()}
                 />
             </View>
         );
