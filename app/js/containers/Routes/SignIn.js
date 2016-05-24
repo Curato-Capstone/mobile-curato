@@ -11,8 +11,16 @@ import { bindActionCreators } from 'redux';
 import { Card } from 'react-native-material-design';
 import Button from '../../components/reusable/Button/Button';
 import { primaryColor } from '../../utils/colors.js';
+import { Field, reduxForm } from 'redux-form/immutable';
 
-export default class SignIn extends Component {
+const renderField = props => (
+    <TextInput
+        placeholder={props.placeholder}
+        secureTextEntry={props.placeholder === 'Password'}
+    />
+);
+
+class SignIn extends Component {
     static defaultProps = {};
     props: {};
     state : void;
@@ -26,8 +34,8 @@ export default class SignIn extends Component {
                     </Text>
                 </Card.Body>
 
-                <TextInput placeholder="Email" />
-                <TextInput placeholder="Password" secureTextEntry />
+                <Field name="email" type="email" component={renderField} placeholder="Email"/>
+                <Field name="age" type="number" component={renderField} placeholder="Password"/>
 
                 <Button
                     raised
@@ -36,6 +44,7 @@ export default class SignIn extends Component {
                         textColor: '#ffffff'
                     }}
                     text="SUBMIT"
+                    onPress={() => console.log('hi?')}
                 />
             </Card>
         );
@@ -51,6 +60,10 @@ const STYLES = StyleSheet.create({
         marginBottom: 10
     }
 });
+
+export default reduxForm({
+  form: 'SignInForm',  // a unique identifier for this form
+})(SignIn);
 
 // function mapStateToProps(state, ownProps) {
 //     return {
