@@ -1,34 +1,66 @@
 import React, { Component } from 'react';
 import {
   StyleSheet,
-  Text,
   View,
-  Image,
-  TouchableNativeFeedback
 } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import AndroidTabBar from '../components/reusable/react-native-android-tabbar';
-import { primaryColor } from '../utils/colors.js';
-import Intro from './Routes/Intro';
+import Loading from '../components/reusable/Loading/Loading';
+import MessageBar from '../components/reusable/MessageBar/MessageBar';
+import Router from './Router';
 
-export default class App extends Component {
+// import ButtonExample from '../components/reusable/Button/Example';
+// import SliderExample from '../components/reusable/Slider/Example';
+// import InputExample from '../components/reusable/Input/Example';
+
+class App extends Component {
+    static defaultProps = {};
+    props: {
+        children: Array<any>,
+        global: Object
+    };
+    state : void;
+
     render() {
-        const { global } = this.props;
-
         return (
             <View style={STYLES.container}>
-                <Intro />
+                {this.renderComponents()}
             </View>
         );
+    }
+
+    renderComponents() {
+        return (
+            <View style={STYLES.app}>
+                {this.renderRouter()}
+                {this.renderLoading()}
+                {this.renderMessageBar()}
+            </View>
+        );
+    }
+
+    renderRouter() {
+        return <Router />;
     }
 
     renderLoading() {
         const { global } = this.props;
 
         if (global.get('loading')) {
-            return
+            return <Loading />;
+        }
+    }
+
+    renderMessageBar() {
+        const { global } = this.props;
+        const { errorMessage, successMessage } = global;
+
+        if (errorMessage) {
+            return <MessageBar type="error" message={errorMessage} />;
+        } else if (successMessage) {
+            return <MessageBar type="success" message={successMessage} />;
         }
     }
 }
@@ -36,10 +68,11 @@ export default class App extends Component {
 const STYLES = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: primaryColor,
-        justifyContent: 'center',
-        paddingLeft: 10,
-        paddingRight: 10
+        position: 'relative',
+    },
+
+    app: {
+        flex: 1
     }
 });
 
@@ -55,7 +88,7 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        // actions : bindActionCreators({ ...userActions, ...suggestionsActions }, dispatch),
+        actions : bindActionCreators({}, dispatch),
     };
 }
 

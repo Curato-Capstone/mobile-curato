@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import {
   StyleSheet,
   Text,
-  TextInput
+  TextInput,
+  View
 } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -12,9 +13,9 @@ import Button from '../../components/reusable/Button/Button';
 import { primaryColor } from '../../utils/colors.js';
 
 export default class SignIn extends Component {
-    state = {
-
-    };
+    static defaultProps = {};
+    props: {};
+    state : void;
 
     render() {
         return (
@@ -50,3 +51,17 @@ const STYLES = StyleSheet.create({
         marginBottom: 10
     }
 });
+
+// function mapStateToProps(state, ownProps) {
+//     return {
+//         // user: state.get('user'),
+//     };
+// }
+//
+// function mapDispatchToProps(dispatch) {
+//     return {
+//         // actions : bindActionCreators({ ...userActions, ...suggestionsActions }, dispatch),
+//     };
+// }
+//
+// export default connect(mapStateToProps, mapDispatchToProps)(SignIn);

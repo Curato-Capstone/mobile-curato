@@ -1,6 +1,6 @@
 // @flow
 import { Map } from 'immutable';
-import type { Action } from '../../flow/types';
+import type { Action } from '../../../flow/types';
 import request from 'superagent-bluebird-promise';
 
 import * as globalActions from './global';
@@ -22,14 +22,14 @@ export function setIsAuthenticating(authenticating: bool): Action {
     };
 }
 
-export function setIsAuthenticated(authenticated: bool) {
+export function setIsAuthenticated(authenticated: bool): Action {
     return {
         type: SET_IS_AUTHENTICATED,
         authenticated
     };
 }
 
-export function setToken(token) {
+export function setToken(token): Action {
     return {
         type: SET_TOKEN,
         token
@@ -63,7 +63,7 @@ export default function reducer(state: State = initialState, action: Action): St
 }
 
 
-// Reducers
+// Thunks
 // -----------------------------------
 const baseURL = 'http://ec2-54-186-80-121.us-west-2.compute.amazonaws.com:8000';
 import { SubmissionError } from 'redux-form';
@@ -85,8 +85,8 @@ export function signUpUser() {
 
             // grab token and store it
             const token = res.header.authorization;
-            localStorage.setItem('accessToken', res.header.authorization)
-            dispatch(setToken(token))
+            localStorage.setItem('accessToken', res.header.authorization);
+            dispatch(setToken(token));
 
             dispatch(userActions.setUser(res.body));
             dispatch(setIsAuthenticated(true));
@@ -106,10 +106,10 @@ export function signInUser() {
                 .post(`${baseURL}/user/signin`)
                 .send(loginCredentials);
 
-            //grab token and store it
+            // grab token and store it
             const token = res.header.authorization;
-            localStorage.setItem('accessToken', res.header.authorization)
-            dispatch(setToken(token))
+            localStorage.setItem('accessToken', res.header.authorization);
+            dispatch(setToken(token));
 
             dispatch(userActions.setUser(res.body));
             dispatch(setIsAuthenticated(true));
