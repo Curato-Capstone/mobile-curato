@@ -67,15 +67,17 @@ export default class MyRouter extends Component {
                     hideNavBar
                 >
                     <Scene key="tabbar" tabs tabBarStyle={STYLES.tabBar}>
-                        <Scene key="tab1" title="Search"
+                        <Scene
+                            key="tab1"
+                            title="Search"
                             icon={TabIcon}
                             navigationBarStyle={{ backgroundColor: primaryColor }}
                             titleStyle={{ color: 'white', fontFamily: 'Montserrat-Light' }}
                             rightTitle="account"
                             onRight={() => {}}
                         >
-                            <Scene initial key="search" component={Search} title="Search!!" />
-                            <Scene key="suggestions" component={Suggestions} title="Suggestions!!" />
+                            <Scene initial key="search" component={Search} title="Search" />
+                            <Scene key="suggestions" component={Suggestions} title="Suggestions" />
                         </Scene>
 
                         <Scene

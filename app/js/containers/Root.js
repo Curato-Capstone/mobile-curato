@@ -15,9 +15,8 @@ const store = createStoreWithMiddleware(reducer);
 export default class Root extends Component {
     componentDidMount() {
         StatusBar.setBarStyle('light-content');
-        StatusBar.setBackgroundColor(primaryColor, true);
-        StatusBar.setTranslucent(true);
-        StatusBar.setHidden(false);
+        // StatusBar.setBackgroundColor(primaryColor, true);
+        // StatusBar.setTranslucent(true);
     }
 
     render() {
