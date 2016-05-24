@@ -31,7 +31,7 @@ export default class SearchBar extends Component {
     state : { focused: boolean };
 
     render() {
-        const { value, handleChange } = this.props;
+        const { value, handleChange, handleSubmit } = this.props;
 
         let results = autoCompleteTrie.find(value) || [];
 
@@ -55,7 +55,7 @@ export default class SearchBar extends Component {
                             placeholder="Search for something to do!"
                         />
                     </View>
-                    <TouchableOpacity style={STYLES.iconContainer}>
+                    <TouchableOpacity style={STYLES.iconContainer} onPress={handleSubmit}>
                         <Icon style={STYLES.icon} name="search" />
                     </TouchableOpacity>
                 </View>
@@ -80,7 +80,7 @@ const STYLES = StyleSheet.create({
     container: {
         flex: 1,
         marginTop: 70
-        
+
     },
 
     searchBarContainer: {
