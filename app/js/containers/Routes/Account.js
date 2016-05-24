@@ -7,17 +7,21 @@ import {
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+import { user as userActions } from '../../modules/index';
+import AccountForm from '../../components/forms/AccountForm/AccountForm';
+
+
 class Account extends Component {
     static defaultProps = {};
-    props: {};
+    props: { actions: Object };
     state : void;
 
     render() {
-        const { } = this.props;
+        const { actions } = this.props;
 
         return (
             <View style={STYLES.container}>
-                <Text>This is the account page yo</Text>
+                <AccountForm onSubmit={() => actions.updateAccount() } />
             </View>
         );
     }
@@ -29,15 +33,13 @@ const STYLES = StyleSheet.create({
     }
 });
 
-function mapStateToProps(state, ownProps) {
-    return {
-        // user: state.get('user'),
-    };
+function mapStateToProps() {
+    return {};
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        // actions : bindActionCreators({ ...userActions, ...suggestionsActions }, dispatch),
+        actions : bindActionCreators({ ...userActions }, dispatch)
     };
 }
 
