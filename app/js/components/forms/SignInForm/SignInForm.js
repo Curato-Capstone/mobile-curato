@@ -62,5 +62,6 @@ const STYLES = StyleSheet.create({
 });
 
 export default reduxForm({
-  form: 'SignInForm',  // a unique identifier for this form
+    form: 'SignInForm',  // a unique identifier for this form
+    validate
 })(SignInForm);
