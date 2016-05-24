@@ -9,6 +9,7 @@ import { bindActionCreators } from 'redux';
 import AndroidTabBar from '../components/reusable/react-native-android-tabbar';
 import Loading from '../components/reusable/Loading/Loading';
 import MessageBar from '../components/reusable/MessageBar/MessageBar';
+import Router from './Router';
 
 // import ButtonExample from '../components/reusable/Button/Example';
 // import SliderExample from '../components/reusable/Slider/Example';
@@ -17,7 +18,8 @@ import MessageBar from '../components/reusable/MessageBar/MessageBar';
 class App extends Component {
     static defaultProps = {};
     props: {
-        children: Array<any>
+        children: Array<any>,
+        global: Object
     };
     state : void;
 
@@ -32,19 +34,15 @@ class App extends Component {
     renderComponents() {
         return (
             <View style={STYLES.app}>
+                {this.renderRouter()}
                 {this.renderLoading()}
                 {this.renderMessageBar()}
-                {this.renderRoute()}
             </View>
         );
     }
 
-    renderRoute() {
-        return (
-            <View style={STYLES.route}>
-                {this.props.children.map((child) => <child.component key={child.key} />)}
-            </View>
-        );
+    renderRouter() {
+        return <Router />;
     }
 
     renderLoading() {
@@ -60,7 +58,7 @@ class App extends Component {
         const { errorMessage, successMessage } = global;
 
         if (errorMessage) {
-            return <MessageBar type="error" message={errorMesage} />;
+            return <MessageBar type="error" message={errorMessage} />;
         } else if (successMessage) {
             return <MessageBar type="success" message={successMessage} />;
         }
@@ -71,16 +69,10 @@ const STYLES = StyleSheet.create({
     container: {
         flex: 1,
         position: 'relative',
-        // backgroundColor: '#F6F6F6',
     },
 
     app: {
         flex: 1
-    },
-
-    route: {
-        flex: 1,
-        marginTop: 70
     }
 });
 
