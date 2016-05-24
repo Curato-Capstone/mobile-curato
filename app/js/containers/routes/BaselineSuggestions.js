@@ -6,6 +6,7 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { user as userActions, suggestions as suggestionsActions } from '../../modules/index';
 
 import { Card } from 'react-native-material-design';
 import Button from '../../components/reusable/Button/Button';
@@ -13,41 +14,14 @@ import { primaryColor } from '../../utils/colors.js';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import PlaceCard from '../../components/reusable/PlaceCard/PlaceCard';
 
-
-const place1 = {
-    name: 'EMP',
-    location: { address: '1234 Street Ave., Seattle, WA' },
-    image: require('../../../images/places/pike_place_market.jpg'),
-    id: '123',
-    categories: [{ name: 'Art Museum' }, { name: 'History Museum' }]
-};
-
-const place2 = {
-    name: 'Space Needle',
-    location: { address: '1234 Street Ave., Seattle, WA' },
-    image: require('../../../images/places/noodle.jpg'),
-    id: '124',
-    categories: [{ name: 'Landmark' }],
-};
-
-const place3 = {
-    name: 'Pike Place Market',
-    location: { address: '1234 Street Ave., Seattle, WA' },
-    image: require('../../../images/places/pike_place_market.jpg'),
-    id: '125',
-    categories: [{ name: 'Shop' }],
-};
-
-const allPlaces = [place1, place2, place3];
-
-export default class BaselineSuggestions extends Component {
+class BaselineSuggestions extends Component {
     state = {
         suggIndex: 0
     };
 
     render() {
         const { suggIndex } = this.state;
-
+        const { actions, suggestions } = this.props;
         return (
             <Card>
                 <Card.Body>
@@ -60,7 +34,7 @@ export default class BaselineSuggestions extends Component {
                         help give you even better suggestions in the future!
                     </Text>
                 </Card.Body>
-                <PlaceCard place={allPlaces[suggIndex]} />
+                <PlaceCard place={suggestions[suggIndex]} />
                 <View
                     style={{
                         justifyContent: 'center',
@@ -88,11 +62,11 @@ export default class BaselineSuggestions extends Component {
                           marginRight: 10
                       }}
                     >
-                      {(suggIndex + 1) + '/' + allPlaces.length}
+                      {(suggIndex + 1) + '/' + suggestions.length}
                     </Text>
                     <Icon.Button
                         onPress={() => {
-                            if (suggIndex < allPlaces.length - 1) {
+                            if (suggIndex < suggestions.length - 1) {
                                 this.setState({
                                     suggIndex: suggIndex + 1,
                                 });
@@ -100,7 +74,7 @@ export default class BaselineSuggestions extends Component {
                         }}
                         name="arrow-right"
                         size={40}
-                        color={suggIndex === allPlaces.length - 1 ? 'gray' : primaryColor}
+                        color={suggIndex === suggestions.length - 1 ? 'gray' : primaryColor}
                         backgroundColor="white"
                     />
                 </View>
@@ -127,3 +101,18 @@ const STYLES = StyleSheet.create({
         marginBottom: 10
     }
 });
+
+
+function mapStateToProps(state) {
+    const places =  state.get('places').toJS();
+    return {
+        favorites: state.getIn(['user', 'favorites']).toJS(),
+        suggestions: state.getIn(['suggestions', 'suggestions']).toJS().map((id) => places[id]),
+    };
+}
+function mapDispatchToProps(dispatch) {
+    return {
+        actions : bindActionCreators({ ...userActions, ...suggestionsActions }, dispatch),
+    };
+}
+export default connect(mapStateToProps, mapDispatchToProps)(BaselineSuggestions);
