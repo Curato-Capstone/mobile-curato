@@ -21,15 +21,16 @@ import Preferences from './Routes/Preferences';
 class TabIcon extends React.Component {
     render(){
         return (
-            <Text style={{color: this.props.selected ? primaryColor :'black'}}>{this.props.title}</Text>
+            <Text
+                style={{
+                    color: this.props.selected ? primaryColor :'black',
+                    fontFamily: 'Montserrat-Light'
+                }}
+            >
+                {this.props.title}
+            </Text>
         );
     }
-}
-
-let blah = function() {
-    return (
-        <Text>HIIII</Text>
-    )
 }
 
 export default class MyRouter extends Component {
@@ -37,12 +38,7 @@ export default class MyRouter extends Component {
     props: {};
     state: void;
 
-    componentWillMount() {
-        Icon.getImageSource('user', 20, 'red').then((source) => this.setState({ backIcon: source }));
-    }
-
-    render () {
-        console.log(this.state)
+    render() {
         return (
             <Router>
                 <Scene
@@ -52,9 +48,9 @@ export default class MyRouter extends Component {
                     titleStyle={{ color: 'white', fontFamily: 'Montserrat-Light' }}
                 >
                     <Scene />
-                    <Scene key="tabbar" tabs>
+                    <Scene key="tabbar" tabs tabBarStyle={STYLES.tabBar}>
                         <Scene key="tab1"  title="Search" icon={TabIcon}>
-                            <Scene initial key="search" component={Search} title="Search"/>
+                            <Scene initial key="search" component={Search} title="Search" />
                         </Scene>
                         <Scene key="tab2"  title="Favorites" icon={TabIcon}>
                             <Scene key="favorites" component={Favorites} title="Favorites" />
@@ -68,3 +64,14 @@ export default class MyRouter extends Component {
         );
     }
 }
+
+const STYLES = StyleSheet.create({
+    tabBar: {
+        backgroundColor: 'white',
+        // shadowColor: 'black',
+        // shadowOffset: { width: 2, height: 5 },
+        // shadowOpacity: 1,
+        // shadowRadius: 2,
+        // elevation: 2,
+    }
+});

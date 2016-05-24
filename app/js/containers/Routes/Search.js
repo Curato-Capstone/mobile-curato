@@ -5,6 +5,7 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { Actions as routerActions } from 'react-native-router-flux';
 import { user as userActions, suggestions as suggestionsActions } from '../../modules/index';
 
 import SearchBar from '../../components/search/SearchBar';
@@ -22,7 +23,7 @@ class Search extends Component {
                 <SearchBar
                     value={searchText}
                     handleChange={actions.changeSearchText}
-                    handleSubmit={() => {}}
+                    handleSubmit={() => routerActions.tab2()}
                 />
             </View>
         );

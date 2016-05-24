@@ -11,7 +11,7 @@ class Favorites extends Component {
     static defaultProps = {};
     props: {};
     state : void;
-    
+
     render() {
         const { } = this.props;
 
@@ -25,7 +25,7 @@ class Favorites extends Component {
 
 const STYLES = StyleSheet.create({
     container: {
-
+        marginTop: 70
     }
 });
 
