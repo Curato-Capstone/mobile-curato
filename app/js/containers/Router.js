@@ -18,10 +18,29 @@ import Preferences from './Routes/Preferences';
 // import SignIn from './Routes/SignIn';
 // import Place from './Routes/Place';
 
+const iconMap = {
+    search: 'search',
+    favorites: 'heart',
+    preferences: 'sliders'
+};
+
 class TabIcon extends React.Component {
-    render(){
+    render() {
         return (
-            <Text style={{color: this.props.selected ? primaryColor :'black'}}>{this.props.title}</Text>
+            <View
+                style={{
+                    height: 20, justifyContent: 'center', alignItems: 'center'
+                }}
+            >
+                <Icon
+                    name={iconMap[this.props.title.toLowerCase()]}
+                    size={25}
+                    style={{ color: this.props.selected ? primaryColor :'black' }}
+                />
+                <Text style={{ color: this.props.selected ? primaryColor :'black' }}>
+                    {this.props.title}
+                </Text>
+            </View>
         );
     }
 }
@@ -41,7 +60,7 @@ export default class MyRouter extends Component {
         Icon.getImageSource('user', 20, 'red').then((source) => this.setState({ backIcon: source }));
     }
 
-    render () {
+    render() {
         console.log(this.state)
         return (
             <Router>
@@ -50,6 +69,8 @@ export default class MyRouter extends Component {
                     component={Modal}
                     navigationBarStyle={{ backgroundColor: primaryColor }}
                     titleStyle={{ color: 'white', fontFamily: 'Montserrat-Light' }}
+                    rightTitle="account"
+                    onRight={() => {}}
                 >
                     <Scene />
                     <Scene key="tabbar" tabs>
