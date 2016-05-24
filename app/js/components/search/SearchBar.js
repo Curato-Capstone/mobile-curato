@@ -79,6 +79,8 @@ export default class SearchBar extends Component {
 const STYLES = StyleSheet.create({
     container: {
         flex: 1,
+        marginTop: 70
+        
     },
 
     searchBarContainer: {
