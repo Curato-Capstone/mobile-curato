@@ -3,8 +3,7 @@ import {
   StyleSheet,
   Text,
   View,
-  Image,
-  TouchableNativeFeedback
+  Image
 } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -12,13 +11,12 @@ import { bindActionCreators } from 'redux';
 import { Card } from 'react-native-material-design';
 import Button from '../../components/reusable/Button/Button';
 import { primaryColor } from '../../utils/colors.js';
-import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default class Intro extends Component {
     render() {
         return (
             <Card>
-                <View style={{alignItems: 'center'}}>
+                <View style={{ alignItems: 'center' }}>
                     <Image
                       style={STYLES.logo}
                       source={require('../../../images/logo/whitered.png')}/>
@@ -32,7 +30,7 @@ export default class Intro extends Component {
                     </Text>
                     <View style={STYLES.buttonContainer}>
                     <Button
-                        raised={true}
+                        raised
                         overrides={{
                             backgroundColor: primaryColor,
                             textColor: '#ffffff'
@@ -42,7 +40,7 @@ export default class Intro extends Component {
                     </View>
                     <View style={STYLES.buttonContainer}>
                         <Button
-                            raised={true}
+                            raised
                             overrides={{
                                 backgroundColor: primaryColor,
                                 textColor: '#ffffff'
@@ -52,21 +50,21 @@ export default class Intro extends Component {
                     </View>
                 </Card.Body>
             </Card>
-          );
+        );
     }
 }
 
 const STYLES = StyleSheet.create({
-  logo: {
-      resizeMode: 'center',
-      height: 150,
-      width: 400
-  },
-  buttonContainer: {
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-      height: 30,
-      marginTop: 20
-  }
-})
+    logo: {
+        resizeMode: 'center',
+        height: 150,
+        width: 350
+    },
+    buttonContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: 30,
+        marginTop: 20
+    }
+});
