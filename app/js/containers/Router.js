@@ -34,10 +34,14 @@ class TabIcon extends React.Component {
             >
                 <Icon
                     name={iconMap[this.props.title.toLowerCase()]}
-                    size={25}
+                    size={20}
                     style={{ color: this.props.selected ? primaryColor :'black' }}
                 />
-                <Text style={{ color: this.props.selected ? primaryColor :'black' }}>
+                <Text
+                    style={{
+                        color: this.props.selected ? primaryColor :'black'
+                    }}
+                >
                     {this.props.title}
                 </Text>
             </View>
@@ -69,7 +73,8 @@ export default class MyRouter extends Component {
                     component={Modal}
                     navigationBarStyle={{ backgroundColor: primaryColor }}
                     titleStyle={{ color: 'white', fontFamily: 'Montserrat-Light' }}
-                    rightTitle="account"
+                    rightButtonImage={require('../../images/person_white.png')}
+                    rightButtonIconStyle={{height: 30, width: 30}}
                     onRight={() => {}}
                 >
                     <Scene />
