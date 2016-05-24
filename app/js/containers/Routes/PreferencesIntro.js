@@ -2,11 +2,14 @@ import React, { Component } from 'react';
 import {
   StyleSheet,
   Text,
-  View,
-  Image
+  View
 } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import {
+  user as userActions,
+  suggestions as suggestionsActions
+} from '../../modules/index';
 
 import { Card } from 'react-native-material-design';
 import Button from '../../components/reusable/Button/Button';
@@ -18,51 +21,60 @@ import Slider from 'react-native-slider';
 const preferencesList = ['art', 'history', 'food', 'outdoors',
     'entertainment', 'relaxation', 'shopping', 'sports'];
 
-export default class PreferencesIntro extends Component {
+class PreferencesIntro extends Component {
     state = {
         prefIndex: 0,
         selectedPref: preferencesList[0]
     };
 
     renderCard(value) {
-        let currPreference = preferencesInfo[value];
-        let node = (
-            <Card style={{height: 135}}>
+        const { preferences, actions } = this.props;
+        const currPreference = preferencesInfo[value];
+
+        const node = (
+            <Card style={{ height: 135 }}>
                 <Card.Body>
-                        <Text style={{
+                    <Text
+                        style={{
                             fontSize: 25,
                             marginBottom: 10,
                             color: currPreference.color
-                        }}>
-                            {currPreference.name + " "}
-                            <Icon name={currPreference.icon} size={25} />
-                        </Text>
-                        <Slider
-                            maximumValue={5}
-                            minimumValue={1}
-                            step={0.1}
-                            value={3}
-                            onValueChange={(value) => {
-                                let newState = Object.assign({}, this.state);
-                                newState[currPreference.name + 'Text'] = currPreference.tooltipValues[Math.round(value) - 1];
-                                this.setState(newState)
-                            }}
-                            minimumTrackTintColor={currPreference.color}
-                            maximumTrackTintColor='#d3d3d3'
-                            thumbTintColor={currPreference.color}
-                        />
-                        <Text style={{textAlign: 'center'}}>
-                            {this.state[currPreference.name + 'Text']}
-                        </Text>
-                    </Card.Body>
-                </Card>
-            );
+                        }}
+                    >
+                        {currPreference.name + " "}
+                        <Icon name={currPreference.icon} size={25} />
+                    </Text>
+                    <Slider
+                        maximumValue={5}
+                        minimumValue={1}
+                        step={1}
+                        value={preferences[currPreference.name.toLowerCase()]}
+                        key={currPreference.name}
+                        onValueChange={
+                          (v) => {
+                              actions.changePreference(
+                                  currPreference.name.toLowerCase(), Math.round(v)
+                              );
+                          }
+                        }
+                        minimumTrackTintColor={currPreference.color}
+                        maximumTrackTintColor="#d3d3d3"
+                        thumbTintColor={currPreference.color}
+                    />
+                    <Text style={{ textAlign: 'center' }}>
+                        {currPreference.tooltipValues[
+                          preferences[currPreference.name.toLowerCase()] - 1
+                        ]}
+                    </Text>
+                </Card.Body>
+            </Card>
+          );
         return node;
     }
 
     render() {
         let { selectedPref, prefIndex } = this.state;
-        let preferenceCards = this.renderCard(selectedPref);
+        let preferenceCard = this.renderCard(selectedPref);
         return (
             <Card>
                 <Card.Body>
@@ -75,40 +87,55 @@ export default class PreferencesIntro extends Component {
                         interests.
                     </Text>
                 </Card.Body>
-                {preferenceCards}
-                <View style={{justifyContent: 'center', flex: 1, flexDirection: 'row'}}>
+                {preferenceCard}
+                <View
+                    style={{
+                        justifyContent: 'center',
+                        flex: 1,
+                        flexDirection: 'row'
+                    }}
+                >
                     <Icon.Button
                         onPress={() => {
                             if (prefIndex !== 0) {
-                              this.setState({
-                                prefIndex: prefIndex - 1,
-                                selectedPref: preferencesList[prefIndex - 1]
-                              });
+                                this.setState({
+                                    prefIndex: prefIndex - 1,
+                                    selectedPref: preferencesList[prefIndex - 1]
+                                });
                             }
                         }}
-                        name='arrow-left'
+                        name="arrow-left"
                         size={40}
                         color={prefIndex === 0 ? 'gray' : primaryColor}
-                        backgroundColor='white'
+                        backgroundColor="white"
                     />
+                    <Text
+                      style={{
+                          marginTop: 15,
+                          fontSize: 20,
+                          marginRight: 10
+                      }}
+                    >
+                      {(prefIndex + 1) + '/' + preferencesList.length}
+                    </Text>
                     <Icon.Button
                         onPress={() => {
                             if (prefIndex < preferencesList.length - 1) {
                                 this.setState({
-                                  prefIndex: prefIndex + 1,
-                                  selectedPref: preferencesList[prefIndex + 1]
+                                    prefIndex: prefIndex + 1,
+                                    selectedPref: preferencesList[prefIndex + 1]
                                 });
                             }
                         }}
-                        name='arrow-right'
+                        name="arrow-right"
                         size={40}
                         color={prefIndex === preferencesList.length  - 1 ? 'gray' : primaryColor}
-                        backgroundColor='white'
+                        backgroundColor="white"
                     />
                 </View>
 
                 <Button
-                    raised={true}
+                    raised
                     overrides={{
                         backgroundColor: primaryColor,
                         textColor: '#ffffff'
@@ -128,4 +155,21 @@ const STYLES = StyleSheet.create({
         fontWeight: 'bold',
         marginBottom: 10
     }
-})
+});
+
+function mapStateToProps(state) {
+    return {
+        preferences: state.getIn(['user', 'preferences']).toJS(),
+    };
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        actions : bindActionCreators({
+            ...userActions,
+            ...suggestionsActions
+        }, dispatch),
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PreferencesIntro);

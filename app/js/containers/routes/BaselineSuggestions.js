@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import {
   StyleSheet,
   Text,
-  View,
-  Image
+  View
 } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -47,7 +46,7 @@ export default class BaselineSuggestions extends Component {
     };
 
     render() {
-        let { suggIndex } = this.state;
+        const { suggIndex } = this.state;
 
         return (
             <Card>
@@ -62,37 +61,52 @@ export default class BaselineSuggestions extends Component {
                     </Text>
                 </Card.Body>
                 <PlaceCard place={allPlaces[suggIndex]} />
-                <View style={{justifyContent: 'center', flex: 1, flexDirection: 'row'}}>
+                <View
+                    style={{
+                        justifyContent: 'center',
+                        flex: 1,
+                        flexDirection: 'row'
+                    }}
+                >
                     <Icon.Button
                         onPress={() => {
                             if (suggIndex !== 0) {
-                              this.setState({
-                                suggIndex: suggIndex - 1,
-                              });
+                                this.setState({
+                                    suggIndex: suggIndex - 1,
+                                });
                             }
                         }}
-                        name='arrow-left'
+                        name="arrow-left"
                         size={40}
                         color={suggIndex === 0 ? 'gray' : primaryColor}
-                        backgroundColor='white'
+                        backgroundColor="white"
                     />
+                    <Text
+                      style={{
+                          marginTop: 15,
+                          fontSize: 20,
+                          marginRight: 10
+                      }}
+                    >
+                      {(suggIndex + 1) + '/' + allPlaces.length}
+                    </Text>
                     <Icon.Button
                         onPress={() => {
                             if (suggIndex < allPlaces.length - 1) {
-                              this.setState({
-                                suggIndex: suggIndex + 1,
-                              });
+                                this.setState({
+                                    suggIndex: suggIndex + 1,
+                                });
                             }
                         }}
-                        name='arrow-right'
+                        name="arrow-right"
                         size={40}
-                        color={suggIndex === allPlaces.length - 1? 'gray' : primaryColor}
-                        backgroundColor='white'
+                        color={suggIndex === allPlaces.length - 1 ? 'gray' : primaryColor}
+                        backgroundColor="white"
                     />
                 </View>
 
                 <Button
-                    raised={true}
+                    raised
                     overrides={{
                         backgroundColor: primaryColor,
                         textColor: '#ffffff'
@@ -112,4 +126,4 @@ const STYLES = StyleSheet.create({
         fontWeight: 'bold',
         marginBottom: 10
     }
-})
+});

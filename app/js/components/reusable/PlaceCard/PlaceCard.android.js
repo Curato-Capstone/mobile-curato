@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {
-  StyleSheet,
   Text,
   View,
   Image
@@ -15,15 +14,15 @@ export default class PlaceCard extends Component {
         return (
             <View>
                 <Card height={300}>
-                    <View style={{alignItems: 'center'}}>
-                        <Image source={place.image} style={{height: 200, width: 350}} />
+                    <View style={{ alignItems: 'center' }} >
+                        <Image source={place.image} style={{ height: 200, width: 350 }} />
                     </View>
                     <Card.Body>
                         <Text>{place.name}</Text>
                     </Card.Body>
 
                     <Card.Actions position="right">
-                        <Button overrides={{textColor: "#ff0000"}} text="I don't like this" />
+                        <Button overrides={{ textColor: '#ff0000' }} text="I don't like this"/>
                         <Button text="...more" />
                     </Card.Actions>
                 </Card>

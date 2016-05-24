@@ -11,7 +11,7 @@ import { Card } from 'react-native-material-design';
 import Button from '../../components/reusable/Button/Button';
 import { primaryColor } from '../../utils/colors.js';
 
-export default class SignUp extends Component {
+export default class SignIn extends Component {
     state = {
 
     };
@@ -20,17 +20,13 @@ export default class SignUp extends Component {
         return (
             <Card>
                 <Card.Body>
-                    <Text style={STYLES.header}>Sign up!</Text>
-                    <Text>
-                        Now, create your account and start getting more
-                        curated suggestions today!
+                    <Text style={STYLES.header}>
+                        Sign in to get your curated suggestions!
                     </Text>
                 </Card.Body>
 
                 <TextInput placeholder="Email" />
                 <TextInput placeholder="Password" secureTextEntry />
-                <TextInput placeholder="Name" />
-                <TextInput placeholder="Age" />
 
                 <Button
                     raised
