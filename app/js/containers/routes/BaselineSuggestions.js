@@ -24,72 +24,74 @@ class BaselineSuggestions extends Component {
         const { actions, suggestions } = this.props;
 
         return (
-            <Card>
-                <Card.Body>
-                    <Text style={STYLES.header}>Your Suggestions!</Text>
-                    <Text style={{ fontFamily: 'Montserrat-Regular' }}>
-                        These are the suggestions we came up with! If you like
-                        it, tap on the heart to add it to your favorites. If
-                        you don't, tap on "I don't like this", and you won't
-                        see it suggested again. We use this information to
-                        help give you even better suggestions in the future!
-                    </Text>
-                </Card.Body>
-                <PlaceCard place={suggestions[suggIndex]} />
-                <View
-                    style={{
-                        justifyContent: 'center',
-                        flex: 1,
-                        flexDirection: 'row'
-                    }}
-                >
-                    <Icon.Button
-                        onPress={() => {
-                            if (suggIndex !== 0) {
-                                this.setState({
-                                    suggIndex: suggIndex - 1,
-                                });
-                            }
+            <View style={{flex: 1, justifyContent: 'center', backgroundColor: primaryColor}}>
+                <Card style={{paddingBottom: 10, marginHorizontal: 15}}>
+                    <Card.Body>
+                        <Text style={STYLES.header}>Your Suggestions!</Text>
+                        <Text style={{ fontFamily: 'Montserrat-Regular' }}>
+                            These are the suggestions we came up with! If you like
+                            it, tap on the heart to add it to your favorites. If
+                            you don't, tap on "I don't like this", and you won't
+                            see it suggested again. We use this information to
+                            help give you even better suggestions in the future!
+                        </Text>
+                    </Card.Body>
+                    <PlaceCard place={suggestions[suggIndex]} />
+                    <View
+                        style={{
+                            justifyContent: 'center',
+                            flex: 1,
+                            flexDirection: 'row'
                         }}
-                        name="arrow-left"
-                        size={40}
-                        color={suggIndex === 0 ? 'gray' : primaryColor}
-                        backgroundColor="white"
-                    />
-                    <Text
-                      style={{
-                          marginTop: 15,
-                          fontSize: 20,
-                          marginRight: 10,
-                          fontFamily: 'Montserrat-Regular'
-                      }}
                     >
-                      {(suggIndex + 1) + '/' + suggestions.length}
-                    </Text>
-                    <Icon.Button
-                        onPress={() => {
-                            if (suggIndex < suggestions.length - 1) {
-                                this.setState({
-                                    suggIndex: suggIndex + 1,
-                                });
-                            }
-                        }}
-                        name="arrow-right"
-                        size={40}
-                        color={suggIndex === suggestions.length - 1 ? 'gray' : primaryColor}
-                        backgroundColor="white"
-                    />
-                </View>
+                        <Icon.Button
+                            onPress={() => {
+                                if (suggIndex !== 0) {
+                                    this.setState({
+                                        suggIndex: suggIndex - 1,
+                                    });
+                                }
+                            }}
+                            name="arrow-left"
+                            size={40}
+                            color={suggIndex === 0 ? 'gray' : primaryColor}
+                            backgroundColor="white"
+                        />
+                        <Text
+                          style={{
+                              marginTop: 15,
+                              fontSize: 20,
+                              marginRight: 10,
+                              fontFamily: 'Montserrat-Regular'
+                          }}
+                        >
+                          {(suggIndex + 1) + '/' + suggestions.length}
+                        </Text>
+                        <Icon.Button
+                            onPress={() => {
+                                if (suggIndex < suggestions.length - 1) {
+                                    this.setState({
+                                        suggIndex: suggIndex + 1,
+                                    });
+                                }
+                            }}
+                            name="arrow-right"
+                            size={40}
+                            color={suggIndex === suggestions.length - 1 ? 'gray' : primaryColor}
+                            backgroundColor="white"
+                        />
+                    </View>
 
-                <Button
-                    raised
-                    style={{
-                        backgroundColor: primaryColor,
-                        textColor: '#ffffff'
-                    }}
-                    label="ONE LAST STEP!"
-                />
-            </Card>
+                    <Button
+                        raised
+                        style={{
+                            backgroundColor: primaryColor,
+                            textColor: '#ffffff'
+                        }}
+                        label="ONE LAST STEP!"
+                    />
+                </Card>
+            </View>
         );
     }
 }

@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import {
   StyleSheet,
   Text,
-  TextInput
+  TextInput,
+  View
 } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -28,25 +29,27 @@ class SignInForm extends Component {
 
     render() {
         return (
-            <Card>
-                <Card.Body>
-                    <Text style={STYLES.header}>
-                        Sign in to get your curated suggestions!
-                    </Text>
-                </Card.Body>
+            <View style={{flex: 1, justifyContent: 'center', backgroundColor: primaryColor}}>
+                <Card style={{paddingBottom: 10, marginHorizontal: 15}}>
+                    <Card.Body>
+                        <Text style={STYLES.header}>
+                            Sign in to get your curated suggestions!
+                        </Text>
+                    </Card.Body>
 
-                <Field name="email" type="email" component={renderField} placeholder="Email"/>
-                <Field name="password" type="string" component={renderField} placeholder="Password"/>
+                    <Field name="email" type="email" component={renderField} placeholder="Email"/>
+                    <Field name="password" type="string" component={renderField} placeholder="Password"/>
 
-                <Button
-                    raised
-                    overrides={{
-                        backgroundColor: primaryColor,
-                        textColor: '#ffffff'
-                    }}
-                    text="SUBMIT"
-                />
-            </Card>
+                    <Button
+                        raised
+                        overrides={{
+                            backgroundColor: primaryColor,
+                            textColor: '#ffffff'
+                        }}
+                        text="SUBMIT"
+                    />
+                </Card>
+            </View>
         );
     }
 }

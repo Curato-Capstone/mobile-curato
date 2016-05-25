@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import {
   StyleSheet,
   Text,
-  TextInput
+  TextInput,
+  View
 } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -29,29 +30,31 @@ class SignUpForm extends Component {
 
     render() {
         return (
-            <Card>
-                <Card.Body>
-                    <Text style={STYLES.header}>Sign up!</Text>
-                    <Text style={{fontFamily: 'Montserrat-Regular'}}>
-                        Now, create your account and start getting more
-                        curated suggestions today!
-                    </Text>
-                </Card.Body>
+            <View style={{flex: 1, justifyContent: 'center', backgroundColor: primaryColor}}>
+                <Card style={{paddingBottom: 10, marginHorizontal: 15}}>
+                    <Card.Body>
+                        <Text style={STYLES.header}>Sign up!</Text>
+                        <Text style={{fontFamily: 'Montserrat-Regular'}}>
+                            Now, create your account and start getting more
+                            curated suggestions today!
+                        </Text>
+                    </Card.Body>
 
-                <Field name="email" type="email" component={renderField} placeholder="Email"/>
-                <Field name="password" type="string" component={renderField} placeholder="Password"/>
-                <Field name="name" type="string" component={renderField} placeholder="Name"/>
-                <Field name="age" type="number" component={renderField} placeholder="Age"/>
+                    <Field name="email" type="email" component={renderField} placeholder="Email"/>
+                    <Field name="password" type="string" component={renderField} placeholder="Password"/>
+                    <Field name="name" type="string" component={renderField} placeholder="Name"/>
+                    <Field name="age" type="number" component={renderField} placeholder="Age"/>
 
-                <Button
-                    raised
-                    style={{
-                        backgroundColor: primaryColor,
-                        textColor: '#ffffff'
-                    }}
-                    label="SUBMIT"
-                />
-            </Card>
+                    <Button
+                        raised
+                        style={{
+                            backgroundColor: primaryColor,
+                            textColor: '#ffffff'
+                        }}
+                        label="SUBMIT"
+                    />
+                </Card>
+            </View>
         );
     }
 }

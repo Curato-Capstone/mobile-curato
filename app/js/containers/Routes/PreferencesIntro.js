@@ -77,73 +77,75 @@ class PreferencesIntro extends Component {
         let { selectedPref, prefIndex } = this.state;
         let preferenceCard = this.renderCard(selectedPref);
         return (
-            <Card>
-                <Card.Body>
-                    <Text style={STYLES.header}>Set your preferences!</Text>
-                    <Text style={{fontFamily: 'Montserrat-Regular'}}>
-                        First, change these sliders to accurately represent how
-                        much you like these different categories. We use these
-                        values to help find businesses that you’re interested in,
-                        and to also find other people like you who may have similar
-                        interests.
-                    </Text>
-                </Card.Body>
-                {preferenceCard}
-                <View
-                    style={{
-                        justifyContent: 'center',
-                        flex: 1,
-                        flexDirection: 'row'
-                    }}
-                >
-                    <Icon.Button
-                        onPress={() => {
-                            if (prefIndex !== 0) {
-                                this.setState({
-                                    prefIndex: prefIndex - 1,
-                                    selectedPref: preferencesList[prefIndex - 1]
-                                });
-                            }
+            <View style={{flex: 1, justifyContent: 'center', backgroundColor: primaryColor}}>
+                <Card style={{paddingBottom: 10, marginHorizontal: 15}}>
+                    <Card.Body>
+                        <Text style={STYLES.header}>Set your preferences!</Text>
+                        <Text style={{fontFamily: 'Montserrat-Regular'}}>
+                            First, change these sliders to accurately represent how
+                            much you like these different categories. We use these
+                            values to help find businesses that you’re interested in,
+                            and to also find other people like you who may have similar
+                            interests.
+                        </Text>
+                    </Card.Body>
+                    {preferenceCard}
+                    <View
+                        style={{
+                            justifyContent: 'center',
+                            flex: 1,
+                            flexDirection: 'row'
                         }}
-                        name="arrow-left"
-                        size={40}
-                        color={prefIndex === 0 ? 'gray' : primaryColor}
-                        backgroundColor="white"
-                    />
-                    <Text
-                      style={{
-                          marginTop: 15,
-                          fontSize: 20,
-                          marginRight: 10
-                      }}
                     >
-                      {(prefIndex + 1) + '/' + preferencesList.length}
-                    </Text>
-                    <Icon.Button
-                        onPress={() => {
-                            if (prefIndex < preferencesList.length - 1) {
-                                this.setState({
-                                    prefIndex: prefIndex + 1,
-                                    selectedPref: preferencesList[prefIndex + 1]
-                                });
-                            }
-                        }}
-                        name="arrow-right"
-                        size={40}
-                        color={prefIndex === preferencesList.length  - 1 ? 'gray' : primaryColor}
-                        backgroundColor="white"
-                    />
-                </View>
+                        <Icon.Button
+                            onPress={() => {
+                                if (prefIndex !== 0) {
+                                    this.setState({
+                                        prefIndex: prefIndex - 1,
+                                        selectedPref: preferencesList[prefIndex - 1]
+                                    });
+                                }
+                            }}
+                            name="arrow-left"
+                            size={40}
+                            color={prefIndex === 0 ? 'gray' : primaryColor}
+                            backgroundColor="white"
+                        />
+                        <Text
+                          style={{
+                              marginTop: 15,
+                              fontSize: 20,
+                              marginRight: 10
+                          }}
+                        >
+                          {(prefIndex + 1) + '/' + preferencesList.length}
+                        </Text>
+                        <Icon.Button
+                            onPress={() => {
+                                if (prefIndex < preferencesList.length - 1) {
+                                    this.setState({
+                                        prefIndex: prefIndex + 1,
+                                        selectedPref: preferencesList[prefIndex + 1]
+                                    });
+                                }
+                            }}
+                            name="arrow-right"
+                            size={40}
+                            color={prefIndex === preferencesList.length  - 1 ? 'gray' : primaryColor}
+                            backgroundColor="white"
+                        />
+                    </View>
 
-                <Button
-                    raised
-                    style={{
-                        backgroundColor: primaryColor,
-                        textColor: '#ffffff'
-                    }}
-                    label="GET YOUR SUGGESTIONS!"
-                />
-            </Card>
+                    <Button
+                        raised
+                        style={{
+                            backgroundColor: primaryColor,
+                            textColor: '#ffffff'
+                        }}
+                        label="GET YOUR SUGGESTIONS!"
+                    />
+                </Card>
+            </View>
         );
     }
 }
