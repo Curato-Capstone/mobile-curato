@@ -16,7 +16,7 @@ import Button from '../../components/reusable/Button/Button';
 import { primaryColor } from '../../utils/colors.js';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { preferencesInfo } from '../../utils/preferences.js';
-import Slider from 'react-native-slider';
+import Slider from '../../components/reusable/Slider/Slider';
 
 const preferencesList = ['art', 'history', 'food', 'outdoors',
     'entertainment', 'relaxation', 'shopping', 'sports'];
