@@ -35,7 +35,7 @@ class Preferences extends Component {
                         let pref = preferencesInfo[preference];
                         return (
                             <View key={pref.name} style={STYLES.sliderContainer}>
-                                <Text style={STYLES.text(pref)}>
+                                <Text style={STYLES.label(pref)}>
                                     {pref.name.charAt(0).toUpperCase() + pref.name.slice(1) + "  "}
                                     <Icon name={pref.icon} size={18} />
                                 </Text>
@@ -51,7 +51,7 @@ class Preferences extends Component {
                                     thumbTintColor={pref.color}
                                     style={STYLES.slider}
                                 />
-                                <Text>
+                                <Text style={STYLES.text}>
                                     {pref.tooltipValues[preferences[pref.name.toLowerCase()] - 1]}
                                 </Text>
                             </View>
@@ -101,11 +101,15 @@ const STYLES = {
     slider: {
         alignSelf: 'stretch'
     },
-    text: (pref) => ({
+    label: (pref) => ({
         fontSize: 18,
         marginBottom: 10,
-        color: pref.color
+        color: pref.color,
+        fontFamily: 'Montserrat-Regular'
     }),
+    text: {
+        fontFamily: 'Montserrat-Regular'
+    },
     button: {
         marginTop: 20
     }
