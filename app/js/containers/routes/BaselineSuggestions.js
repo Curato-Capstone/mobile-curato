@@ -22,6 +22,7 @@ class BaselineSuggestions extends Component {
     render() {
         const { suggIndex } = this.state;
         const { actions, suggestions } = this.props;
+
         return (
             <Card>
                 <Card.Body>
@@ -107,7 +108,6 @@ function mapStateToProps(state) {
     const places =  state.get('places').toJS();
     return {
         favorites: state.getIn(['user', 'favorites']).toJS(),
-        suggestions: state.getIn(['suggestions', 'suggestions']).toJS().map((id) => places[id]),
     };
 }
 function mapDispatchToProps(dispatch) {
