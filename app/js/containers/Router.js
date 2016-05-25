@@ -15,13 +15,77 @@ import Favorites from './Routes/Favorites';
 import Preferences from './Routes/Preferences';
 import Suggestions from './Routes/Suggestions';
 // import SignIn from './Routes/SignIn';
-// import Place from './Routes/Place';
+import Place from './Routes/Place';
+import FullMap from './Routes/FullMap';
+
 
 const iconMap = {
     search: 'search',
     favorites: 'heart',
     preferences: 'sliders'
 };
+
+export default class MyRouter extends Component {
+    static defaultProps = {};
+    props: {};
+    state: void;
+
+    render() {
+        return (
+            <Router>
+                <Scene key="modal" component={Modal}>
+                    <Scene key="root">
+                        <Scene key="tabbar" tabs tabBarStyle={STYLES.tabBar} hideNavBar>
+                            <Scene
+                            key="tab1"
+                                title="Search"
+                                icon={TabIcon}
+                                navigationBarStyle={{ backgroundColor: primaryColor }}
+                                titleStyle={{ color: 'white', fontFamily: 'Montserrat-Light' }}
+                                rightButtonImage={require('../../images/person_white.png')}
+                                rightButtonIconStyle={{ height: 30, width: 30 }}
+                                onRight={() => {}}
+                            >
+                                <Scene initial key="search" component={Search} title="Search" />
+                                <Scene key="place1" component={Place} title="Place" />
+                                <Scene key="suggestions" component={Suggestions} title="Suggestions" />
+                            </Scene>
+
+                            <Scene
+                                key="tab2"
+                                title="Favorites"
+                                icon={TabIcon}
+                                navigationBarStyle={{ backgroundColor: primaryColor }}
+                                titleStyle={{ color: 'white', fontFamily: 'Montserrat-Light' }}
+                                rightButtonImage={require('../../images/person_white.png')}
+                                rightButtonIconStyle={{ height: 30, width: 30 }}
+                                onRight={() => {}}
+                            >
+                                <Scene key="favorites" component={Favorites} title="Favorites" />
+                                <Scene key="place2" component={Search} title="Search" />
+                            </Scene>
+
+                            <Scene
+                                key="tab3"
+                                title="Preferences"
+                                icon={TabIcon}
+                                navigationBarStyle={{ backgroundColor: primaryColor }}
+                                titleStyle={{ color: 'white', fontFamily: 'Montserrat-Light' }}
+                                rightButtonImage={require('../../images/person_white.png')}
+                                rightButtonIconStyle={{ height: 30, width: 30 }}
+                                onRight={() => {}}
+                            >
+                                <Scene key="preferences" component={Preferences} title="Preferences" />
+                                <Scene key="place3" component={Search} title="Search" />
+                            </Scene>
+                        </Scene>
+                        <Scene key="fullmap" component={FullMap} title="Map" />
+                    </Scene>
+                </Scene>
+            </Router>
+        );
+    }
+}
 
 class TabIcon extends React.Component {
     render() {
@@ -45,70 +109,6 @@ class TabIcon extends React.Component {
                     {this.props.title}
                 </Text>
             </View>
-        );
-    }
-}
-
-export default class MyRouter extends Component {
-    static defaultProps = {};
-    props: {};
-    state: void;
-
-    componentWillMount() {
-        Icon.getImageSource('user', 20, 'red').then((source) => this.setState({ backIcon: source }));
-    }
-
-    render() {
-        return (
-            <Router>
-                <Scene
-                    key="root"
-                    component={Modal}
-                    hideNavBar
-                >
-                    <Scene key="tabbar" tabs tabBarStyle={STYLES.tabBar}>
-                        <Scene
-                            key="tab1"
-                            title="Search"
-                            icon={TabIcon}
-                            navigationBarStyle={{ backgroundColor: primaryColor }}
-                            titleStyle={{ color: 'white', fontFamily: 'Montserrat-Light' }}
-                            rightButtonImage={require('../../images/person_white.png')}
-                            rightButtonIconStyle={{height: 30, width: 30}}
-                            onRight={() => {}}
-                        >
-                            <Scene initial key="search" component={Search} title="Search" />
-                            <Scene key="suggestions" component={Suggestions} title="Suggestions" />
-                        </Scene>
-
-                        <Scene
-                            key="tab2"
-                            title="Favorites"
-                            icon={TabIcon}
-                            navigationBarStyle={{ backgroundColor: primaryColor }}
-                            titleStyle={{ color: 'white', fontFamily: 'Montserrat-Light' }}
-                            rightButtonImage={require('../../images/person_white.png')}
-                            rightButtonIconStyle={{height: 30, width: 30}}
-                            onRight={() => {}}
-                        >
-                            <Scene key="favorites" component={Favorites} title="Favorites" />
-                        </Scene>
-
-                        <Scene
-                            key="tab3"
-                            title="Preferences"
-                            icon={TabIcon}
-                            navigationBarStyle={{ backgroundColor: primaryColor }}
-                            titleStyle={{ color: 'white', fontFamily: 'Montserrat-Light' }}
-                            rightButtonImage={require('../../images/person_white.png')}
-                            rightButtonIconStyle={{height: 30, width: 30}}
-                            onRight={() => {}}
-                        >
-                            <Scene key="preferences" component={Preferences} title="Preferences" />
-                        </Scene>
-                    </Scene>
-                </Scene>
-            </Router>
         );
     }
 }
