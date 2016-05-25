@@ -45,6 +45,8 @@ export default class MyRouter extends Component {
                                 rightButtonImage={require('../../images/person_white.png')}
                                 rightButtonIconStyle={{ height: 30, width: 30 }}
                                 onRight={() => {}}
+                                backButtonImage={require('../../images/back_chevron_white.png')}
+                                backButtonIconStyle={{height: 30, width: 30}}
                             >
                                 <Scene initial key="search" component={Search} title="Search" />
                                 <Scene key="place1" component={Place} title="Place" />
@@ -60,6 +62,8 @@ export default class MyRouter extends Component {
                                 rightButtonImage={require('../../images/person_white.png')}
                                 rightButtonIconStyle={{ height: 30, width: 30 }}
                                 onRight={() => {}}
+                                backButtonImage={require('../../images/back_chevron_white.png')}
+                                backButtonIconStyle={{height: 30, width: 30}}
                             >
                                 <Scene key="favorites" component={Favorites} title="Favorites" />
                                 <Scene key="place2" component={Search} title="Search" />
@@ -74,6 +78,8 @@ export default class MyRouter extends Component {
                                 rightButtonImage={require('../../images/person_white.png')}
                                 rightButtonIconStyle={{ height: 30, width: 30 }}
                                 onRight={() => {}}
+                                backButtonImage={require('../../images/back_chevron_white.png')}
+                                backButtonIconStyle={{height: 30, width: 30}}
                             >
                                 <Scene key="preferences" component={Preferences} title="Preferences" />
                                 <Scene key="place3" component={Search} title="Search" />

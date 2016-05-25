@@ -21,15 +21,15 @@ class Place extends Component {
     props: {
         actions: Object,
         suggestions: Array<Object>,
-        favorites: Array<Object>
+        favorites: Array<Object>,
+        id: String
     };
 
     state = { place: null, scrollPosition: 0 };
     state : { place: Object, scrollPosition: number };
 
     componentWillMount() {
-        const { actions, suggestions } = this.props;
-        const id = '4bbfac50f8219c742968b010';
+        const { actions, suggestions, id } = this.props;
 
         actions.setLoading(true);
         for (let i = 0; i < suggestions.length; i++) {
