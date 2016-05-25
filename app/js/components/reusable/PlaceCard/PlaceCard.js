@@ -6,7 +6,7 @@ import {
 } from 'react-native';
 
 import { Card } from 'react-native-material-design';
-import Button from '../Button/Button';
+import Button from '../Button/Button.android.js';
 
 export default class PlaceCard extends Component {
     render() {
