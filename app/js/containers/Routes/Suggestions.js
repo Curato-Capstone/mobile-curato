@@ -25,7 +25,12 @@ class Suggestions extends Component {
                 <View>
                     {suggestions.map((suggestion) => (
                         <View style={STYLES.suggestion} key={suggestion.id}>
-                            <PlaceCard place={suggestion} />
+                            <PlaceCard
+                                place={suggestion}
+                                favorite={true}
+                                handleDislike={() => {}}
+                                handleFavorite={() => {}}
+                            />
                         </View>
                     ))}
                 </View>

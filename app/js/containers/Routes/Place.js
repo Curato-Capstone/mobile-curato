@@ -226,8 +226,8 @@ class Place extends Component {
 
 const STYLES = {
     container: {
-        marginLeft: 5,
-        marginRight: 5,
+        marginLeft: 10,
+        marginRight: 10,
         // flex: 1,
         marginTop: 175,
         height: 1000
@@ -277,7 +277,7 @@ const STYLES = {
 
     hour: (isToday) => ({
         fontFamily: isToday ? 'Montserrat-Bold' : 'Montserrat-Light',
-        width: 90
+        width: 95
     }),
 
     hourText: (text) => ({
@@ -286,12 +286,10 @@ const STYLES = {
     }),
 
     map: {
-        flex: 1,
+        height: 350,
         marginRight: 10,
         marginTop: 10,
         marginBottom: 100,
-
-        // width: 100,
     },
 
     viewMap: {
