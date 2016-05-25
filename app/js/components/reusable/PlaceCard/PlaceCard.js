@@ -60,7 +60,6 @@ export default class PlaceCard extends Component {
                 </Card.Actions>
             );
         }
-
         return (
             <View>
                 <Card height={300}>
@@ -68,7 +67,7 @@ export default class PlaceCard extends Component {
                         <Image source={place.image} style={{ height: 200, width: 350 }} />
                     </View>
                     <Card.Body>
-                        <Text style={{fontFamily: 'Montserrat-Regular'}}>{place.name}</Text>
+                        <Text style={{ fontFamily: 'Montserrat-Regular' }}>{place.name}</Text>
                     </Card.Body>
                     {actionButtons}
                 </Card>
