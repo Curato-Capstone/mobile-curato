@@ -86,8 +86,8 @@ const STYLES = {
         alignItems: 'flex-start',
         backgroundColor: 'white',
         shadowOffset: {
-            width: 2,
-            height: 5
+            width: 1,
+            height: 4
         },
         shadowRadius: 3,
         shadowColor: '#888888',
