@@ -12,7 +12,9 @@ import Slider from '../../components/reusable/Slider/Slider';
 import Button from '../../components/reusable/Button/Button';
 import { user as userActions } from '../../modules/index';
 import { preferencesInfo } from '../../utils/preferences';
+
 import { primaryColor } from '../../utils/colors';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 
 const prefKeys = ['art', 'entertainment', 'food', 'history', 'outdoors',
@@ -24,7 +26,7 @@ class Preferences extends Component {
     state : void;
 
     render() {
-        const { actions } = this.props;
+        const { preferences, actions } = this.props;
 
         return (
             <ScrollView contentContainerStyle={STYLES.scrollContainer}>
@@ -34,12 +36,24 @@ class Preferences extends Component {
                         return (
                             <View key={pref.name} style={STYLES.sliderContainer}>
                                 <Text style={STYLES.text(pref)}>
-                                    {pref.name.charAt(0).toUpperCase() + pref.name.slice(1)}
+                                    {pref.name.charAt(0).toUpperCase() + pref.name.slice(1) + "  "}
+                                    <Icon name={pref.icon} size={18} />
                                 </Text>
                                 <Slider
-                                    value={3}
-                                    handleChange={(value) => { console.log(pref.name, 'slider value:', value); }}
+                                    value={preferences[pref.name.toLowerCase()]}
+                                    key={pref.name}
+                                    onValueChange={(value) => {
+                                        actions.changePreference(
+                                            pref.name.toLowerCase(), Math.round(value)
+                                        );
+                                    }}
+                                    minimumTrackTintColor={pref.color}
+                                    thumbTintColor={pref.color}
+                                    style={STYLES.slider}
                                 />
+                                <Text>
+                                    {pref.tooltipValues[preferences[pref.name.toLowerCase()] - 1]}
+                                </Text>
                             </View>
                         );
                     })}
@@ -60,7 +74,7 @@ class Preferences extends Component {
 
 const STYLES = {
     scrollContainer: {
-        height: 830,
+        height: 1220,
         marginTop: 70
     },
     container: {
@@ -69,7 +83,7 @@ const STYLES = {
         alignSelf: 'stretch'
     },
     sliderContainer: {
-        alignItems: 'center',
+        alignItems: 'flex-start',
         backgroundColor: 'white',
         shadowOffset: {
             width: 2,
@@ -80,7 +94,12 @@ const STYLES = {
         shadowOpacity: 0.9,
         marginVertical: 10,
         paddingHorizontal: 20,
-        paddingVertical: 5
+        paddingVertical: 5,
+        width: 250,
+        height: 115
+    },
+    slider: {
+        alignSelf: 'stretch'
     },
     text: (pref) => ({
         fontSize: 18,
@@ -100,7 +119,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        // actions : bindActionCreators({ ...userActions, ...suggestionsActions }, dispatch)
+        actions : bindActionCreators({ ...userActions }, dispatch)
     };
 }
 
