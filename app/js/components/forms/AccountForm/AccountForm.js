@@ -24,41 +24,35 @@ class AccountForm extends Component {
     render() {
         const { handleSubmit, submitting } = this.props;
 
-        const renderEmailField = () => {
-            return (
-                <View>
-                    <Input
-                        placeholder="email"
-                        handleChange={(value) => console.log(value)}
-                        autoCapitalize="none"
-                        keyboardType="email-address"
-                    />
-                </View>
-            );
-        };
+        const renderEmailField = () => (
+            <View>
+                <Input
+                    placeholder="email"
+                    handleChange={(value) => console.log(value)}
+                    autoCapitalize="none"
+                    keyboardType="email-address"
+                />
+            </View>
+        );
 
-        const renderNameField = () => {
-            return (
-                <View>
-                    <Input
-                        placeholder="name"
-                        handleChange={(value) => console.log(value)}
-                    />
-                </View>
-            );
-        };
+        const renderNameField = () => (
+            <View>
+                <Input
+                    placeholder="name"
+                    handleChange={(value) => console.log(value)}
+                />
+            </View>
+        );
 
-        const renderAgeField = () => {
-            return (
-                <View>
-                    <Input
-                        placeholder="age"
-                        handleChange={(value) => console.log(value)}
-                        keyboardType="numeric"
-                    />
-                </View>
-            );
-        };
+        const renderAgeField = () => (
+            <View>
+                <Input
+                    placeholder="age"
+                    handleChange={(value) => console.log(value)}
+                    keyboardType="numeric"
+                />
+            </View>
+        );
 
         return (
             <View style={STYLES.container} onSubmit={handleSubmit}>

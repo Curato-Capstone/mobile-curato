@@ -29,7 +29,8 @@ class Account extends Component {
 
 const STYLES = StyleSheet.create({
     container: {
-
+        marginTop: 100,
+        paddingHorizontal: 40
     }
 });
 
