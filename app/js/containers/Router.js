@@ -15,7 +15,7 @@ import Favorites from './Routes/Favorites';
 import Preferences from './Routes/Preferences';
 import Suggestions from './Routes/Suggestions';
 // import SignIn from './Routes/SignIn';
-// import Place from './Routes/Place';
+import Place from './Routes/Place';
 
 const iconMap = {
     search: 'search',
@@ -54,54 +54,54 @@ export default class MyRouter extends Component {
     props: {};
     state: void;
 
-    componentWillMount() {
-        Icon.getImageSource('user', 20, 'red').then((source) => this.setState({ backIcon: source }));
-    }
-
     render() {
         return (
             <Router>
                 <Scene
-                    key="root"
+                    key="modal"
                     component={Modal}
-                    hideNavBar
                 >
-                    <Scene key="tabbar" tabs tabBarStyle={STYLES.tabBar}>
-                        <Scene
-                            key="tab1"
-                            title="Search"
-                            icon={TabIcon}
-                            navigationBarStyle={{ backgroundColor: primaryColor }}
-                            titleStyle={{ color: 'white', fontFamily: 'Montserrat-Light' }}
-                            rightTitle="account"
-                            onRight={() => {}}
-                        >
-                            <Scene initial key="search" component={Search} title="Search" />
-                            <Scene key="suggestions" component={Suggestions} title="Suggestions" />
-                        </Scene>
+                    <Scene key="root">
+                        <Scene key="tabbar" tabs tabBarStyle={STYLES.tabBar} hideNavBar>
+                            <Scene
+                                key="tab1"
+                                title="Search"
+                                icon={TabIcon}
+                                navigationBarStyle={{ backgroundColor: primaryColor }}
+                                titleStyle={{ color: 'white', fontFamily: 'Montserrat-Light' }}
+                                rightTitle="account"
+                                onRight={() => {}}
+                            >
+                                <Scene initial key="search" component={Search} title="Search" />
+                                <Scene key="place1" component={Place} title="Place" />
+                                <Scene key="suggestions" component={Suggestions} title="Suggestions" />
+                            </Scene>
 
-                        <Scene
-                            key="tab2"
-                            title="Favorites"
-                            icon={TabIcon}
-                            navigationBarStyle={{ backgroundColor: primaryColor }}
-                            titleStyle={{ color: 'white', fontFamily: 'Montserrat-Light' }}
-                            rightTitle="account"
-                            onRight={() => {}}
-                        >
-                            <Scene key="favorites" component={Favorites} title="Favorites" />
-                        </Scene>
+                            <Scene
+                                key="tab2"
+                                title="Favorites"
+                                icon={TabIcon}
+                                navigationBarStyle={{ backgroundColor: primaryColor }}
+                                titleStyle={{ color: 'white', fontFamily: 'Montserrat-Light' }}
+                                rightTitle="account"
+                                onRight={() => {}}
+                            >
+                                <Scene key="favorites" component={Favorites} title="Favorites" />
+                                <Scene key="place2" component={Search} title="Search" />
+                            </Scene>
 
-                        <Scene
-                            key="tab3"
-                            title="Preferences"
-                            icon={TabIcon}
-                            navigationBarStyle={{ backgroundColor: primaryColor }}
-                            titleStyle={{ color: 'white', fontFamily: 'Montserrat-Light' }}
-                            rightTitle="account"
-                            onRight={() => {}}
-                        >
-                            <Scene key="preferences" component={Preferences} title="Preferences" />
+                            <Scene
+                                key="tab3"
+                                title="Preferences"
+                                icon={TabIcon}
+                                navigationBarStyle={{ backgroundColor: primaryColor }}
+                                titleStyle={{ color: 'white', fontFamily: 'Montserrat-Light' }}
+                                rightTitle="account"
+                                onRight={() => {}}
+                            >
+                                <Scene key="preferences" component={Preferences} title="Preferences" />
+                                <Scene key="place3" component={Search} title="Search" />
+                            </Scene>
                         </Scene>
                     </Scene>
                 </Scene>
