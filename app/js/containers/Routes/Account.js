@@ -9,6 +9,7 @@ import { bindActionCreators } from 'redux';
 
 import { user as userActions } from '../../modules/index';
 import AccountForm from '../../components/forms/AccountForm/AccountForm';
+import { primaryColor } from '../../utils/colors';
 
 
 class Account extends Component {
@@ -29,8 +30,10 @@ class Account extends Component {
 
 const STYLES = StyleSheet.create({
     container: {
-        marginTop: 100,
-        paddingHorizontal: 40
+        flex: 1,
+        paddingTop: 100,
+        alignSelf: 'stretch',
+        alignItems: 'center'
     }
 });
 

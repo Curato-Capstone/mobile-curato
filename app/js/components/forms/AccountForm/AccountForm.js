@@ -11,6 +11,7 @@ import validate from './validate';
 
 import Input from '../../reusable/Input/TextField';
 import Button from '../../reusable/Button/Button';
+import { primaryColor } from '../../../utils/colors';
 
 
 class AccountForm extends Component {
@@ -56,6 +57,7 @@ class AccountForm extends Component {
 
         return (
             <View style={STYLES.container} onSubmit={handleSubmit}>
+                <Text style={STYLES.header}>Update your account information</Text>
                 <View style={STYLES.fieldContainer}>
                     <Field name="email" component={renderEmailField} />
                 </View>
@@ -81,10 +83,29 @@ class AccountForm extends Component {
 
 const STYLES = StyleSheet.create({
     container: {
-        paddingTop: 50
+        justifyContent: 'center',
+        padding: 20,
+        alignSelf: 'stretch',
+        marginHorizontal: 20,
+        backgroundColor: 'white',
+        shadowOffset: {
+            width: 1,
+            height: 4
+        },
+        shadowRadius: 3,
+        shadowColor: '#888888',
+        shadowOpacity: 0.9
     },
     fieldContainer: {
         marginBottom: 20
+    },
+    header: {
+        color: primaryColor,
+        textAlign: 'center',
+        fontSize: 20,
+        fontWeight: 'bold',
+        marginBottom: 20,
+        fontFamily: 'Montserrat-Regular'
     }
 });
 
