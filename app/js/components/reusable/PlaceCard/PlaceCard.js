@@ -9,8 +9,19 @@ import { Card } from 'react-native-material-design';
 import Button from '../Button/Button.android.js';
 
 export default class PlaceCard extends Component {
+    static defaultProps = {};
+    props: {
+        place: Object,
+        favorite: boolean,
+        hideDislike: bool,
+        handleDislike: () => void,
+        handleFavorite: () => void
+    };
+    state : void;
+
     render() {
-        let { place } = this.props;
+        const { place, favorite, handleFavorite } = this.props;
+
         return (
             <View>
                 <Card height={300}>
@@ -22,7 +33,7 @@ export default class PlaceCard extends Component {
                     </Card.Body>
 
                     <Card.Actions position="right">
-                        <Button overrides={{ textColor: '#ff0000' }} text="I don't like this"/>
+                        <Button overrides={{ textColor: '#ff0000' }} text="I don't like this" />
                         <Button text="...more" />
                     </Card.Actions>
                 </Card>

@@ -6,6 +6,7 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { user as userActions, suggestions as suggestionsActions } from '../../modules/index';
 
 class Suggestions extends Component {
     static defaultProps = {};
@@ -17,7 +18,7 @@ class Suggestions extends Component {
 
         return (
             <View style={STYLES.container}>
-                <Text>This is the account page yo</Text>
+                <Text>This is the suggestions page yo</Text>
             </View>
         );
     }
@@ -29,15 +30,18 @@ const STYLES = StyleSheet.create({
     }
 });
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
+    const places =  state.get('places').toJS();
+
     return {
-        // user: state.get('user'),
+        favorites: state.getIn(['user', 'favorites']).toJS(),
+        suggestions: state.getIn(['suggestions', 'suggestions']).toJS().map((id) => places[id]),
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        // actions : bindActionCreators({ ...userActions, ...suggestionsActions }, dispatch),
+        actions : bindActionCreators({ ...userActions, ...suggestionsActions }, dispatch),
     };
 }
 
