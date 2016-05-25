@@ -1,9 +1,10 @@
 package com.curato;
 
 import com.facebook.react.ReactActivity;
-import com.AirMaps.AirPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.github.xinthink.rnmk.ReactMaterialKitPackage;
+import com.AirMaps.AirPackage;
+import com.airbnb.android.react.maps.MapsPackage;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 
@@ -38,9 +39,10 @@ public class MainActivity extends ReactActivity {
     protected List<ReactPackage> getPackages() {
         return Arrays.<ReactPackage>asList(
             new MainReactPackage(),
-            new AirPackage(),
             new VectorIconsPackage(),
-            new ReactMaterialKitPackage()
+            new ReactMaterialKitPackage(),
+            new AirPackage(),
+            new MapsPackage()
         );
     }
 }
