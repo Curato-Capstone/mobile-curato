@@ -45,9 +45,6 @@ class PreferencesIntro extends Component {
                         <Icon name={currPreference.icon} size={25} />
                     </Text>
                     <Slider
-                        maximumValue={5}
-                        minimumValue={1}
-                        step={1}
                         value={preferences[currPreference.name.toLowerCase()]}
                         key={currPreference.name}
                         onValueChange={
@@ -58,7 +55,6 @@ class PreferencesIntro extends Component {
                           }
                         }
                         minimumTrackTintColor={currPreference.color}
-                        maximumTrackTintColor="#d3d3d3"
                         thumbTintColor={currPreference.color}
                     />
                     <Text style={{ textAlign: 'center' }}>
