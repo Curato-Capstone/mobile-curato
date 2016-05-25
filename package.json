@@ -20,7 +20,7 @@
     "react-native-vector-icons": "^2.0.2",
     "react-redux": "^4.4.5",
     "redux": "^3.5.2",
-    "redux-form": "^6.0.0-alpha.13",
+    "redux-form": "^6.0.0-alpha.14",
     "redux-immutable": "^3.0.6",
     "redux-immutablejs": "0.0.8",
     "redux-thunk": "^2.1.0",

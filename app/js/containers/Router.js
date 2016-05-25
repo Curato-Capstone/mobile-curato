@@ -113,6 +113,76 @@ class TabIcon extends React.Component {
     }
 }
 
+export default class MyRouter extends Component {
+    static defaultProps = {};
+    props: {};
+    state: void;
+
+    componentWillMount() {
+        Icon.getImageSource('user', 20, 'red').then((source) => this.setState({ backIcon: source }));
+    }
+
+    render() {
+        return (
+            <Router>
+                <Scene
+                    key="root"
+                    component={Modal}
+                    hideNavBar
+                >
+                    <Scene key="tabbar" tabs tabBarStyle={STYLES.tabBar}>
+                        <Scene
+                            key="tab1"
+                            title="Search"
+                            icon={TabIcon}
+                            navigationBarStyle={{ backgroundColor: primaryColor }}
+                            titleStyle={{ color: 'white', fontFamily: 'Montserrat-Light' }}
+                            rightButtonImage={require('../../images/person_white.png')}
+                            rightButtonIconStyle={{height: 30, width: 30}}
+                            onRight={() => {}}
+                            backButtonImage={require('../../images/back_chevron_white.png')}
+                            backButtonIconStyle={{height: 30, width: 30}}
+                        >
+                            <Scene initial key="search" component={Search} title="Search" />
+                            <Scene key="suggestions" component={Suggestions} title="Suggestions" />
+                        </Scene>
+
+                        <Scene
+                            key="tab2"
+                            title="Favorites"
+                            icon={TabIcon}
+                            navigationBarStyle={{ backgroundColor: primaryColor }}
+                            titleStyle={{ color: 'white', fontFamily: 'Montserrat-Light' }}
+                            rightButtonImage={require('../../images/person_white.png')}
+                            rightButtonIconStyle={{height: 30, width: 30}}
+                            onRight={() => {}}
+                            backButtonImage={require('../../images/back_chevron_white.png')}
+                            backButtonIconStyle={{height: 30, width: 30}}
+                        >
+                            <Scene key="favorites" component={Favorites} title="Favorites" />
+                        </Scene>
+
+                        <Scene
+                            key="tab3"
+                            title="Preferences"
+                            icon={TabIcon}
+                            navigationBarStyle={{ backgroundColor: primaryColor }}
+                            titleStyle={{ color: 'white', fontFamily: 'Montserrat-Light' }}
+                            rightButtonImage={require('../../images/person_white.png')}
+                            rightButtonIconStyle={{height: 30, width: 30}}
+                            onRight={() => {}}
+                            backButtonImage={require('../../images/back_chevron_white.png')}
+                            backButtonIconStyle={{height: 30, width: 30}}
+                        >
+                            <Scene key="preferences" component={Preferences} title="Preferences" />
+                        </Scene>
+                    </Scene>
+                </Scene>
+            </Router>
+        );
+    }
+}
+
 const STYLES = StyleSheet.create({
     tabBar: {
         backgroundColor: 'white',
