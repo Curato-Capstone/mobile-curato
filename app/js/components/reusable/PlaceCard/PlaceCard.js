@@ -45,11 +45,18 @@ export default class PlaceCard extends Component {
         } else {
             actionButtons = (
                 <Card.Actions>
-                    <TouchableOpacity style={{ justifyContent: 'center', margin: 15, marginLeft: 30, marginRight: 60}}>
-                        <Icon name="heart" size={20}/>
+                    <TouchableOpacity
+                        style={{
+                            justifyContent: 'center',
+                            margin: 15,
+                            marginLeft: 30,
+                            marginRight: 60
+                        }}
+                    >
+                        <Icon name="heart" size={20} />
                     </TouchableOpacity>
-                    <Button overrides={{ textColor: '#ff0000' }} text="I don't like this"/>
-                    <Button text="...more" />
+                    <Button style={{ textColor: '#ff0000' }} label="I don't like this" />
+                    <Button label="...more" />
                 </Card.Actions>
             );
         }
