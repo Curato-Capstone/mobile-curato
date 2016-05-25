@@ -15,13 +15,14 @@ export default class Button extends Component {
     };
     state: void;
     render() {
-        let { style, label, handlePress, disabled } = this.props;
+        let { style, label, handlePress, disabled, ...other} = this.props;
         return (
             <AndroidButton
                 overrides={style}
                 text={label}
                 onPress={handlePress}
                 disabled={disabled}
+                {...other}
             />
           );
     }

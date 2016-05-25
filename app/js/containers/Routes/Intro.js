@@ -22,7 +22,7 @@ export default class Intro extends Component {
                       source={require('../../../images/logo/whitered.png')}/>
                 </View>
                 <Card.Body>
-                    <Text>
+                    <Text style={{ fontFamily: 'Montserrat-Regular' }}>
                         Welcome to Curato! Curato is a simple way to sift
                         through all the information out there to help you find
                         things to do. If you’re new, start by creating an
@@ -31,21 +31,21 @@ export default class Intro extends Component {
                     <View style={STYLES.buttonContainer}>
                     <Button
                         raised
-                        overrides={{
+                        style={{
                             backgroundColor: primaryColor,
                             textColor: '#ffffff'
                         }}
-                        text="Sign up!"
+                        label="Sign up!"
                     />
                     </View>
                     <View style={STYLES.buttonContainer}>
                         <Button
                             raised
-                            overrides={{
+                            style={{
                                 backgroundColor: primaryColor,
                                 textColor: '#ffffff'
                             }}
-                            text="Already have an account?"
+                            label="Already have an account?"
                         />
                     </View>
                 </Card.Body>

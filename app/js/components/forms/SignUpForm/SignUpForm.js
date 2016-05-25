@@ -17,6 +17,7 @@ const renderField = props => (
     <TextInput
         placeholder={props.placeholder}
         secureTextEntry={props.name === 'password'}
+        style={{fontFamily: 'Montserrat-Regular'}}
         {...props}
     />
 );
@@ -31,7 +32,7 @@ class SignUpForm extends Component {
             <Card>
                 <Card.Body>
                     <Text style={STYLES.header}>Sign up!</Text>
-                    <Text>
+                    <Text style={{fontFamily: 'Montserrat-Regular'}}>
                         Now, create your account and start getting more
                         curated suggestions today!
                     </Text>
@@ -44,11 +45,11 @@ class SignUpForm extends Component {
 
                 <Button
                     raised
-                    overrides={{
+                    style={{
                         backgroundColor: primaryColor,
                         textColor: '#ffffff'
                     }}
-                    text="SUBMIT"
+                    label="SUBMIT"
                 />
             </Card>
         );
@@ -61,7 +62,8 @@ const STYLES = StyleSheet.create({
         textAlign: 'center',
         fontSize: 40,
         fontWeight: 'bold',
-        marginBottom: 10
+        marginBottom: 10,
+        fontFamily: 'Montserrat-Regular'
     }
 });
 

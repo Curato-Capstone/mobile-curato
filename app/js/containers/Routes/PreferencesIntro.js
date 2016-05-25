@@ -38,7 +38,8 @@ class PreferencesIntro extends Component {
                         style={{
                             fontSize: 25,
                             marginBottom: 10,
-                            color: currPreference.color
+                            color: currPreference.color,
+                            fontFamily: 'Montserrat-Regular'
                         }}
                     >
                         {currPreference.name + " "}
@@ -61,7 +62,7 @@ class PreferencesIntro extends Component {
                         maximumTrackTintColor="#d3d3d3"
                         thumbTintColor={currPreference.color}
                     />
-                    <Text style={{ textAlign: 'center' }}>
+                    <Text style={{ textAlign: 'center', fontFamily: 'Montserrat-Regular' }}>
                         {currPreference.tooltipValues[
                           preferences[currPreference.name.toLowerCase()] - 1
                         ]}
@@ -79,7 +80,7 @@ class PreferencesIntro extends Component {
             <Card>
                 <Card.Body>
                     <Text style={STYLES.header}>Set your preferences!</Text>
-                    <Text>
+                    <Text style={{fontFamily: 'Montserrat-Regular'}}>
                         First, change these sliders to accurately represent how
                         much you like these different categories. We use these
                         values to help find businesses that you’re interested in,
@@ -136,11 +137,11 @@ class PreferencesIntro extends Component {
 
                 <Button
                     raised
-                    overrides={{
+                    style={{
                         backgroundColor: primaryColor,
                         textColor: '#ffffff'
                     }}
-                    text="GET YOUR SUGGESTIONS!"
+                    label="GET YOUR SUGGESTIONS!"
                 />
             </Card>
         );
@@ -153,7 +154,8 @@ const STYLES = StyleSheet.create({
         textAlign: 'center',
         fontSize: 40,
         fontWeight: 'bold',
-        marginBottom: 10
+        marginBottom: 10,
+        fontFamily: 'Montserrat-Regular'
     }
 });
 

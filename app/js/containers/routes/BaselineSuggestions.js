@@ -27,7 +27,7 @@ class BaselineSuggestions extends Component {
             <Card>
                 <Card.Body>
                     <Text style={STYLES.header}>Your Suggestions!</Text>
-                    <Text>
+                    <Text style={{ fontFamily: 'Montserrat-Regular' }}>
                         These are the suggestions we came up with! If you like
                         it, tap on the heart to add it to your favorites. If
                         you don't, tap on "I don't like this", and you won't
@@ -60,7 +60,8 @@ class BaselineSuggestions extends Component {
                       style={{
                           marginTop: 15,
                           fontSize: 20,
-                          marginRight: 10
+                          marginRight: 10,
+                          fontFamily: 'Montserrat-Regular'
                       }}
                     >
                       {(suggIndex + 1) + '/' + suggestions.length}
@@ -82,11 +83,11 @@ class BaselineSuggestions extends Component {
 
                 <Button
                     raised
-                    overrides={{
+                    style={{
                         backgroundColor: primaryColor,
                         textColor: '#ffffff'
                     }}
-                    text="ONE LAST STEP!"
+                    label="ONE LAST STEP!"
                 />
             </Card>
         );
@@ -99,7 +100,8 @@ const STYLES = StyleSheet.create({
         textAlign: 'center',
         fontSize: 40,
         fontWeight: 'bold',
-        marginBottom: 10
+        marginBottom: 10,
+        fontFamily: 'Montserrat-Regular'
     }
 });
 

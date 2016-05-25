@@ -24,7 +24,7 @@ export default class PlaceCard extends Component {
                         <Icon name="heart" size={20}/>
                     </TouchableOpacity>
                     <TouchableOpacity style={{ justifyContent: 'center', margin: 15}}>
-                        <Text style={{ color: '#ff0000', fontWeight: 'bold' }}>
+                        <Text style={{ color: '#ff0000', fontWeight: 'bold', fontFamily: 'Montserrat-Regular' }}>
                             I don't like this
                         </Text>
                     </TouchableOpacity>
@@ -36,7 +36,7 @@ export default class PlaceCard extends Component {
                             marginLeft: 60
                         }}
                     >
-                        <Text style={{ color: '#0000ff', fontWeight: 'bold' }}>
+                        <Text style={{ color: '#0000ff', fontWeight: 'bold', fontFamily: 'Montserrat-Regular' }}>
                             ...more
                         </Text>
                     </TouchableOpacity>
@@ -68,7 +68,7 @@ export default class PlaceCard extends Component {
                         <Image source={place.image} style={{ height: 200, width: 350 }} />
                     </View>
                     <Card.Body>
-                        <Text>{place.name}</Text>
+                        <Text style={{fontFamily: 'Montserrat-Regular'}}>{place.name}</Text>
                     </Card.Body>
                     {actionButtons}
                 </Card>

@@ -57,7 +57,8 @@ const STYLES = StyleSheet.create({
         textAlign: 'center',
         fontSize: 40,
         fontWeight: 'bold',
-        marginBottom: 10
+        marginBottom: 10,
+        fontFamily: 'Montserrat-Regular'
     }
 });
 
