@@ -16,6 +16,8 @@ import Preferences from './Routes/Preferences';
 import Suggestions from './Routes/Suggestions';
 // import SignIn from './Routes/SignIn';
 import Place from './Routes/Place';
+import FullMap from './Routes/FullMap';
+
 
 const iconMap = {
     search: 'search',
@@ -103,6 +105,7 @@ export default class MyRouter extends Component {
                                 <Scene key="place3" component={Search} title="Search" />
                             </Scene>
                         </Scene>
+                        <Scene key="fullmap" component={FullMap} title="Map" />
                     </Scene>
                 </Scene>
             </Router>

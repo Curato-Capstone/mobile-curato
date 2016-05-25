@@ -4,7 +4,7 @@ import {
   ScrollView,
   Text,
   View,
-  Animated,
+  TouchableOpacity,
   Image
 } from 'react-native';
 import { connect } from 'react-redux';
@@ -12,6 +12,7 @@ import { bindActionCreators } from 'redux';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import request from 'superagent-bluebird-promise';
 import MapView from 'react-native-maps';
+import { Actions as routerActions } from 'react-native-router-flux';
 import { user as userActions, global as globalActions } from '../../modules/index';
 import { primaryColor } from '../../utils/colors';
 
@@ -82,7 +83,7 @@ class Place extends Component {
                                 {this.renderHours(place.hours)}
                             </View>
                         </View>
-                        {this.renderMap(place.location.lat, place.location.lng, place.name)}
+                        {this.renderMap(place.location.lat, place.location.lng, place.name, place)}
                     </ScrollView>
                 </View>
             );
@@ -194,11 +195,15 @@ class Place extends Component {
         }
     }
 
-    renderMap(lat: number, lng: number, name: string) {
+    renderMap(lat: number, lng: number, name: string, place: Object) {
         return (
             <View style={{ flex: 1 }}>
                 <Text style={STYLES.header}>Location</Text>
-                <Text style={{ fontFamily: 'Montserrat-Light' }}>View Full Map</Text>
+                <TouchableOpacity onPress={() => routerActions.fullmap({ places: [place] })}>
+                    <Text style={STYLES.viewMap}>
+                        View Full Map
+                    </Text>
+                </TouchableOpacity>
                 <MapView
                     style={STYLES.map}
                     initialRegion={{
@@ -287,6 +292,11 @@ const STYLES = {
         marginBottom: 100,
 
         // width: 100,
+    },
+
+    viewMap: {
+        fontFamily: 'Montserrat-Light',
+        textDecorationLine: 'underline'
     }
 };
 
