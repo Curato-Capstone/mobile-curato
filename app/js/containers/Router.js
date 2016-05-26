@@ -25,6 +25,15 @@ const iconMap = {
     preferences: 'sliders'
 };
 
+const sceneProps = {
+    navigationBarStyle: { backgroundColor: primaryColor },
+    titleStyle: { color: 'white', fontFamily: 'Montserrat-Light' },
+    rightButtonImage: require('../../images/person_white.png'),
+    rightButtonIconStyle: { height: 30, width: 30 },
+    backButtonImage: require('../../images/back_chevron_white.png'),
+    backButtonIconStyle: { height: 30, width: 30 }
+};
+
 export default class MyRouter extends Component {
     static defaultProps = {};
     props: {};
@@ -37,16 +46,11 @@ export default class MyRouter extends Component {
                     <Scene key="root">
                         <Scene key="tabbar" tabs tabBarStyle={STYLES.tabBar} hideNavBar>
                             <Scene
-                            key="tab1"
+                                key="tab1"
                                 title="Search"
-                                icon={TabIcon}
-                                navigationBarStyle={{ backgroundColor: primaryColor }}
-                                titleStyle={{ color: 'white', fontFamily: 'Montserrat-Light' }}
-                                rightButtonImage={require('../../images/person_white.png')}
-                                rightButtonIconStyle={{ height: 30, width: 30 }}
                                 onRight={() => {}}
-                                backButtonImage={require('../../images/back_chevron_white.png')}
-                                backButtonIconStyle={{height: 30, width: 30}}
+                                icon={TabIcon}
+                                {...sceneProps}
                             >
                                 <Scene initial key="search" component={Search} title="Search" />
                                 <Scene key="place1" component={Place} title="Place" />
@@ -57,13 +61,8 @@ export default class MyRouter extends Component {
                                 key="tab2"
                                 title="Favorites"
                                 icon={TabIcon}
-                                navigationBarStyle={{ backgroundColor: primaryColor }}
-                                titleStyle={{ color: 'white', fontFamily: 'Montserrat-Light' }}
-                                rightButtonImage={require('../../images/person_white.png')}
-                                rightButtonIconStyle={{ height: 30, width: 30 }}
                                 onRight={() => {}}
-                                backButtonImage={require('../../images/back_chevron_white.png')}
-                                backButtonIconStyle={{height: 30, width: 30}}
+                                {...sceneProps}
                             >
                                 <Scene key="favorites" component={Favorites} title="Favorites" />
                                 <Scene key="place2" component={Search} title="Search" />
@@ -73,13 +72,8 @@ export default class MyRouter extends Component {
                                 key="tab3"
                                 title="Preferences"
                                 icon={TabIcon}
-                                navigationBarStyle={{ backgroundColor: primaryColor }}
-                                titleStyle={{ color: 'white', fontFamily: 'Montserrat-Light' }}
-                                rightButtonImage={require('../../images/person_white.png')}
-                                rightButtonIconStyle={{ height: 30, width: 30 }}
                                 onRight={() => {}}
-                                backButtonImage={require('../../images/back_chevron_white.png')}
-                                backButtonIconStyle={{height: 30, width: 30}}
+                                {...sceneProps}
                             >
                                 <Scene key="preferences" component={Preferences} title="Preferences" />
                                 <Scene key="place3" component={Search} title="Search" />
