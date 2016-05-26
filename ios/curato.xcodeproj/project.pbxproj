@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -27,14 +28,15 @@
 		6B275D4AFB6E4634AACC105A /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0781DD471A8E44778CD7CFCF /* Entypo.ttf */; };
 		6B72993DEC364D4D85DE01C6 /* libRCTMaterialKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0BB9ED47CB643E1B4C197A2 /* libRCTMaterialKit.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
+		98E68AAF197F4838B752F615 /* libAirMaps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC657611D46E4C0294DF6F4E /* libAirMaps.a */; };
 		A11103CE06564FFFA1E33367 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD959CA1901642459A5ACF0B /* FontAwesome.ttf */; };
 		A5653B3A1CF2F3A000567647 /* Montserrat-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A5653B2B1CF2F38000567647 /* Montserrat-Bold.otf */; };
 		A5653B3B1CF2F3A200567647 /* Montserrat-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = A5653B2C1CF2F38000567647 /* Montserrat-Light.otf */; };
 		A5653B3C1CF2F3A500567647 /* Montserrat-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = A5653B2D1CF2F38000567647 /* Montserrat-Regular.otf */; };
+		A5F48F8F1CF7B29F00D430A7 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		B1C8AB8F0F4E4B7EA4D9C7B1 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8D05502D83A94A8F8DF4A56D /* EvilIcons.ttf */; };
 		B3DB722C5D9C4E3381925964 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18F34E7562D94B6BAD130E91 /* Zocial.ttf */; };
 		B9B8F98E0FC34E7FB25A95BD /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BFFE0D82245346209EB62348 /* Octicons.ttf */; };
-		98E68AAF197F4838B752F615 /* libAirMaps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC657611D46E4C0294DF6F4E /* libAirMaps.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,6 +131,13 @@
 			remoteGlobalIDString = 5DBEB1501B18CEA900B34395;
 			remoteInfo = RNVectorIcons;
 		};
+		A5F48F731CF7B05A00D430A7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A92B3404137844D488EF609F /* AirMaps.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 11FA5C511C4A1296003AC2EE;
+			remoteInfo = AirMaps;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -164,12 +173,12 @@
 		A5653B2B1CF2F38000567647 /* Montserrat-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.otf"; sourceTree = "<group>"; };
 		A5653B2C1CF2F38000567647 /* Montserrat-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.otf"; sourceTree = "<group>"; };
 		A5653B2D1CF2F38000567647 /* Montserrat-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.otf"; sourceTree = "<group>"; };
+		A92B3404137844D488EF609F /* AirMaps.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = AirMaps.xcodeproj; path = "../node_modules/react-native-maps/ios/AirMaps.xcodeproj"; sourceTree = "<group>"; };
+		AC657611D46E4C0294DF6F4E /* libAirMaps.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libAirMaps.a; sourceTree = "<group>"; };
 		BFFE0D82245346209EB62348 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		C0BB9ED47CB643E1B4C197A2 /* libRCTMaterialKit.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTMaterialKit.a; sourceTree = "<group>"; };
 		CCFF5FC981504DE3B068CBD1 /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
 		DD959CA1901642459A5ACF0B /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
-		A92B3404137844D488EF609F /* AirMaps.xcodeproj */ = {isa = PBXFileReference; name = "AirMaps.xcodeproj"; path = "../node_modules/react-native-maps/ios/AirMaps.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
-		AC657611D46E4C0294DF6F4E /* libAirMaps.a */ = {isa = PBXFileReference; name = "libAirMaps.a"; path = "libAirMaps.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +186,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5F48F8F1CF7B29F00D430A7 /* libReact.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,6 +400,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		A5F48F701CF7B05A00D430A7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A5F48F741CF7B05A00D430A7 /* libAirMaps.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -459,6 +477,10 @@
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
 			projectDirPath = "";
 			projectReferences = (
+				{
+					ProductGroup = A5F48F701CF7B05A00D430A7 /* Products */;
+					ProjectRef = A92B3404137844D488EF609F /* AirMaps.xcodeproj */;
+				},
 				{
 					ProductGroup = 00C302A81ABCB8CE00DB3ED1 /* Products */;
 					ProjectRef = 00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */;
@@ -599,6 +621,13 @@
 			fileType = archive.ar;
 			path = libRNVectorIcons.a;
 			remoteRef = A54278741CF2B448005D9F30 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A5F48F741CF7B05A00D430A7 /* libAirMaps.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libAirMaps.a;
+			remoteRef = A5F48F731CF7B05A00D430A7 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
