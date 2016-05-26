@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {} from 'react-native';
 
 import { Button as AndroidButton } from 'react-native-material-design';
+import { primaryColor } from '../../../utils/colors.js';
 
 export default class Button extends Component {
     static defaultProps = {
@@ -11,7 +12,8 @@ export default class Button extends Component {
         label       : string,
         handlePress : (event: Object) => void,
         disabled    : boolean,
-        style       : Object
+        style       : Object,
+        overrides   : Object
     };
     state: void;
     render() {
@@ -22,6 +24,10 @@ export default class Button extends Component {
                 text={label}
                 onPress={handlePress}
                 disabled={disabled}
+                overrides={{
+                    textColor: 'white',
+                    backgroundColor: primaryColor
+                }}
                 {...other}
             />
           );

@@ -10,6 +10,7 @@ import {
   user as userActions,
   suggestions as suggestionsActions
 } from '../../modules/index';
+import { Actions as routerActions } from 'react-native-router-flux';
 
 import { Card } from 'react-native-material-design';
 import Button from '../../components/reusable/Button/Button';
@@ -74,8 +75,10 @@ class PreferencesIntro extends Component {
     }
 
     render() {
-        let { selectedPref, prefIndex } = this.state;
-        let preferenceCard = this.renderCard(selectedPref);
+        const { actions } = this.props;
+        const { selectedPref, prefIndex } = this.state;
+        const preferenceCard = this.renderCard(selectedPref);
+
         return (
             <View style={{flex: 1, justifyContent: 'center', backgroundColor: primaryColor}}>
                 <Card style={{paddingBottom: 10, marginHorizontal: 15}}>
@@ -143,6 +146,10 @@ class PreferencesIntro extends Component {
                             textColor: '#ffffff'
                         }}
                         label="GET YOUR SUGGESTIONS!"
+                        handlePress={() => {
+                            actions.getSuggestionsNoAccount()
+                                .then(() => routerActions.baselineSugg());
+                        }}
                     />
                 </Card>
             </View>

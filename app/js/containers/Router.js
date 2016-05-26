@@ -9,14 +9,18 @@ import { Scene, Router, Modal } from 'react-native-router-flux';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { primaryColor } from '../utils/colors';
 
+import Intro from './Routes/Intro';
 // import Account from './Routes/Account';
 import Search from './Routes/Search';
 import Favorites from './Routes/Favorites';
 import Preferences from './Routes/Preferences';
 import Suggestions from './Routes/Suggestions';
-// import SignIn from './Routes/SignIn';
+import SignIn from './Routes/SignIn';
 import Place from './Routes/Place';
 import FullMap from './Routes/FullMap';
+import PreferencesIntro from './Routes/PreferencesIntro';
+import BaselineSuggestions from './Routes/BaselineSuggestions';
+import SignUp from './Routes/SignUp';
 
 
 const iconMap = {
@@ -35,6 +39,11 @@ export default class MyRouter extends Component {
             <Router>
                 <Scene key="modal" component={Modal}>
                     <Scene key="root">
+                        <Scene key="intro" component={Intro} />
+                        <Scene key="signin" component={SignIn} />
+                        <Scene key="prefIntro" component={PreferencesIntro} />
+                        <Scene key="baselineSugg" component={BaselineSuggestions} />
+                        <Scene key="signup" component={SignUp} />
                         <Scene key="tabbar" tabs tabBarStyle={STYLES.tabBar} hideNavBar>
                             <Scene
                             key="tab1"

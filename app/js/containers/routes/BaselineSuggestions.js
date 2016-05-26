@@ -7,6 +7,7 @@ import {
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { user as userActions, suggestions as suggestionsActions } from '../../modules/index';
+import { Actions as routerActions } from 'react-native-router-flux';
 
 import { Card } from 'react-native-material-design';
 import Button from '../../components/reusable/Button/Button';
@@ -36,7 +37,7 @@ class BaselineSuggestions extends Component {
                             help give you even better suggestions in the future!
                         </Text>
                     </Card.Body>
-                    <PlaceCard place={suggestions[suggIndex]} />
+                    {suggestions.length != 0 ? <PlaceCard place={suggestions[suggIndex]} /> : null}
                     <View
                         style={{
                             justifyContent: 'center',
@@ -89,6 +90,7 @@ class BaselineSuggestions extends Component {
                             textColor: '#ffffff'
                         }}
                         label="ONE LAST STEP!"
+                        handlePress={() => routerActions.signup()}
                     />
                 </Card>
             </View>
@@ -110,10 +112,13 @@ const STYLES = StyleSheet.create({
 
 function mapStateToProps(state) {
     const places =  state.get('places').toJS();
+
     return {
         favorites: state.getIn(['user', 'favorites']).toJS(),
+        suggestions: state.getIn(['suggestions', 'suggestions']).toJS().map((id) => places[id]),
     };
 }
+
 function mapDispatchToProps(dispatch) {
     return {
         actions : bindActionCreators({ ...userActions, ...suggestionsActions }, dispatch),

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {
   StyleSheet,
   Text,
-  TextInput,
   View
 } from 'react-native';
 import { connect } from 'react-redux';
@@ -12,6 +11,7 @@ import { Card } from 'react-native-material-design';
 import Button from '../../reusable/Button/Button';
 import { primaryColor } from '../../../utils/colors.js';
 import { Field, reduxForm } from 'redux-form/immutable';
+import TextInput from '../../reusable/Input/TextField'
 import validate from './validate';
 
 const renderField = props => (
@@ -24,10 +24,12 @@ const renderField = props => (
 
 class SignInForm extends Component {
     static defaultProps = {};
-    props: {};
+    props: { onSubmit: Object };
     state : void;
 
     render() {
+        const { onSubmit } = this.props;
+
         return (
             <View style={{flex: 1, justifyContent: 'center', backgroundColor: primaryColor}}>
                 <Card style={{paddingBottom: 10, marginHorizontal: 15}}>
@@ -42,11 +44,8 @@ class SignInForm extends Component {
 
                     <Button
                         raised
-                        overrides={{
-                            backgroundColor: primaryColor,
-                            textColor: '#ffffff'
-                        }}
                         text="SUBMIT"
+                        handlePress={onSubmit}
                     />
                 </Card>
             </View>

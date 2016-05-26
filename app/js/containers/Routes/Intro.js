@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { Actions as routerActions } from 'react-native-router-flux';
 
 import { Card } from 'react-native-material-design';
 import Button from '../../components/reusable/Button/Button';
@@ -37,6 +38,7 @@ export default class Intro extends Component {
                                 textColor: '#ffffff'
                             }}
                             label="Sign up!"
+                            handlePress={() => routerActions.prefIntro()}
                         />
                         </View>
                         <View style={STYLES.buttonContainer}>
@@ -47,6 +49,7 @@ export default class Intro extends Component {
                                     textColor: '#ffffff'
                                 }}
                                 label="Already have an account?"
+                                handlePress={() => routerActions.signin()}
                             />
                         </View>
                     </Card.Body>
@@ -58,7 +61,7 @@ export default class Intro extends Component {
 
 const STYLES = StyleSheet.create({
     logo: {
-        resizeMode: 'center',
+        resizeMode: 'contain',
         height: 150,
         width: 350
     },

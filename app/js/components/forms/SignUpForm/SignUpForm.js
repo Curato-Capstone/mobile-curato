@@ -25,10 +25,12 @@ const renderField = props => (
 
 class SignUpForm extends Component {
     static defaultProps = {};
-    props: {};
+    props: { onSubmit: Object };
     state : void;
 
     render() {
+        const { onSubmit } = this.props;
+
         return (
             <View style={{flex: 1, justifyContent: 'center', backgroundColor: primaryColor}}>
                 <Card style={{paddingBottom: 10, marginHorizontal: 15}}>
@@ -52,6 +54,7 @@ class SignUpForm extends Component {
                             textColor: '#ffffff'
                         }}
                         label="SUBMIT"
+                        handlePress={onSubmit}
                     />
                 </Card>
             </View>
