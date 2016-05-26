@@ -48,7 +48,7 @@ export default class PlaceCard extends Component {
             let dislikeButton = (
                 <TouchableOpacity
                     style={{ justifyContent: 'center', margin: 15 }}
-                    onPress={() => {}}
+                    onPress={() => handleDislike()}
                 >
                     <Text style={[STYLES.ios.dislike]}>
                         I don't like this
@@ -86,7 +86,7 @@ export default class PlaceCard extends Component {
                     marginRight: 50
                   }}
                   label="I don't like this"
-                  onPress={() => {}}
+                  onPress={() => handleDislike()}
             />
         );
 
@@ -95,7 +95,6 @@ export default class PlaceCard extends Component {
                 <TouchableOpacity
                     style={{
                         justifyContent: 'center',
-                        flex: 1,
                         marginHorizontal: 35
                     }}
                     onPress={() => handleFavorite()}
