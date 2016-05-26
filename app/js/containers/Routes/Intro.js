@@ -17,7 +17,7 @@ export default class Intro extends Component {
     render() {
         return (
             <View style={{flex: 1, justifyContent: 'center', backgroundColor: primaryColor}}>
-                <Card style={{paddingBottom: 10, marginHorizontal: 15}}>
+                <Card style={{paddingBottom: 10, marginHorizontal: 10}}>
                     <View style={{ alignItems: 'center' }}>
                         <Image
                           style={STYLES.logo}

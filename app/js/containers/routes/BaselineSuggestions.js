@@ -97,7 +97,7 @@ const STYLES = StyleSheet.create({
     header: {
         color: primaryColor,
         textAlign: 'center',
-        fontSize: 40,
+        fontSize: 30,
         fontWeight: 'bold',
         marginBottom: 10,
         fontFamily: 'Montserrat-Regular'
