@@ -23,19 +23,43 @@ class Suggestions extends Component {
         return (
             <ScrollView contentContainerStyle={STYLES.container}>
                 <View>
-                    {suggestions.map((suggestion) => (
-                        <View style={STYLES.suggestion} key={suggestion.id}>
+                    {suggestions.map((place, index) => (
+                        <View style={STYLES.suggestion} key={place.id}>
                             <PlaceCard
-                                place={suggestion}
-                                favorite={true}
-                                handleDislike={() => {}}
-                                handleFavorite={() => {}}
+                                place={place}
+                                favorite={this.checkFavorited(place)}
+                                handleFavorite={() => this.handleFavorite(place, index)}
+                                handleDislike={() => this.handleDislike(place, index)}
                             />
                         </View>
                     ))}
                 </View>
             </ScrollView>
         );
+    }
+
+    checkFavorited(place) {
+        const { favorites } = this.props;
+        for (let i = 0; i < favorites.length; i ++) {
+            if (favorites[i] === place.id) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    handleFavorite(place) {
+        if (this.checkFavorited(place)) {
+            this.props.actions.removeFavoriteThunk(place.id);
+        } else {
+            this.props.actions.addFavoriteThunk(place.id);
+        }
+    }
+
+    handleDislike(place, index) {
+        this.props.actions.dislikePlace(place.id);
+        this.props.actions.removeSuggestion(index);
     }
 }
 

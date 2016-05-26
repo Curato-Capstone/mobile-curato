@@ -47,9 +47,12 @@ export default class PlaceCard extends Component {
                 <View style={STYLES.actions}>
                     <TouchableOpacity
                         onPress={() => {}}
-                        style={STYLES.ios.heart}
+                        style={STYLES.ios.heart(this.props.favorite)}
                     >
-                        <Icon name="heart" size={20} />
+                        <Icon
+                            name="heart" size={20}
+                            style={{ color: this.props.favorite ? 'red' : 'grey' }}
+                        />
                     </TouchableOpacity>
                     <TouchableOpacity
                         style={{ justifyContent: 'center', margin: 15 }}
@@ -125,9 +128,10 @@ const STYLES = {
     },
 
     ios: {
-        heart: {
+        heart: (favorite) => ({
             justifyContent: 'center',
-        },
+            // color: favorite ? 'red' : 'grey'
+        }),
 
         dislike: {
             color: '#ff0000',
