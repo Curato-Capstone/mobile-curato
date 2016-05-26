@@ -44,7 +44,7 @@ class Preferences extends Component {
                                 <Slider
                                     value={prefValue}
                                     key={pref.name}
-                                    onValueChange={(value) => {
+                                    onSlidingComplete={(value) => {
                                         actions.changePreference(
                                             pref.name.toLowerCase(), value
                                         );
