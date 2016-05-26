@@ -74,7 +74,7 @@ class Preferences extends Component {
 
 const STYLES = {
     scrollContainer: {
-        height: 1220,
+        height: 1350,
         marginTop: 70
     },
     container: {
@@ -95,8 +95,8 @@ const STYLES = {
         marginVertical: 10,
         paddingHorizontal: 20,
         paddingVertical: 5,
-        width: 250,
-        height: 115
+        width: 280,
+        height: 125
     },
     slider: {
         alignSelf: 'stretch'
@@ -105,7 +105,7 @@ const STYLES = {
         fontSize: 18,
         marginBottom: 10,
         color: pref.color,
-        fontFamily: 'Montserrat-Regular'
+        fontFamily: 'Montserrat-Light'
     }),
     text: {
         fontFamily: 'Montserrat-Regular'
