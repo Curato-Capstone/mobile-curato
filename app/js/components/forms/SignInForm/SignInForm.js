@@ -48,7 +48,6 @@ class SignInForm extends Component {
                         label="SUBMIT"
                         style={{
                             backgroundColor: primaryColor,
-                            textColor: '#ffffff'
                         }}
                         handlePress={onSubmit}
                     />

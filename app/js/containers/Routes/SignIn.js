@@ -7,7 +7,7 @@ import SignInForm from '../../components/forms/SignInForm/SignInForm.js';
 import { auth as authActions } from '../../modules/index';
 
 
-export default class SignIn extends Component {
+class SignIn extends Component {
     static defaultProps = {};
     props: { actions: Object };
     state : void;
@@ -25,7 +25,7 @@ export default class SignIn extends Component {
             .then(() => {
                 routerActions.search()
             });
-    };
+    }
 }
 
 function mapStateToProps() {
