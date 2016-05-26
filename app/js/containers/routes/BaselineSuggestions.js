@@ -37,13 +37,7 @@ class BaselineSuggestions extends Component {
                         </Text>
                     </Card.Body>
                     {suggestions.length != 0 ? <PlaceCard place={suggestions[suggIndex]} /> : null}
-                    <View
-                        style={{
-                            justifyContent: 'center',
-                            flex: 1,
-                            flexDirection: 'row'
-                        }}
-                    >
+                    <View style={STYLES.suggestions}>
                         <Icon.Button
                             onPress={() => {
                                 if (suggIndex !== 0) {
@@ -101,6 +95,12 @@ const STYLES = StyleSheet.create({
         fontWeight: 'bold',
         marginBottom: 10,
         fontFamily: 'Montserrat-Regular'
+    },
+    suggestions: {
+        justifyContent: 'center',
+        flex: 1,
+        flexDirection: 'row',
+        marginBottom: 15
     }
 });
 

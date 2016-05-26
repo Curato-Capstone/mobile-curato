@@ -89,13 +89,7 @@ class PreferencesIntro extends Component {
                         </Text>
                     </Card.Body>
                     {preferenceCard}
-                    <View
-                        style={{
-                            justifyContent: 'center',
-                            flex: 1,
-                            flexDirection: 'row'
-                        }}
-                    >
+                    <View style={STYLES.prefs}>
                         <Icon.Button
                             onPress={() => {
                                 if (prefIndex !== 0) {
@@ -157,6 +151,12 @@ const STYLES = StyleSheet.create({
         fontWeight: 'bold',
         marginBottom: 10,
         fontFamily: 'Montserrat-Regular'
+    },
+    prefs: {
+        justifyContent: 'center',
+        flex: 1,
+        flexDirection: 'row',
+        marginBottom: 15
     }
 });
 

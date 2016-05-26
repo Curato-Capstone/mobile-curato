@@ -24,7 +24,7 @@ export default class Intro extends Component {
                           source={require('../../../images/logo/whitered.png')}/>
                     </View>
                     <Card.Body>
-                        <Text style={{ fontFamily: 'Montserrat-Regular' }}>
+                        <Text style={STYLES.text}>
                             Welcome to Curato! Curato is a simple way to sift
                             through all the information out there to help you find
                             things to do. If you’re new, start by creating an
@@ -63,5 +63,9 @@ const STYLES = StyleSheet.create({
         alignItems: 'center',
         height: 30,
         marginTop: 20
+    },
+    text: {
+        fontFamily: 'Montserrat-Regular',
+        marginBottom: 20
     }
 });
