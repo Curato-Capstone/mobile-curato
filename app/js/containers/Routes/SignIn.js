@@ -5,6 +5,7 @@ import { Actions as routerActions } from 'react-native-router-flux';
 
 import SignInForm from '../../components/forms/SignInForm/SignInForm.js';
 import { auth as authActions } from '../../modules/index';
+import AccountForm from '../../components/forms/AccountForm/AccountForm';
 
 
 export default class SignIn extends Component {

@@ -14,22 +14,22 @@ import { Field, reduxForm } from 'redux-form/immutable';
 import TextInput from '../../reusable/Input/TextField';
 import validate from './validate';
 
-const renderField = props => (
-    <TextInput
-        placeholder={props.placeholder}
-        secureTextEntry={props.name === 'password'}
-        style={{fontFamily: 'Montserrat-Regular'}}
-        {...props}
-    />
-);
 
 class SignInForm extends Component {
     static defaultProps = {};
-    props: { onSubmit: Object };
+    props: { onSubmit: () => void };
     state : void;
 
     render() {
         const { onSubmit } = this.props;
+
+        const renderField = props => (
+            <TextInput
+                placeholder={props.placeholder}
+                secureTextEntry={props.name === 'password'}
+                {...props}
+            />
+        );
 
         return (
             <View style={{flex: 1, justifyContent: 'center', backgroundColor: primaryColor}}>
@@ -40,8 +40,12 @@ class SignInForm extends Component {
                         </Text>
                     </Card.Body>
 
-                    <Field name="email" type="email" component={renderField} placeholder="Email"/>
-                    <Field name="password" type="string" component={renderField} placeholder="Password"/>
+                    <View style={STYLES.fieldContainer}>
+                        <Field name="email" type="email" component={renderField} placeholder="Email"/>
+                    </View>
+                    <View style={STYLES.fieldContainer}>
+                        <Field name="password" type="string" component={renderField} placeholder="Password"/>
+                    </View>
 
                     <Button
                         raised
@@ -66,6 +70,9 @@ const STYLES = StyleSheet.create({
         fontWeight: 'bold',
         marginBottom: 10,
         fontFamily: 'Montserrat-Regular'
+    },
+    fieldContainer: {
+        marginBottom: 20
     }
 });
 

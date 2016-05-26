@@ -26,7 +26,6 @@ export default class TextField extends Component {
                     onChangeText={handleChange}
                     style={STYLES.input}
                     {...other}
-
                 />
             </View>
         );
@@ -38,7 +37,6 @@ const STYLES = StyleSheet.create({
         marginLeft: 5,
         marginRight: 5
     },
-
     input: {
         height: 30,
         borderWidth: 0.5,
