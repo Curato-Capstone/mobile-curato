@@ -36,6 +36,7 @@ class BaselineSuggestions extends Component {
                             help give you even better suggestions in the future!
                         </Text>
                     </Card.Body>
+
                     {suggestions.length != 0 ?
                         <PlaceCard
                             place={suggestions[suggIndex]}
@@ -44,14 +45,8 @@ class BaselineSuggestions extends Component {
                             handleFavorite={() => this.handleFavorite(suggestions[suggIndex])}
                         /> :
                          null}
-                    <View
-                        style={{
-                            justifyContent: 'center',
-                            flex: 1,
-                            flexDirection: 'row'
-                        }}
-                    >
-                        <Icon.Button
+                         <View style={STYLES.suggestions}>
+                         <Icon.Button
                             onPress={() => {
                                 if (suggIndex !== 0) {
                                     this.setState({
@@ -128,6 +123,12 @@ const STYLES = StyleSheet.create({
         fontWeight: 'bold',
         marginBottom: 10,
         fontFamily: 'Montserrat-Regular'
+    },
+    suggestions: {
+        justifyContent: 'center',
+        flex: 1,
+        flexDirection: 'row',
+        marginBottom: 15
     }
 });
 
