@@ -29,7 +29,7 @@ export default class PlaceCard extends Component {
 
         return (
             <View style={STYLES.container}>
-                <Card image={{ uri: place.image }}>
+                <Card image={{ uri: place.image }} style={STYLES.card}>
                     <Card.Media image={<Image source={{ uri: place.image }} style={STYLES.image} />} />
                     <Card.Body>
                         <Text style={STYLES.placeName}>{place.name}</Text>
@@ -121,7 +121,14 @@ export default class PlaceCard extends Component {
 const STYLES = {
     container: {
         marginRight: 15,
-        marginLeft: 15
+        marginLeft: 15,
+    },
+
+    card: {
+        shadowColor: 'black',
+        shadowOffset: { width: 2, height: 3 },
+        shadowOpacity: 0.25,
+        shadowRadius: 2,
     },
 
     image: {
@@ -143,12 +150,14 @@ const STYLES = {
     actions: {
         flexDirection: 'row',
         flex: 1,
-        justifyContent: 'space-around'
+        justifyContent: 'space-around',
+        marginTop: 20
     },
 
     ios: {
         heart: (favorite) => ({
             justifyContent: 'center',
+            height: 40,
             // color: favorite ? 'red' : 'grey'
         }),
 
