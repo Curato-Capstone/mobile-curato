@@ -48,11 +48,6 @@ export default class MyRouter extends Component {
             <Router>
                 <Scene key="modal" component={Modal}>
                     <Scene key="root" hideNavBar>
-                        <Scene key="intro" component={Intro} />
-                        <Scene key="signin" component={SignIn} />
-                        <Scene key="prefIntro" component={PreferencesIntro} />
-                        <Scene key="baselineSugg" component={BaselineSuggestions} />
-                        <Scene key="signup" component={SignUp} />
                         <Scene key="tabbar" tabs tabBarStyle={STYLES.tabBar} hideNavBar>
                             <Scene
                                 key="tab1"
@@ -91,6 +86,11 @@ export default class MyRouter extends Component {
                                 <Scene key="account3" component={Account} title="Account" hideTabBar />
                             </Scene>
                         </Scene>
+                        <Scene key="intro" component={Intro} />
+                        <Scene key="signin" component={SignIn} />
+                        <Scene key="prefIntro" component={PreferencesIntro} />
+                        <Scene key="baselineSugg" component={BaselineSuggestions} />
+                        <Scene key="signup" component={SignUp} />
                         <Scene key="fullmap" component={FullMap} title="Map" />
                     </Scene>
                 </Scene>
