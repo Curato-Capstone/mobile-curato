@@ -74,7 +74,7 @@ class Preferences extends Component {
 
 const STYLES = {
     scrollContainer: {
-        height: 1220,
+        height: 1420,
         marginTop: 70
     },
     container: {
@@ -95,8 +95,8 @@ const STYLES = {
         marginVertical: 10,
         paddingHorizontal: 20,
         paddingVertical: 5,
-        width: 250,
-        height: 115
+        width: 280,
+        height: 125
     },
     slider: {
         alignSelf: 'stretch'
