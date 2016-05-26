@@ -5,9 +5,8 @@ import { Actions as routerActions } from 'react-native-router-flux';
 
 import SignInForm from '../../components/forms/SignInForm/SignInForm.js';
 import { auth as authActions } from '../../modules/index';
-import AccountForm from '../../components/forms/AccountForm/AccountForm';
 
-export default class SignIn extends Component {
+class SignIn extends Component {
     static defaultProps = {};
     props: { actions: Object };
     state : void;
@@ -16,7 +15,7 @@ export default class SignIn extends Component {
         const { actions } = this.props;
 
         return (
-            <SignInForm onSubmit={() => actions.signInUser()} />
+            <SignInForm onSubmit={() => this.signInUser()} />
         );
     }
 
@@ -25,9 +24,10 @@ export default class SignIn extends Component {
 
         actions.signInUser()
             .then(() => {
-                routerActions.search()
+                console.log('here bruh')
+                routerActions.tabbar();
             });
-    };
+    }
 }
 
 function mapStateToProps() {

@@ -5,7 +5,8 @@ import {
   Text,
   View,
   TouchableOpacity,
-  Image
+  Image,
+  Linking
 } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -111,7 +112,11 @@ class Place extends Component {
                         size={25}
                         style={[{ color: 'black' }, STYLES.infoIcon]}
                     />
-                    <Text style={STYLES.infoText}>{phoneNumber}</Text>
+                    <TouchableOpacity
+                        onPress={() => Linking.openURL('tel:' + phoneNumber)}
+                    >
+                        <Text style={STYLES.infoText}>{phoneNumber}</Text>
+                    </TouchableOpacity>
                 </View>
             );
         }
@@ -126,7 +131,11 @@ class Place extends Component {
                         size={25}
                         style={[{ color: '#019FE9' }, STYLES.infoIcon]}
                     />
-                    <Text style={STYLES.infoText}>{twitterLink}</Text>
+                    <TouchableOpacity
+                        onPress={() => Linking.openURL(`http://www.twitter.com/${twitterLink}`)}
+                    >
+                        <Text style={STYLES.infoText}>{twitterLink}</Text>
+                    </TouchableOpacity>
                 </View>
             );
         }
@@ -140,7 +149,11 @@ class Place extends Component {
                     size={25}
                     style={[{ color: '#F94876' }, STYLES.infoIcon]}
                 />
-                <Text style={STYLES.infoText}>Venue Page</Text>
+                <TouchableOpacity
+                    onPress={() => Linking.openURL(`http://www.foursquare.com/v/${venueID}`)}
+                >
+                    <Text style={STYLES.infoText}>Venue Page</Text>
+                </TouchableOpacity>
             </View>
         );
     }
@@ -154,7 +167,11 @@ class Place extends Component {
                         size={25}
                         style={[{ color: 'green' }, STYLES.infoIcon]}
                     />
-                    <Text style={STYLES.infoText}>Website</Text>
+                    <TouchableOpacity
+                        onPress={() => Linking.openURL(website)}
+                    >
+                        <Text style={STYLES.infoText}>Website</Text>
+                    </TouchableOpacity>
                 </View>
             );
         }
