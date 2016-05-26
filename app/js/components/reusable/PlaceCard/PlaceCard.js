@@ -84,7 +84,7 @@ export default class PlaceCard extends Component {
                         flex: 1,
                         marginHorizontal: 35
                     }}
-                    onPress={() => {}}
+                    onPress={() => handleFavorite()}
                 >
                     <Icon name="heart" size={20} />
                 </TouchableOpacity>
@@ -94,7 +94,7 @@ export default class PlaceCard extends Component {
                         marginRight: 50
                     }}
                     label="I don't like this"
-                    onPress={() => {}}
+                    onPress={() => handleDislike()}
                 />
                 <Button
                     label="...more"

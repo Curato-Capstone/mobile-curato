@@ -86,8 +86,8 @@ export default class MyRouter extends Component {
                                 <Scene key="account3" component={Account} title="Account" hideTabBar />
                             </Scene>
                         </Scene>
-                        <Scene key="intro" component={Intro} />
-                        <Scene key="signin" initial component={SignIn} />
+                        <Scene key="intro" initial component={Intro} />
+                        <Scene key="signin" component={SignIn} />
                         <Scene key="prefIntro" component={PreferencesIntro} />
                         <Scene key="baselineSugg" component={BaselineSuggestions} />
                         <Scene key="signup" component={SignUp} />
