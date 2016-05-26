@@ -84,7 +84,9 @@ export default class PlaceCard extends Component {
                     }}
                     onPress={() => {}}
                 >
-                    <Icon name="heart" size={20} />
+                    <Icon name="heart" size={20}
+                        style={{ color: this.props.favorite ? 'red' : 'grey' }}
+                    />
                 </TouchableOpacity>
                 <Button
                     style={{

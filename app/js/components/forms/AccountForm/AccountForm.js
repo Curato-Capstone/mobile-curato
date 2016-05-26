@@ -69,7 +69,6 @@ class AccountForm extends Component {
                     disabled={submitting}
                     handlePress={handleSubmit}
                     raised
-                    style={{ backgroundColor: primaryColor, textColor: "#ffffff"}}
                 />
             </View>
         );
