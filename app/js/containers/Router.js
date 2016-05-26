@@ -92,6 +92,7 @@ export default class MyRouter extends Component {
                         <Scene key="baselineSugg" component={BaselineSuggestions} />
                         <Scene key="signup" component={SignUp} />
                         <Scene key="fullmap" component={FullMap} title="Map" />
+                        <Scene key="place" component={Place} title="Place" />
                     </Scene>
                 </Scene>
             </Router>

@@ -43,6 +43,7 @@ class BaselineSuggestions extends Component {
                             hideDislike
                             favorite={this.checkFavorited(suggestions[suggIndex])}
                             handleFavorite={() => this.handleFavorite(suggestions[suggIndex])}
+                            baseline
                         /> :
                          null}
                          <View style={STYLES.suggestions}>
