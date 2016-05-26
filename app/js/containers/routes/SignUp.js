@@ -7,7 +7,7 @@ import SignUpForm from '../../components/forms/SignUpForm/SignUpForm.js';
 import { auth as authActions } from '../../modules/index';
 
 
-export default class SignUp extends Component {
+class SignUp extends Component {
     static defaultProps = {};
     props: { actions: Object };
     state : void;
