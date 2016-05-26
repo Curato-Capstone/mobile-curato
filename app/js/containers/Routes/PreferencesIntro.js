@@ -137,10 +137,6 @@ class PreferencesIntro extends Component {
 
                     <Button
                         raised
-                        style={{
-                            backgroundColor: primaryColor,
-                            textColor: '#ffffff'
-                        }}
                         label="GET YOUR SUGGESTIONS!"
                         handlePress={() => {
                             actions.getSuggestionsNoAccount()
