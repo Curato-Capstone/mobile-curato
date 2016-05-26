@@ -69,7 +69,7 @@ export default class PlaceCard extends Component {
                     {hideDislike ? null : dislikeButton}
                     <TouchableOpacity
                         style={STYLES.ios.more.container}
-                        onPress={() => placecard ? routerActions.place({ id: place.id }) routerActions.place1({ id: place.id })}
+                        onPress={() => placecard ? routerActions.place({ id: place.id }) : routerActions.place1({ id: place.id })}
                     >
                         <Text style={STYLES.ios.more.main}>
                             ...more
@@ -110,7 +110,7 @@ export default class PlaceCard extends Component {
                         marginRight: 50
                     }}
                     label="...more"
-                    onPress={() => placecard ? routerActions.place({ id: place.id }) routerActions.place1({ id: place.id })}
+                    onPress={() => placecard ? routerActions.place({ id: place.id }) : routerActions.place1({ id: place.id })}
                 />
             </View>
         );
