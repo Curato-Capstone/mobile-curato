@@ -24,7 +24,7 @@ class Search extends Component {
                     value={searchText}
                     handleChange={actions.changeSearchText}
                     handleSubmit={() => {
-                        actions.getSuggestionsNoAccount()
+                        actions.getSuggestions()
                             .then(() => routerActions.suggestions())
                         }
                     }

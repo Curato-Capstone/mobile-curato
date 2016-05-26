@@ -56,7 +56,7 @@ export default class MyRouter extends Component {
                                 icon={TabIcon}
                                 {...sceneProps}
                             >
-                                <Scene initial key="search" component={Search} title="Search" />
+                                <Scene key="search" component={Search} title="Search" />
                                 <Scene key="place1" component={Place} title="Place" />
                                 <Scene key="suggestions" component={Suggestions} title="Suggestions" />
                                 <Scene key="account1" component={Account} title="Account" hideTabBar />
@@ -87,7 +87,7 @@ export default class MyRouter extends Component {
                             </Scene>
                         </Scene>
                         <Scene key="intro" component={Intro} />
-                        <Scene key="signin" component={SignIn} />
+                        <Scene initial key="signin" component={SignIn} />
                         <Scene key="prefIntro" component={PreferencesIntro} />
                         <Scene key="baselineSugg" component={BaselineSuggestions} />
                         <Scene key="signup" component={SignUp} />
