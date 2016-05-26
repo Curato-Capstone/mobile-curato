@@ -48,7 +48,7 @@ export default class MyRouter extends Component {
             <Router>
                 <Scene key="modal" component={Modal}>
                     <Scene key="root" hideNavBar>
-                        <Scene key="tabbar" tabs tabBarStyle={STYLES.tabBar} hideNavBar>
+                        <Scene key="tabbar" tabs tabBarStyle={STYLES.tabBar}  hideNavBar type="reset">
                             <Scene
                                 key="tab1"
                                 title="Search"
@@ -56,7 +56,7 @@ export default class MyRouter extends Component {
                                 icon={TabIcon}
                                 {...sceneProps}
                             >
-                                <Scene key="search" component={Search} title="Search" type='reset' />
+                                <Scene key="search" component={Search} title="Search" />
                                 <Scene key="place1" component={Place} title="Place" />
                                 <Scene key="suggestions" component={Suggestions} title="Suggestions" />
                                 <Scene key="account1" component={Account} title="Account" hideTabBar />
