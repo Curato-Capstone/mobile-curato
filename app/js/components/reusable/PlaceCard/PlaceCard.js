@@ -151,7 +151,7 @@ const STYLES = {
         flexDirection: 'row',
         flex: 1,
         justifyContent: 'space-around',
-        marginTop: 20
+        marginTop: 10
     },
 
     ios: {
