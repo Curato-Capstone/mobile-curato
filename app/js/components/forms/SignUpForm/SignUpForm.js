@@ -34,7 +34,7 @@ class SignUpForm extends Component {
 
         return (
             <View style={{flex: 1, justifyContent: 'center', backgroundColor: primaryColor}}>
-                <Card style={{paddingBottom: 10, marginHorizontal: 15}}>
+                <Card style={[STYLES.shadow, {paddingBottom: 10, marginHorizontal: 15}]}>
                     <Card.Body>
                         <Text style={STYLES.header}>Sign up!</Text>
                         <Text style={{fontFamily: 'Montserrat-Regular'}}>
@@ -82,6 +82,13 @@ const STYLES = StyleSheet.create({
     },
     fieldContainer: {
         marginBottom: 20
+    },
+
+    shadow: {
+        shadowColor: 'black',
+        shadowOffset: { width: 2, height: 3 },
+        shadowOpacity: 0.25,
+        shadowRadius: 2,
     }
 });
 

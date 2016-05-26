@@ -33,7 +33,7 @@ class PreferencesIntro extends Component {
         const currPreference = preferencesInfo[value];
 
         const node = (
-            <Card style={{ height: 135 }}>
+            <Card style={[STYLES.shadow, { height: 135 }]}>
                 <Card.Body>
                     <Text
                         style={{
@@ -77,7 +77,7 @@ class PreferencesIntro extends Component {
 
         return (
             <View style={{flex: 1, justifyContent: 'center', backgroundColor: primaryColor}}>
-                <Card style={{paddingBottom: 10, marginHorizontal: 15}}>
+                <Card style={[STYLES.shadow, {paddingBottom: 10, marginHorizontal: 15}]}>
                     <Card.Body>
                         <Text style={STYLES.header}>Set your preferences!</Text>
                         <Text style={{fontFamily: 'Montserrat-Regular', textAlign: 'center'}}>
@@ -152,13 +152,22 @@ const STYLES = StyleSheet.create({
         marginBottom: 10,
         fontFamily: 'Montserrat-Regular'
     },
+
     prefs: {
         justifyContent: 'center',
         flex: 1,
         flexDirection: 'row',
         marginBottom: 15
+    },
+
+    shadow: {
+        shadowColor: 'black',
+        shadowOffset: { width: 2, height: 3 },
+        shadowOpacity: 0.25,
+        shadowRadius: 2,
     }
 });
+
 
 function mapStateToProps(state) {
     return {

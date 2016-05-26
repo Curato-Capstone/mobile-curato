@@ -26,7 +26,7 @@ class BaselineSuggestions extends Component {
 
         return (
             <View style={{flex: 1, justifyContent: 'center', backgroundColor: primaryColor}}>
-                <Card style={{paddingBottom: 10, marginHorizontal: 15}}>
+                <Card style={[STYLES.shadow, {paddingBottom: 10, marginHorizontal: 15}]}>
                     <Card.Body>
                         <Text style={STYLES.header}>Your Suggestions!</Text>
                         <Text style={{ fontFamily: 'Montserrat-Regular', textAlign: 'center', fontSize: 14 }}>
@@ -129,6 +129,13 @@ const STYLES = StyleSheet.create({
         flex: 1,
         flexDirection: 'row',
         marginBottom: 15
+    },
+
+    shadow: {
+        shadowColor: 'black',
+        shadowOffset: { width: 2, height: 3 },
+        shadowOpacity: 0.25,
+        shadowRadius: 2,
     }
 });
 
