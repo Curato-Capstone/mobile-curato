@@ -42,9 +42,19 @@ export default class PlaceCard extends Component {
     }
 
     renderActionButtons(place) {
-        const { favorite, handleFavorite, handleDislike } = this.props;
+        const { favorite, handleFavorite, handleDislike, hideDislike } = this.props;
 
         if (Platform.OS === 'ios') {
+            let dislikeButton = (
+                <TouchableOpacity
+                    style={{ justifyContent: 'center', margin: 15 }}
+                    onPress={() => {}}
+                >
+                    <Text style={[STYLES.ios.dislike]}>
+                        I don't like this
+                    </Text>
+              </TouchableOpacity>
+            );
             return (
                 <View style={STYLES.actions}>
                     <TouchableOpacity
@@ -56,6 +66,7 @@ export default class PlaceCard extends Component {
                             style={{ color: this.props.favorite ? 'red' : 'grey' }}
                         />
                     </TouchableOpacity>
+<<<<<<< HEAD
                     <TouchableOpacity
                         style={{ justifyContent: 'center', margin: 15 }}
                         onPress={() => handleDislike()}
@@ -64,6 +75,9 @@ export default class PlaceCard extends Component {
                             I don't like this
                         </Text>
                     </TouchableOpacity>
+=======
+                    {hideDislike ? null : dislikeButton}
+>>>>>>> 86b2f0d16240cc6ac7c677e1c3456c1f0efcdeae
                     <TouchableOpacity
                         style={STYLES.ios.more.container}
                         onPress={() => routerActions.place1({ id: place.id })}
@@ -76,8 +90,19 @@ export default class PlaceCard extends Component {
             );
         }
 
+        let dislikeButton = (
+            <Button
+                style={{
+                    textColor: '#ff0000',
+                    marginRight: 50
+                  }}
+                  label="I don't like this"
+                  onPress={() => {}}
+            />
+        );
+
         return (
-            <Card.Actions>
+            <View style={STYLES.actions}>
                 <TouchableOpacity
                     style={{
                         justifyContent: 'center',
@@ -90,6 +115,7 @@ export default class PlaceCard extends Component {
                         style={{ color: this.props.favorite ? 'red' : 'grey' }}
                     />
                 </TouchableOpacity>
+<<<<<<< HEAD
                 <Button
                     style={{
                         textColor: '#ff0000',
@@ -98,6 +124,9 @@ export default class PlaceCard extends Component {
                     label="I don't like this"
                     onPress={() => handleDislike()}
                 />
+=======
+                {hideDislike ? null : dislikeButton}
+>>>>>>> 86b2f0d16240cc6ac7c677e1c3456c1f0efcdeae
                 <Button
                     style={{
                         textColor: '#0000ff',
@@ -106,7 +135,7 @@ export default class PlaceCard extends Component {
                     label="...more"
                     onPress={() => routerActions.place1({ id: place.id })}
                 />
-            </Card.Actions>
+            </View>
         );
     }
 }
