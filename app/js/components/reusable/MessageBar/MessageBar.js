@@ -37,7 +37,7 @@ export default class MessageBar extends Component {
 const STYLES = StyleSheet.create({
     messageBar: {
         position: 'absolute',
-        top: 0,
+        top: 62,
         left: 0,
         right: 0,
         flex: 1,
