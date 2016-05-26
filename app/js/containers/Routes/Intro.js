@@ -17,7 +17,7 @@ export default class Intro extends Component {
     render() {
         return (
             <View style={{flex: 1, justifyContent: 'center', backgroundColor: primaryColor}}>
-                <Card style={{paddingBottom: 10, marginHorizontal: 10}}>
+                <Card style={STYLES.card}>
                     <View style={{ alignItems: 'center' }}>
                         <Image
                           style={STYLES.logo}
@@ -52,6 +52,14 @@ export default class Intro extends Component {
 }
 
 const STYLES = StyleSheet.create({
+    card: {
+        shadowColor: 'black',
+        shadowOffset: { width: 2, height: 3 },
+        shadowOpacity: 0.25,
+        shadowRadius: 2,
+        paddingBottom: 10, marginHorizontal: 10
+    },
+
     logo: {
         resizeMode: 'contain',
         height: 150,
@@ -66,6 +74,7 @@ const STYLES = StyleSheet.create({
     },
     text: {
         fontFamily: 'Montserrat-Regular',
-        marginBottom: 20
+        marginBottom: 20,
+        textAlign: 'center'
     }
 });

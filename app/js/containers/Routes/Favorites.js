@@ -28,20 +28,22 @@ class Favorites extends Component {
         return (
             <ScrollView
                 contentContainerStyle={
-                    [STYLES.container, {height: favorites.length * 335}]
+                    [STYLES.container, {height: favorites.length * 355}]
                 }
             >
                 <View>
                 {favorites.map((place, index) => {
                     return (
-                        <PlaceCard
-                            key={place.id || index}
-                            place={place}
-                            favorite
-                            hideDislike
-                            handleFavorite={() => {}}
-                            handleDislike={() => {}}
-                        />
+                        <View style={{ marginBottom: 20 }} key={place.id}>
+                            <PlaceCard
+                                key={place.id || index}
+                                place={place}
+                                favorite
+                                hideDislike
+                                handleFavorite={() => {}}
+                                handleDislike={() => {}}
+                            />
+                        </View>
                     );
                 })}
                 {this.renderEmptyState()}

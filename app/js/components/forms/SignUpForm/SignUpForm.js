@@ -43,7 +43,7 @@ class SignUpForm extends Component {
 
         return (
             <View style={{flex: 1, justifyContent: 'center', backgroundColor: primaryColor}}>
-                <Card style={{paddingBottom: 10, marginHorizontal: 15}}>
+                <Card style={[STYLES.shadow, {paddingBottom: 10, marginHorizontal: 15}]}>
                     <Card.Body>
                         <Text style={STYLES.header}>Sign up!</Text>
                         <Text style={{fontFamily: 'Montserrat-Regular'}}>
@@ -53,7 +53,7 @@ class SignUpForm extends Component {
                     </Card.Body>
 
                     <View style={STYLES.fieldContainer}>
-                        <Field name="email" type="email" component={renderField} placeholder="Email"/>
+                        <Field name="email" type="email" component={renderField} placeholder="Email" autoCapitalize="none"/>
                     </View>
                     <View style={STYLES.fieldContainer}>
                         <Field name="password" type="string" component={renderField} placeholder="Password"/>
@@ -91,6 +91,13 @@ const STYLES = StyleSheet.create({
     },
     fieldContainer: {
         marginBottom: 20
+    },
+
+    shadow: {
+        shadowColor: 'black',
+        shadowOffset: { width: 2, height: 3 },
+        shadowOpacity: 0.25,
+        shadowRadius: 2,
     }
 });
 

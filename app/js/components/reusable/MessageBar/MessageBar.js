@@ -19,7 +19,7 @@ export default class MessageBar extends Component {
 
         return (
             <View style={[STYLES.messageBar, this.getBarColor(type)]}>
-                <Text>{message}</Text>
+                <Text style={STYLES.text}>{message}</Text>
             </View>
         );
     }
@@ -43,5 +43,10 @@ const STYLES = StyleSheet.create({
         flex: 1,
         padding: 7,
         alignItems: 'center'
+    },
+
+    text: {
+        color: 'white',
+        fontFamily: 'Montserrat-Regular'
     }
 });

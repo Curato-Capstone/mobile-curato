@@ -33,6 +33,7 @@ class Account extends Component {
                         routerActions.intro();
                     }}
                     raised
+                    style={{ marginTop: 15 }}
                 />
             </View>
         );
