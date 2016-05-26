@@ -63,7 +63,7 @@ export default function reducer(state: State = initialState, action: Action): St
 }
 
 
-// Thunks
+// Reducers
 // -----------------------------------
 const baseURL = 'http://ec2-54-186-80-121.us-west-2.compute.amazonaws.com:8000';
 import { SubmissionError } from 'redux-form';
@@ -111,11 +111,21 @@ export function signInUser() {
             localStorage.setItem('accessToken', res.header.authorization);
             dispatch(setToken(token));
 
+            // get favorites place data
+            res.body.favorites.forEach((id) => dispatch(userActions.getFavorite(id)));
+
             dispatch(userActions.setUser(res.body));
             dispatch(setIsAuthenticated(true));
         } catch (error) {
             dispatch(globalActions.setMessage('error', 'Sign In Failed!'));
             return SubmissionError({ _error: 'You dun goofed' });
         }
+    };
+}
+
+export function signOutUser() {
+    return async (dispatch: () => void, getState: () => Object) => {
+        localStorage.removeItem('accessToken');
+        // dispatch(userActions.setUser());
     };
 }

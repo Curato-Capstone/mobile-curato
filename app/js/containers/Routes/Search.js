@@ -23,7 +23,11 @@ class Search extends Component {
                 <SearchBar
                     value={searchText}
                     handleChange={actions.changeSearchText}
-                    handleSubmit={() => routerActions.place1()}
+                    handleSubmit={() => {
+                        actions.getSuggestionsNoAccount()
+                            .then(() => routerActions.suggestions())
+                        }
+                    }
                 />
             </View>
         );
