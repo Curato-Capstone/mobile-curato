@@ -80,7 +80,7 @@ export default class PlaceCard extends Component {
                     style={{
                         justifyContent: 'center',
                         flex: 1,
-                        marginHorizontal: 50
+                        marginHorizontal: 35
                     }}
                     onPress={() => {}}
                 >

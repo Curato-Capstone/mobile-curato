@@ -3,7 +3,8 @@ import {
     StyleSheet,
     Text,
     View,
-    ScrollView
+    ScrollView,
+    Platform
 } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -62,7 +63,13 @@ class Preferences extends Component {
                         <Button
                             label="Update Preferences"
                             handlePress={() => { console.log('updating prefs yo'); }}
-                            style={STYLES.button}
+                            style={Platform.OS === 'ios' ? STYLES.button :
+                                {
+                                    backgroundColor: primaryColor,
+                                    textColor: '#ffffff'
+                                }
+                              }
+                            raised
                         />
                     </View>
 
