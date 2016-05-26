@@ -21,15 +21,15 @@ class Place extends Component {
     props: {
         actions: Object,
         suggestions: Array<Object>,
-        favorites: Array<Object>
+        favorites: Array<Object>,
+        id: String
     };
 
     state = { place: null, scrollPosition: 0 };
     state : { place: Object, scrollPosition: number };
 
     componentWillMount() {
-        const { actions, suggestions } = this.props;
-        const id = '4bbfac50f8219c742968b010';
+        const { actions, suggestions, id } = this.props;
 
         actions.setLoading(true);
         for (let i = 0; i < suggestions.length; i++) {
@@ -226,8 +226,8 @@ class Place extends Component {
 
 const STYLES = {
     container: {
-        marginLeft: 5,
-        marginRight: 5,
+        marginLeft: 10,
+        marginRight: 10,
         // flex: 1,
         marginTop: 175,
         height: 1000
@@ -277,7 +277,7 @@ const STYLES = {
 
     hour: (isToday) => ({
         fontFamily: isToday ? 'Montserrat-Bold' : 'Montserrat-Light',
-        width: 90
+        width: 95
     }),
 
     hourText: (text) => ({
@@ -286,12 +286,10 @@ const STYLES = {
     }),
 
     map: {
-        flex: 1,
+        height: 350,
         marginRight: 10,
         marginTop: 10,
         marginBottom: 100,
-
-        // width: 100,
     },
 
     viewMap: {
