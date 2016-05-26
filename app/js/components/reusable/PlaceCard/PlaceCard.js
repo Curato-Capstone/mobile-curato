@@ -139,12 +139,13 @@ const STYLES = {
     placeName: {
         fontFamily: 'Montserrat-Light',
         color: 'grey',
-        fontSize: 20
+        fontSize: 22
     },
 
     address: {
         color: primaryColor,
-        fontFamily: 'Montserrat-Light'
+        fontFamily: 'Montserrat-Light',
+        fontSize: 16
     },
 
     actions: {
