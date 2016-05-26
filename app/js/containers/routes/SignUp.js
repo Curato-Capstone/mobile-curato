@@ -1,56 +1,41 @@
 import React, { Component } from 'react';
-import {
-  StyleSheet,
-  Text,
-  TextInput
-} from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { Actions as routerActions } from 'react-native-router-flux';
 
-import { Card } from 'react-native-material-design';
-import Button from '../../components/reusable/Button/Button';
-import { primaryColor } from '../../utils/colors.js';
+import SignUpForm from '../../components/forms/SignUpForm/SignUpForm.js';
+import { auth as authActions } from '../../modules/index';
+
 
 export default class SignUp extends Component {
-    state = {
-
-    };
+    static defaultProps = {};
+    props: { actions: Object };
+    state : void;
 
     render() {
         return (
-            <Card>
-                <Card.Body>
-                    <Text style={STYLES.header}>Sign up!</Text>
-                    <Text>
-                        Now, create your account and start getting more
-                        curated suggestions today!
-                    </Text>
-                </Card.Body>
-
-                <TextInput placeholder="Email" />
-                <TextInput placeholder="Password" secureTextEntry />
-                <TextInput placeholder="Name" />
-                <TextInput placeholder="Age" />
-
-                <Button
-                    raised
-                    overrides={{
-                        backgroundColor: primaryColor,
-                        textColor: '#ffffff'
-                    }}
-                    text="SUBMIT"
-                />
-            </Card>
+            <SignUpForm onSubmit={() => this.signUpUser()} />
         );
     }
+
+    signUpUser() {
+        const { actions } = this.props;
+
+        actions.signUpUser()
+            .then(() => {
+                routerActions.search()
+            });
+    };
 }
 
-const STYLES = StyleSheet.create({
-    header: {
-        color: primaryColor,
-        textAlign: 'center',
-        fontSize: 40,
-        fontWeight: 'bold',
-        marginBottom: 10
-    }
-});
+function mapStateToProps() {
+    return {};
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        actions : bindActionCreators({ ...authActions }, dispatch)
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp);

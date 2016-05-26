@@ -1,67 +1,41 @@
 import React, { Component } from 'react';
-import {
-  StyleSheet,
-  Text,
-  TextInput,
-  View
-} from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { Actions as routerActions } from 'react-native-router-flux';
 
-import { Card } from 'react-native-material-design';
-import Button from '../../components/reusable/Button/Button';
-import { primaryColor } from '../../utils/colors.js';
+import SignInForm from '../../components/forms/SignInForm/SignInForm.js';
+import { auth as authActions } from '../../modules/index';
+
 
 export default class SignIn extends Component {
     static defaultProps = {};
-    props: {};
+    props: { actions: Object };
     state : void;
 
     render() {
         return (
-            <Card>
-                <Card.Body>
-                    <Text style={STYLES.header}>
-                        Sign in to get your curated suggestions!
-                    </Text>
-                </Card.Body>
-
-                <TextInput placeholder="Email" />
-                <TextInput placeholder="Password" secureTextEntry />
-
-                <Button
-                    raised
-                    overrides={{
-                        backgroundColor: primaryColor,
-                        textColor: '#ffffff'
-                    }}
-                    text="SUBMIT"
-                />
-            </Card>
+            <SignInForm onSubmit={() => this.signInUser()} />
         );
     }
+
+    signInUser() {
+        const { actions } = this.props;
+
+        actions.signInUser()
+            .then(() => {
+                routerActions.search()
+            });
+    };
 }
 
-const STYLES = StyleSheet.create({
-    header: {
-        color: primaryColor,
-        textAlign: 'center',
-        fontSize: 40,
-        fontWeight: 'bold',
-        marginBottom: 10
-    }
-});
+function mapStateToProps() {
+    return {};
+}
 
-// function mapStateToProps(state, ownProps) {
-//     return {
-//         // user: state.get('user'),
-//     };
-// }
-//
-// function mapDispatchToProps(dispatch) {
-//     return {
-//         // actions : bindActionCreators({ ...userActions, ...suggestionsActions }, dispatch),
-//     };
-// }
-//
-// export default connect(mapStateToProps, mapDispatchToProps)(SignIn);
+function mapDispatchToProps(dispatch) {
+    return {
+        actions : bindActionCreators({ ...authActions }, dispatch)
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn);

@@ -5,8 +5,11 @@ import {
     TextInput,
     TouchableOpacity,
     View,
+    TouchableWithoutFeedback
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+
+import dismissKeyboard from 'dismissKeyboard';
 
 import autoCompleteTrie from '../../utils/trie';
 import { primaryColor } from '../../utils/colors';
@@ -40,32 +43,35 @@ export default class SearchBar extends Component {
         }
 
         return (
-            <View style={STYLES.container}>
-                {this.renderOverlay()}
-                <View style={STYLES.searchBarContainer}>
-                    <View style={STYLES.searchBarWrapper}>
-                        <TextInput
-                            ref="search"
-                            style={STYLES.searchBar}
-                            value={value}
-                            autoFocus
-                            onChangeText={(v) => handleChange(v)}
-                            onFocus={() => this.setState({ focused: true })}
-                            onBlur={() => this.setState({ focused: false })}
-                            placeholder="Search for something to do!"
-                        />
+            <TouchableWithoutFeedback
+                onPress={() => dismissKeyboard()}
+            >
+                <View style={STYLES.container}>
+                    {this.renderOverlay()}
+                    <View style={STYLES.searchBarContainer}>
+                        <View style={STYLES.searchBarWrapper}>
+                            <TextInput
+                                ref="search"
+                                style={STYLES.searchBar}
+                                value={value}
+                                onChangeText={(v) => handleChange(v)}
+                                onFocus={() => this.setState({ focused: true })}
+                                onBlur={() => this.setState({ focused: false })}
+                                placeholder="Search for something to do!"
+                            />
+                        </View>
+                        <TouchableOpacity style={STYLES.iconContainer} onPress={handleSubmit}>
+                            <Icon style={STYLES.icon} name="search" />
+                        </TouchableOpacity>
                     </View>
-                    <TouchableOpacity style={STYLES.iconContainer} onPress={handleSubmit}>
-                        <Icon style={STYLES.icon} name="search" />
-                    </TouchableOpacity>
+                    <AutoComplete
+                        searchTerm={value.toLowerCase()}
+                        show={this.state.focused}
+                        handleResultTap={(v) => handleChange(v)}
+                        results={results}
+                    />
                 </View>
-                <AutoComplete
-                    searchTerm={value.toLowerCase()}
-                    show={this.state.focused}
-                    handleResultTap={(v) => handleChange(v)}
-                    results={results}
-                />
-            </View>
+            </TouchableWithoutFeedback>
         );
     }
 
@@ -79,7 +85,8 @@ export default class SearchBar extends Component {
 const STYLES = StyleSheet.create({
     container: {
         flex: 1,
-        marginTop: 70
+        marginTop: 60,
+        paddingTop: 10
 
     },
 

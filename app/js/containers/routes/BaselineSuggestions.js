@@ -6,6 +6,8 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { user as userActions, suggestions as suggestionsActions } from '../../modules/index';
+import { Actions as routerActions } from 'react-native-router-flux';
 
 import { Card } from 'react-native-material-design';
 import Button from '../../components/reusable/Button/Button';
@@ -13,107 +15,85 @@ import { primaryColor } from '../../utils/colors.js';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import PlaceCard from '../../components/reusable/PlaceCard/PlaceCard';
 
-
-const place1 = {
-    name: 'EMP',
-    location: { address: '1234 Street Ave., Seattle, WA' },
-    image: require('../../../images/places/pike_place_market.jpg'),
-    id: '123',
-    categories: [{ name: 'Art Museum' }, { name: 'History Museum' }]
-};
-
-const place2 = {
-    name: 'Space Needle',
-    location: { address: '1234 Street Ave., Seattle, WA' },
-    image: require('../../../images/places/noodle.jpg'),
-    id: '124',
-    categories: [{ name: 'Landmark' }],
-};
-
-const place3 = {
-    name: 'Pike Place Market',
-    location: { address: '1234 Street Ave., Seattle, WA' },
-    image: require('../../../images/places/pike_place_market.jpg'),
-    id: '125',
-    categories: [{ name: 'Shop' }],
-};
-
-const allPlaces = [place1, place2, place3];
-
-export default class BaselineSuggestions extends Component {
+class BaselineSuggestions extends Component {
     state = {
         suggIndex: 0
     };
 
     render() {
         const { suggIndex } = this.state;
+        const { actions, suggestions } = this.props;
 
         return (
-            <Card>
-                <Card.Body>
-                    <Text style={STYLES.header}>Your Suggestions!</Text>
-                    <Text>
-                        These are the suggestions we came up with! If you like
-                        it, tap on the heart to add it to your favorites. If
-                        you don't, tap on "I don't like this", and you won't
-                        see it suggested again. We use this information to
-                        help give you even better suggestions in the future!
-                    </Text>
-                </Card.Body>
-                <PlaceCard place={allPlaces[suggIndex]} />
-                <View
-                    style={{
-                        justifyContent: 'center',
-                        flex: 1,
-                        flexDirection: 'row'
-                    }}
-                >
-                    <Icon.Button
-                        onPress={() => {
-                            if (suggIndex !== 0) {
-                                this.setState({
-                                    suggIndex: suggIndex - 1,
-                                });
-                            }
+            <View style={{flex: 1, justifyContent: 'center', backgroundColor: primaryColor}}>
+                <Card style={{paddingBottom: 10, marginHorizontal: 15}}>
+                    <Card.Body>
+                        <Text style={STYLES.header}>Your Suggestions!</Text>
+                        <Text style={{ fontFamily: 'Montserrat-Regular' }}>
+                            These are the suggestions we came up with! If you like
+                            it, tap on the heart to add it to your favorites. If
+                            you don't, tap on "I don't like this", and you won't
+                            see it suggested again. We use this information to
+                            help give you even better suggestions in the future!
+                        </Text>
+                    </Card.Body>
+                    {suggestions.length != 0 ? <PlaceCard place={suggestions[suggIndex]} /> : null}
+                    <View
+                        style={{
+                            justifyContent: 'center',
+                            flex: 1,
+                            flexDirection: 'row'
                         }}
-                        name="arrow-left"
-                        size={40}
-                        color={suggIndex === 0 ? 'gray' : primaryColor}
-                        backgroundColor="white"
-                    />
-                    <Text
-                      style={{
-                          marginTop: 15,
-                          fontSize: 20,
-                          marginRight: 10
-                      }}
                     >
-                      {(suggIndex + 1) + '/' + allPlaces.length}
-                    </Text>
-                    <Icon.Button
-                        onPress={() => {
-                            if (suggIndex < allPlaces.length - 1) {
-                                this.setState({
-                                    suggIndex: suggIndex + 1,
-                                });
-                            }
-                        }}
-                        name="arrow-right"
-                        size={40}
-                        color={suggIndex === allPlaces.length - 1 ? 'gray' : primaryColor}
-                        backgroundColor="white"
-                    />
-                </View>
+                        <Icon.Button
+                            onPress={() => {
+                                if (suggIndex !== 0) {
+                                    this.setState({
+                                        suggIndex: suggIndex - 1,
+                                    });
+                                }
+                            }}
+                            name="arrow-left"
+                            size={40}
+                            color={suggIndex === 0 ? 'gray' : primaryColor}
+                            backgroundColor="white"
+                        />
+                        <Text
+                          style={{
+                              marginTop: 15,
+                              fontSize: 20,
+                              marginRight: 10,
+                              fontFamily: 'Montserrat-Regular'
+                          }}
+                        >
+                          {(suggIndex + 1) + '/' + suggestions.length}
+                        </Text>
+                        <Icon.Button
+                            onPress={() => {
+                                if (suggIndex < suggestions.length - 1) {
+                                    this.setState({
+                                        suggIndex: suggIndex + 1,
+                                    });
+                                }
+                            }}
+                            name="arrow-right"
+                            size={40}
+                            color={suggIndex === suggestions.length - 1 ? 'gray' : primaryColor}
+                            backgroundColor="white"
+                        />
+                    </View>
 
-                <Button
-                    raised
-                    overrides={{
-                        backgroundColor: primaryColor,
-                        textColor: '#ffffff'
-                    }}
-                    text="ONE LAST STEP!"
-                />
-            </Card>
+                    <Button
+                        raised
+                        style={{
+                            backgroundColor: primaryColor,
+                            textColor: '#ffffff'
+                        }}
+                        label="ONE LAST STEP!"
+                        handlePress={() => routerActions.signup()}
+                    />
+                </Card>
+            </View>
         );
     }
 }
@@ -124,6 +104,24 @@ const STYLES = StyleSheet.create({
         textAlign: 'center',
         fontSize: 40,
         fontWeight: 'bold',
-        marginBottom: 10
+        marginBottom: 10,
+        fontFamily: 'Montserrat-Regular'
     }
 });
+
+
+function mapStateToProps(state) {
+    const places =  state.get('places').toJS();
+
+    return {
+        favorites: state.getIn(['user', 'favorites']).toJS(),
+        suggestions: state.getIn(['suggestions', 'suggestions']).toJS().map((id) => places[id]),
+    };
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        actions : bindActionCreators({ ...userActions, ...suggestionsActions }, dispatch),
+    };
+}
+export default connect(mapStateToProps, mapDispatchToProps)(BaselineSuggestions);

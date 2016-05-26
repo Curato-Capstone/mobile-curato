@@ -1,20 +1,22 @@
 // @flow
 import React, { Component } from 'react';
 import {
-    StyleSheet,
-    Slider
+    StyleSheet
 } from 'react-native';
+import { primaryColor } from '../../../utils/colors';
+import Slider from 'react-native-slider';
 
-export default class SliderIOS extends Component {
+export default class MySlider extends Component {
     static defaultProps = {};
     props: {
         value: number,
-        handleChange: () => void
+        handleChange: () => void,
+        style: Object
     };
     state: void;
 
     render() {
-        const { value, handleChange } = this.props;
+        const { value, handleChange, ...other } = this.props;
 
         return (
             <Slider
@@ -23,11 +25,10 @@ export default class SliderIOS extends Component {
                 maximumValue={5}
                 value={value}
                 onSlidingComplete={handleChange}
+                style={this.props.style}
+                maximumTrackTintColor="#d3d3d3"
+                {...other}
             />
         );
     }
 }
-
-const STYLES = StyleSheet.create({
-
-});

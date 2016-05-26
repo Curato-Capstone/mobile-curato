@@ -50,6 +50,7 @@ const STYLES = StyleSheet.create({
         marginRight: 50,
         backgroundColor: primaryColor,
         borderColor: 'rgba(0, 0, 0, 0)',
+        paddingHorizontal: 5
     },
 
     disabled: {
