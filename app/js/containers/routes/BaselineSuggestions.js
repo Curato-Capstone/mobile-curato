@@ -29,11 +29,10 @@ class BaselineSuggestions extends Component {
                 <Card style={{paddingBottom: 10, marginHorizontal: 15}}>
                     <Card.Body>
                         <Text style={STYLES.header}>Your Suggestions!</Text>
-                        <Text style={{ fontFamily: 'Montserrat-Regular' }}>
+                        <Text style={{ fontFamily: 'Montserrat-Regular', textAlign: 'center', fontSize: 14 }}>
                             These are the suggestions we came up with! If you like
-                            it, tap on the heart to add it to your favorites. If
-                            you don't, tap on "I don't like this", and you won't
-                            see it suggested again. We use this information to
+                            it, tap on the heart to add it to your favorites.
+                            We use this information to
                             help give you even better suggestions in the future!
                         </Text>
                     </Card.Body>
