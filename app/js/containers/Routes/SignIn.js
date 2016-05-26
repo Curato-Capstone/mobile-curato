@@ -7,15 +7,16 @@ import SignInForm from '../../components/forms/SignInForm/SignInForm.js';
 import { auth as authActions } from '../../modules/index';
 import AccountForm from '../../components/forms/AccountForm/AccountForm';
 
-
 export default class SignIn extends Component {
     static defaultProps = {};
     props: { actions: Object };
     state : void;
 
     render() {
+        const { actions } = this.props;
+
         return (
-            <SignInForm onSubmit={() => this.signInUser()} />
+            <SignInForm onSubmit={() => actions.signInUser()} />
         );
     }
 

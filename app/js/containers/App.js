@@ -57,7 +57,6 @@ class App extends Component {
         const { global } = this.props;
         const { errorMessage, successMessage } = global.toJS();
 
-
         if (errorMessage) {
             return <MessageBar type="error" message={errorMessage} />;
         } else if (successMessage) {
