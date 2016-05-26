@@ -85,10 +85,6 @@ class BaselineSuggestions extends Component {
 
                     <Button
                         raised
-                        style={{
-                            backgroundColor: primaryColor,
-                            textColor: '#ffffff'
-                        }}
                         label="ONE LAST STEP!"
                         handlePress={() => routerActions.signup()}
                     />

@@ -33,10 +33,6 @@ export default class Intro extends Component {
                         <View style={STYLES.buttonContainer}>
                         <Button
                             raised
-                            style={{
-                                backgroundColor: primaryColor,
-                                textColor: '#ffffff'
-                            }}
                             label="Sign up!"
                             handlePress={() => routerActions.prefIntro()}
                         />
@@ -44,10 +40,6 @@ export default class Intro extends Component {
                         <View style={STYLES.buttonContainer}>
                             <Button
                                 raised
-                                style={{
-                                    backgroundColor: primaryColor,
-                                    textColor: '#ffffff'
-                                }}
                                 label="Already have an account?"
                                 handlePress={() => routerActions.signin()}
                             />

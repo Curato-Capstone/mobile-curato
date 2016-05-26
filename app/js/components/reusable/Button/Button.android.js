@@ -20,7 +20,10 @@ export default class Button extends Component {
         let { style, label, handlePress, disabled, ...other} = this.props;
         return (
             <AndroidButton
-                overrides={style}
+                overrides={{
+                    backgroundColor: primaryColor,
+                    textColor: '#ffffff'
+                }}
                 text={label}
                 onPress={handlePress}
                 disabled={disabled}
