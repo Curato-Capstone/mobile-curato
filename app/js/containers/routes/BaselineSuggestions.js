@@ -36,9 +36,17 @@ class BaselineSuggestions extends Component {
                             help give you even better suggestions in the future!
                         </Text>
                     </Card.Body>
-                    {suggestions.length != 0 ? <PlaceCard place={suggestions[suggIndex]} /> : null}
-                    <View style={STYLES.suggestions}>
-                        <Icon.Button
+
+                    {suggestions.length != 0 ?
+                        <PlaceCard
+                            place={suggestions[suggIndex]}
+                            hideDislike
+                            favorite={this.checkFavorited(suggestions[suggIndex])}
+                            handleFavorite={() => this.handleFavorite(suggestions[suggIndex])}
+                        /> :
+                         null}
+                         <View style={STYLES.suggestions}>
+                         <Icon.Button
                             onPress={() => {
                                 if (suggIndex !== 0) {
                                     this.setState({
@@ -84,6 +92,26 @@ class BaselineSuggestions extends Component {
                 </Card>
             </View>
         );
+    }
+
+    checkFavorited(place) {
+        const { favorites } = this.props;
+
+        for (let i = 0; i < favorites.length; i ++) {
+            if (favorites[i] === place.id) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    handleFavorite(place) {
+        if (this.checkFavorited(place)) {
+            this.props.actions.removeFavoriteIntro(place.id);
+        } else {
+            this.props.actions.addFavorite(place.id);
+        }
     }
 }
 
