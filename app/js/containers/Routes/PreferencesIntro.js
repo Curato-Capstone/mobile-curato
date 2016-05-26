@@ -52,7 +52,7 @@ class PreferencesIntro extends Component {
                         onValueChange={
                           (v) => {
                               actions.changePreference(
-                                  currPreference.name.toLowerCase(), Math.round(v)
+                                  currPreference.name.toLowerCase(), v
                               );
                           }
                         }
