@@ -5,12 +5,12 @@ import {
     Text,
     View,
 } from 'react-native';
-import { Scene, Router, Modal } from 'react-native-router-flux';
+import { Scene, Router, Modal, Actions as RouterActions } from 'react-native-router-flux';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { primaryColor } from '../utils/colors';
 
+import Account from './Routes/Account';
 import Intro from './Routes/Intro';
-// import Account from './Routes/Account';
 import Search from './Routes/Search';
 import Favorites from './Routes/Favorites';
 import Preferences from './Routes/Preferences';
@@ -48,46 +48,49 @@ export default class MyRouter extends Component {
             <Router>
                 <Scene key="modal" component={Modal}>
                     <Scene key="root" hideNavBar>
-                        <Scene key="intro" component={Intro} />
-                        <Scene key="signin" component={SignIn} />
-                        <Scene key="prefIntro" component={PreferencesIntro} />
-                        <Scene key="baselineSugg" component={BaselineSuggestions} />
-                        <Scene key="signup" component={SignUp} />
                         <Scene key="tabbar" tabs tabBarStyle={STYLES.tabBar} hideNavBar>
                             <Scene
                                 key="tab1"
                                 title="Search"
-                                onRight={() => {}}
+                                onRight={() => RouterActions.account1()}
                                 icon={TabIcon}
                                 {...sceneProps}
                             >
                                 <Scene initial key="search" component={Search} title="Search" />
                                 <Scene key="place1" component={Place} title="Place" />
                                 <Scene key="suggestions" component={Suggestions} title="Suggestions" />
+                                <Scene key="account1" component={Account} title="Account" hideTabBar />
                             </Scene>
 
                             <Scene
                                 key="tab2"
                                 title="Favorites"
                                 icon={TabIcon}
-                                onRight={() => {}}
+                                onRight={() => RouterActions.account2()}
                                 {...sceneProps}
                             >
                                 <Scene key="favorites" component={Favorites} title="Favorites" />
                                 <Scene key="place2" component={Search} title="Search" />
+                                <Scene key="account2" component={Account} title="Account" hideTabBar />
                             </Scene>
 
                             <Scene
                                 key="tab3"
                                 title="Preferences"
                                 icon={TabIcon}
-                                onRight={() => {}}
+                                onRight={() => RouterActions.account3()}
                                 {...sceneProps}
                             >
                                 <Scene key="preferences" component={Preferences} title="Preferences" />
                                 <Scene key="place3" component={Search} title="Search" />
+                                <Scene key="account3" component={Account} title="Account" hideTabBar />
                             </Scene>
                         </Scene>
+                        <Scene key="intro" component={Intro} />
+                        <Scene key="signin" component={SignIn} />
+                        <Scene key="prefIntro" component={PreferencesIntro} />
+                        <Scene key="baselineSugg" component={BaselineSuggestions} />
+                        <Scene key="signup" component={SignUp} />
                         <Scene key="fullmap" component={FullMap} title="Map" />
                     </Scene>
                 </Scene>
@@ -121,6 +124,7 @@ class TabIcon extends React.Component {
         );
     }
 }
+
 
 const STYLES = StyleSheet.create({
     tabBar: {
