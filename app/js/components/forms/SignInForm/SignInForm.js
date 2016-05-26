@@ -41,10 +41,18 @@ class SignInForm extends Component {
                     </Card.Body>
 
                     <View style={STYLES.fieldContainer}>
-                        <Field name="email" type="email" component={renderField} placeholder="Email"/>
+                        <Field name="email"
+                               type="email"
+                               component={renderField}
+                               placeholder="Email"
+                               keyboard="email-address"
+                               autoCapitalize="none"/>
                     </View>
                     <View style={STYLES.fieldContainer}>
-                        <Field name="password" type="string" component={renderField} placeholder="Password"/>
+                        <Field name="password"
+                               type="string"
+                               component={renderField}
+                               placeholder="Password"/>
                     </View>
 
                     <Button
