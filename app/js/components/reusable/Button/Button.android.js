@@ -24,10 +24,6 @@ export default class Button extends Component {
                 text={label}
                 onPress={handlePress}
                 disabled={disabled}
-                overrides={{
-                    textColor: 'white',
-                    backgroundColor: primaryColor
-                }}
                 {...other}
             />
           );
