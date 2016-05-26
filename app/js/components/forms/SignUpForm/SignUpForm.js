@@ -15,7 +15,7 @@ import TextInput from '../../reusable/Input/TextField';
 import validate from './validate';
 
 const renderField = (props) => {
-    const allGood = props.visited && props.error;
+    const allGood = props.touched && props.error;
 
     return (
         <View>
