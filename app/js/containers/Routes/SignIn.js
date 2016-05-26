@@ -23,7 +23,7 @@ export default class SignIn extends Component {
 
         actions.signInUser()
             .then(() => {
-                routerActions.signin()
+                routerActions.search()
             });
     };
 }

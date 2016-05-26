@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {
   StyleSheet,
   Text,
-  TextInput,
   View
 } from 'react-native';
 import { connect } from 'react-redux';
@@ -12,6 +11,7 @@ import { Card } from 'react-native-material-design';
 import Button from '../../reusable/Button/Button';
 import { primaryColor } from '../../../utils/colors.js';
 import { Field, reduxForm } from 'redux-form/immutable';
+import TextInput from '../../reusable/Input/TextField';
 import validate from './validate';
 
 const renderField = props => (
@@ -49,11 +49,11 @@ class SignUpForm extends Component {
 
                     <Button
                         raised
+                        label="SUBMIT"
                         style={{
                             backgroundColor: primaryColor,
                             textColor: '#ffffff'
                         }}
-                        label="SUBMIT"
                         handlePress={onSubmit}
                     />
                 </Card>

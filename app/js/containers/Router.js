@@ -47,7 +47,7 @@ export default class MyRouter extends Component {
         return (
             <Router>
                 <Scene key="modal" component={Modal}>
-                    <Scene key="root">
+                    <Scene key="root" hideNavBar>
                         <Scene key="intro" component={Intro} />
                         <Scene key="signin" component={SignIn} />
                         <Scene key="prefIntro" component={PreferencesIntro} />

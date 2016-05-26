@@ -11,13 +11,14 @@ import { Card } from 'react-native-material-design';
 import Button from '../../reusable/Button/Button';
 import { primaryColor } from '../../../utils/colors.js';
 import { Field, reduxForm } from 'redux-form/immutable';
-import TextInput from '../../reusable/Input/TextField'
+import TextInput from '../../reusable/Input/TextField';
 import validate from './validate';
 
 const renderField = props => (
     <TextInput
         placeholder={props.placeholder}
         secureTextEntry={props.name === 'password'}
+        style={{fontFamily: 'Montserrat-Regular'}}
         {...props}
     />
 );
@@ -44,7 +45,11 @@ class SignInForm extends Component {
 
                     <Button
                         raised
-                        text="SUBMIT"
+                        label="SUBMIT"
+                        style={{
+                            backgroundColor: primaryColor,
+                            textColor: '#ffffff'
+                        }}
                         handlePress={onSubmit}
                     />
                 </Card>

@@ -19,7 +19,9 @@ export default class SignUp extends Component {
     }
 
     signUpUser() {
-        this.props.actions.signUpUser()
+        const { actions } = this.props;
+
+        actions.signUpUser()
             .then(() => {
                 routerActions.search()
             });
