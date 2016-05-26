@@ -25,32 +25,12 @@ class AccountForm extends Component {
     render() {
         const { handleSubmit, submitting } = this.props;
 
-        const renderEmailField = () => (
+        const renderField = props => (
             <View>
                 <Input
-                    placeholder="email"
-                    handleChange={(value) => console.log(value)}
-                    autoCapitalize="none"
-                    keyboardType="email-address"
-                />
-            </View>
-        );
-
-        const renderNameField = () => (
-            <View>
-                <Input
-                    placeholder="name"
-                    handleChange={(value) => console.log(value)}
-                />
-            </View>
-        );
-
-        const renderAgeField = () => (
-            <View>
-                <Input
-                    placeholder="age"
-                    handleChange={(value) => console.log(value)}
-                    keyboardType="numeric"
+                    placeholder={props.placeholder}
+                    keyboardType={props.keyboardType}
+                    autoCapitalize={props.autoCapitalize}
                 />
             </View>
         );
@@ -59,15 +39,27 @@ class AccountForm extends Component {
             <View style={STYLES.container} onSubmit={handleSubmit}>
                 <Text style={STYLES.header}>Update your account information</Text>
                 <View style={STYLES.fieldContainer}>
-                    <Field name="email" component={renderEmailField} />
+                    <Field
+                        name="email"
+                        component={renderField}
+                        placeholder="email"
+                        keyboard="email-address"
+                        autoCapitalize="none" />
                 </View>
 
                 <View style={STYLES.fieldContainer}>
-                    <Field name="name" component={renderNameField} />
+                    <Field
+                        name="name"
+                        component={renderField}
+                        placeholder="name" />
                 </View>
 
                 <View style={STYLES.fieldContainer}>
-                    <Field name="age" component={renderAgeField} />
+                    <Field
+                        name="age"
+                        component={renderField}
+                        placeholder="age"
+                        keyboardType="numeric" />
                 </View>
 
                 <Button
