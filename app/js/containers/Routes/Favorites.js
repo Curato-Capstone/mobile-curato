@@ -2,42 +2,106 @@ import React, { Component } from 'react';
 import {
     StyleSheet,
     Text,
+    ScrollView,
     View
 } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+import { user as userActions, suggestions as suggestionsActions } from '../../modules/index';
+import PlaceRecord from '../../models/place';
+
+import { primaryColor } from '../../utils/colors';
+
+import PlaceCard from '../../components/reusable/PlaceCard/PlaceCard';
+
 class Favorites extends Component {
     static defaultProps = {};
-    props: {};
-    state : void;
+    props:{
+        favorites: Array<Place>
+    };
+    state: void;
 
     render() {
-        const { } = this.props;
+        const { favorites } = this.props;
 
         return (
-            <View style={STYLES.container}>
-                <Text>This is the favorites page yo</Text>
-            </View>
+            <ScrollView
+                contentContainerStyle={
+                    [STYLES.container, {height: favorites.length * 335}]
+                }
+            >
+                <View>
+                {favorites.map((place, index) => {
+                    return (
+                        <PlaceCard
+                            key={place.id || index}
+                            place={place}
+                            favorite
+                            hideDislike
+                            handleFavorite={() => {}}
+                            handleDislike={() => {}}
+                        />
+                    );
+                })}
+                {this.renderEmptyState()}
+                </View>
+            </ScrollView>
         );
+    }
+
+    renderEmptyState(): React.Element | void {
+        const { favorites } = this.props;
+
+        if (!favorites.length) {
+            return (
+                <View
+                    style={{
+                        justifyContent: 'center',
+                        alignItems: 'center'
+                    }}
+                >
+                    <Text>
+                        You don't have any favorites! Get some
+                        suggestions
+                        to add some!
+                    </Text>
+                </View>
+            );
+        }
     }
 }
 
 const STYLES = StyleSheet.create({
     container: {
         marginTop: 70
+    },
+
+    suggestion: {
+        marginBottom: 20
     }
 });
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
+    const places =  state.get('places').toJS();
+
     return {
-        // user: state.get('user'),
+        favorites: state.get('user').toJS().favorites.map((id) => {
+            if (places[id]) {
+                return places[id];
+            }
+
+            return new PlaceRecord();
+        })
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        // actions : bindActionCreators({ ...userActions, ...suggestionsActions }, dispatch),
+        actions : bindActionCreators({
+            ...userActions,
+            ...suggestionsActions,
+        }, dispatch)
     };
 }
 

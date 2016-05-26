@@ -95,6 +95,10 @@ export default class PlaceCard extends Component {
                     onPress={() => {}}
                 />
                 <Button
+                    style={{
+                        textColor: '#0000ff',
+                        marginRight: 50
+                    }}
                     label="...more"
                     onPress={() => routerActions.place1({ id: place.id })}
                 />
