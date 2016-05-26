@@ -64,12 +64,7 @@ class Preferences extends Component {
                         <Button
                             label="Update Preferences"
                             handlePress={() => actions.updatePreferences()}
-                            style={Platform.OS === 'ios' ? STYLES.button :
-                                {
-                                    backgroundColor: primaryColor,
-                                    textColor: '#ffffff'
-                                }
-                              }
+                            style={Platform.OS === 'ios' ? STYLES.button : {}}
                             raised
                         />
                     </View>
