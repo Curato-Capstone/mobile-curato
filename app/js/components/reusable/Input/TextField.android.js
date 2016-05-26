@@ -37,15 +37,5 @@ const STYLES = StyleSheet.create({
     container: {
         marginLeft: 5,
         marginRight: 5
-    },
-
-    input: {
-        height: 30,
-        borderWidth: 0.5,
-        borderColor: '#d3d3d3',
-        borderRadius: 3,
-        flex: 1,
-        fontSize: 13,
-        padding: 5,
     }
 });
