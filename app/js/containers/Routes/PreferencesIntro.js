@@ -80,7 +80,7 @@ class PreferencesIntro extends Component {
                 <Card style={{paddingBottom: 10, marginHorizontal: 15}}>
                     <Card.Body>
                         <Text style={STYLES.header}>Set your preferences!</Text>
-                        <Text style={{fontFamily: 'Montserrat-Regular'}}>
+                        <Text style={{fontFamily: 'Montserrat-Regular', textAlign: 'center'}}>
                             First, change these sliders to accurately represent how
                             much you like these different categories. We use these
                             values to help find businesses that you’re interested in,

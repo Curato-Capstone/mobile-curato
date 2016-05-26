@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import {
     StyleSheet,
     Text,
-    View
+    View,
+    AsyncStorage
 } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -10,6 +11,8 @@ import { bindActionCreators } from 'redux';
 import { user as userActions } from '../../modules/index';
 import AccountForm from '../../components/forms/AccountForm/AccountForm';
 import { primaryColor } from '../../utils/colors';
+import Button from '../../components/reusable/Button/Button';
+import { Actions as routerActions } from 'react-native-router-flux';
 
 
 class Account extends Component {
@@ -23,6 +26,14 @@ class Account extends Component {
         return (
             <View style={STYLES.container}>
                 <AccountForm onSubmit={() => actions.updateAccount() } />
+                <Button
+                    label="Sign Out"
+                    handlePress={() => {
+                        AsyncStorage.removeItem('accessToken');
+                        routerActions.intro();
+                    }}
+                    raised
+                />
             </View>
         );
     }

@@ -86,7 +86,9 @@ export default class PlaceCard extends Component {
                     }}
                     onPress={() => handleFavorite()}
                 >
-                    <Icon name="heart" size={20} />
+                    <Icon name="heart" size={20}
+                        style={{ color: this.props.favorite ? 'red' : 'grey' }}
+                    />
                 </TouchableOpacity>
                 <Button
                     style={{
@@ -97,6 +99,10 @@ export default class PlaceCard extends Component {
                     onPress={() => handleDislike()}
                 />
                 <Button
+                    style={{
+                        textColor: '#0000ff',
+                        marginRight: 50
+                    }}
                     label="...more"
                     onPress={() => routerActions.place1({ id: place.id })}
                 />

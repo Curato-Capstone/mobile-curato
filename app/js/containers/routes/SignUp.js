@@ -23,7 +23,7 @@ class SignUp extends Component {
 
         actions.signUpUser()
             .then(() => {
-                routerActions.search()
+                routerActions.tabbar()
             });
     };
 }

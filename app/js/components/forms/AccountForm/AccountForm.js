@@ -22,6 +22,8 @@ class AccountForm extends Component {
     };
     state: void;
 
+    shouldComponentUpdate = () => { return false };
+
     render() {
         const { handleSubmit, submitting } = this.props;
 
@@ -67,7 +69,6 @@ class AccountForm extends Component {
                     disabled={submitting}
                     handlePress={handleSubmit}
                     raised
-                    style={{ backgroundColor: primaryColor, textColor: "#ffffff"}}
                 />
             </View>
         );
