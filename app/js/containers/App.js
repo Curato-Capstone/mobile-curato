@@ -10,7 +10,6 @@ import AndroidTabBar from '../components/reusable/react-native-android-tabbar';
 import Loading from '../components/reusable/Loading/Loading';
 import MessageBar from '../components/reusable/MessageBar/MessageBar';
 import Router from './Router';
-import PreferencesIntro from './Routes/PreferencesIntro'
 
 // import ButtonExample from '../components/reusable/Button/Example';
 // import SliderExample from '../components/reusable/Slider/Example';
@@ -27,7 +26,7 @@ class App extends Component {
     render() {
         return (
             <View style={STYLES.container}>
-                <PreferencesIntro />
+                {this.renderComponents()}
             </View>
         );
     }
