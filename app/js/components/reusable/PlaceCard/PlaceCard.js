@@ -79,20 +79,24 @@ export default class PlaceCard extends Component {
                 <TouchableOpacity
                     style={{
                         justifyContent: 'center',
-                        flex: 1
+                        flex: 1,
+                        marginHorizontal: 50
                     }}
                     onPress={() => {}}
                 >
                     <Icon name="heart" size={20} />
                 </TouchableOpacity>
                 <Button
-                    style={{ textColor: '#ff0000' }}
+                    style={{
+                        textColor: '#ff0000',
+                        marginRight: 50
+                    }}
                     label="I don't like this"
                     onPress={() => {}}
                 />
                 <Button
                     label="...more"
-                    onPress={() => {}}
+                    onPress={() => routerActions.place1({ id: place.id })}
                 />
             </Card.Actions>
         );
