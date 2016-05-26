@@ -14,13 +14,22 @@ import { Field, reduxForm } from 'redux-form/immutable';
 import TextInput from '../../reusable/Input/TextField';
 import validate from './validate';
 
-const renderField = props => (
-    <TextInput
-        placeholder={props.placeholder}
-        secureTextEntry={props.name === 'password'}
-        {...props}
-    />
-);
+const renderField = (props) => {
+    const allGood = props.visited && props.error;
+
+    return (
+        <View>
+            <TextInput
+                placeholder={props.placeholder}
+                secureTextEntry={props.name === 'password'}
+                {...props}
+            />
+            {allGood ?
+                <Text style={{ color: '#ff0000' }}>{props.error}</Text> : null
+            }
+        </View>
+    );
+};
 
 class SignUpForm extends Component {
     static defaultProps = {};
