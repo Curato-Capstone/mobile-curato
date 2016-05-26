@@ -22,6 +22,8 @@ class AccountForm extends Component {
     };
     state: void;
 
+    shouldComponentUpdate = () => { return false };
+
     render() {
         const { handleSubmit, submitting } = this.props;
 

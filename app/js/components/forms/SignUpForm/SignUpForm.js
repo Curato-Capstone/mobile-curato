@@ -27,6 +27,8 @@ class SignUpForm extends Component {
     props: { onSubmit: Object };
     state : void;
 
+    shouldComponentUpdate = () => { return false };
+
     render() {
         return (
             <View style={{flex: 1, justifyContent: 'center', backgroundColor: primaryColor}}>

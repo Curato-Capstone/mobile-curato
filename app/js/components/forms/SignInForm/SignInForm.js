@@ -20,6 +20,8 @@ class SignInForm extends Component {
     props: { onSubmit: () => void };
     state : void;
 
+    shouldComponentUpdate = () => { return false };
+
     render() {
         const { onSubmit } = this.props;
 
