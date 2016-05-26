@@ -1,5 +1,6 @@
 // @flow
 import { Map } from 'immutable';
+import { AsyncStorage } from 'react-native';
 import type { Action } from '../../../flow/types';
 import request from 'superagent-bluebird-promise';
 
@@ -85,7 +86,7 @@ export function signUpUser() {
 
             // grab token and store it
             const token = res.header.authorization;
-            localStorage.setItem('accessToken', res.header.authorization);
+            AsyncStorage.setItem('accessToken', res.header.authorization);
             dispatch(setToken(token));
 
             dispatch(userActions.setUser(res.body));
@@ -108,7 +109,7 @@ export function signInUser() {
 
             // grab token and store it
             const token = res.header.authorization;
-            localStorage.setItem('accessToken', res.header.authorization);
+            AsyncStorage.setItem('accessToken', res.header.authorization);
             dispatch(setToken(token));
 
             // get favorites place data
@@ -125,7 +126,7 @@ export function signInUser() {
 
 export function signOutUser() {
     return async (dispatch: () => void, getState: () => Object) => {
-        localStorage.removeItem('accessToken');
-        // dispatch(userActions.setUser());
+        AsyncStorage.removeItem('accessToken');
+        dispatch(userActions.setUser());
     };
 }
