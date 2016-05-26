@@ -23,7 +23,7 @@ class Suggestions extends Component {
         return (
             <ScrollView contentContainerStyle={STYLES.container}>
                 <View>
-                    {suggestions.map((place, index) => (
+                    {suggestions.slice(0, 3).map((place, index) => (
                         <View style={STYLES.suggestion} key={place.id}>
                             <PlaceCard
                                 place={place}

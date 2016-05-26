@@ -42,11 +42,13 @@ export default class PlaceCard extends Component {
     }
 
     renderActionButtons(place) {
+        const { favorite, handleFavorite, handleDislike } = this.props;
+
         if (Platform.OS === 'ios') {
             return (
                 <View style={STYLES.actions}>
                     <TouchableOpacity
-                        onPress={() => {}}
+                        onPress={() => handleFavorite()}
                         style={STYLES.ios.heart(this.props.favorite)}
                     >
                         <Icon
@@ -56,7 +58,7 @@ export default class PlaceCard extends Component {
                     </TouchableOpacity>
                     <TouchableOpacity
                         style={{ justifyContent: 'center', margin: 15 }}
-                        onPress={() => {}}
+                        onPress={() => handleDislike()}
                     >
                         <Text style={[STYLES.ios.dislike]}>
                             I don't like this

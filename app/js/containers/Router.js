@@ -87,7 +87,7 @@ export default class MyRouter extends Component {
                             </Scene>
                         </Scene>
                         <Scene key="intro" component={Intro} />
-                        <Scene initial key="signin" component={SignIn} />
+                        <Scene key="signin" initial component={SignIn} />
                         <Scene key="prefIntro" component={PreferencesIntro} />
                         <Scene key="baselineSugg" component={BaselineSuggestions} />
                         <Scene key="signup" component={SignUp} />
