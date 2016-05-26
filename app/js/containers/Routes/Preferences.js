@@ -33,7 +33,8 @@ class Preferences extends Component {
             <ScrollView contentContainerStyle={STYLES.scrollContainer}>
                 <View style={STYLES.container}>
                     { prefKeys.map(preference => {
-                        let pref = preferencesInfo[preference];
+                        const pref = preferencesInfo[preference];
+                        const prefValue = preferences.get(pref.name.toLowerCase());
                         return (
                             <View key={pref.name} style={STYLES.sliderContainer}>
                                 <Text style={STYLES.label(pref)}>
@@ -41,11 +42,11 @@ class Preferences extends Component {
                                     <Icon name={pref.icon} size={18} />
                                 </Text>
                                 <Slider
-                                    value={preferences[pref.name.toLowerCase()]}
+                                    value={prefValue}
                                     key={pref.name}
                                     onValueChange={(value) => {
                                         actions.changePreference(
-                                            pref.name.toLowerCase(), Math.round(value)
+                                            pref.name.toLowerCase(), value
                                         );
                                     }}
                                     minimumTrackTintColor={pref.color}
@@ -53,7 +54,7 @@ class Preferences extends Component {
                                     style={STYLES.slider}
                                 />
                                 <Text style={STYLES.text}>
-                                    {pref.tooltipValues[preferences[pref.name.toLowerCase()] - 1]}
+                                    {pref.tooltipValues[prefValue -  1]}
                                 </Text>
                             </View>
                         );
@@ -62,7 +63,7 @@ class Preferences extends Component {
                     <View style={STYLES.buttonContainer}>
                         <Button
                             label="Update Preferences"
-                            handlePress={() => { console.log('updating prefs yo'); }}
+                            handlePress={() => actions.updatePreferences()}
                             style={Platform.OS === 'ios' ? STYLES.button :
                                 {
                                     backgroundColor: primaryColor,
@@ -124,7 +125,7 @@ const STYLES = {
 
 function mapStateToProps(state) {
     return {
-        preferences: state.getIn(['user', 'preferences']).toJS()
+        preferences: state.getIn(['user', 'preferences'])
     };
 }
 
