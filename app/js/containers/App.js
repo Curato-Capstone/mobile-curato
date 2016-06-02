@@ -7,7 +7,7 @@ import {
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-console.dir(NativeModules);
+console.dir(NativeModules.Messaging);
 
 import AndroidTabBar from '../components/reusable/react-native-android-tabbar';
 import Loading from '../components/reusable/Loading/Loading';
