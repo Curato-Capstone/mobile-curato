@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import {
+  NativeModules,
   StyleSheet,
   View,
 } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+
+console.dir(NativeModules);
 
 import AndroidTabBar from '../components/reusable/react-native-android-tabbar';
 import Loading from '../components/reusable/Loading/Loading';
