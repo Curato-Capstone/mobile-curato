@@ -40,14 +40,6 @@ class AccountForm extends Component {
         return (
             <View style={STYLES.container} onSubmit={handleSubmit}>
                 <Text style={STYLES.header}>Update your account information</Text>
-                <View style={STYLES.fieldContainer}>
-                    <Field
-                        name="email"
-                        component={renderField}
-                        placeholder="email"
-                        keyboard="email-address"
-                        autoCapitalize="none" />
-                </View>
 
                 <View style={STYLES.fieldContainer}>
                     <Field
