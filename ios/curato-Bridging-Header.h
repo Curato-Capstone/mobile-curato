@@ -4,6 +4,4 @@
 
 // curato-Bridging-Header.h
 #import "RCTBridgeModule.h"
-#import "RCTEventDispatcher.h"
-#import "RCTBridgeModule.h"
 

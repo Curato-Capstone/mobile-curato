@@ -78,6 +78,7 @@ class Place extends Component {
                                 {this.renderTwitter(place.contact.twitter)}
                                 {this.renderFourSquare(place.id)}
                                 {this.renderWebsite(place.url)}
+                                {this.renderTextMessage(place)}
                             </View>
 
                             <View>
@@ -175,6 +176,23 @@ class Place extends Component {
                 </View>
             );
         }
+    }
+
+    renderTextMessage(place) {
+        return (
+            <View style={STYLES.info}>
+                <Icon
+                    name="comment"
+                    size={25}
+                    style={[{ color: 'orange' }, STYLES.infoIcon]}
+                />
+                <TouchableOpacity
+                    onPress={() => console.log(place)}
+                >
+                    <Text style={STYLES.infoText}>Text to a friend!</Text>
+                </TouchableOpacity>
+            </View>
+        );
     }
 
     renderHours(hours: Object) {
@@ -280,7 +298,8 @@ const STYLES = {
     },
 
     infoText: {
-        fontFamily: 'Montserrat-Light'
+        fontFamily: 'Montserrat-Light',
+        textDecorationLine: 'underline'
     },
 
     infoIcon: {
