@@ -81,6 +81,10 @@ class Place extends Component {
                                 {this.renderTwitter(place.contact.twitter)}
                                 {this.renderFourSquare(place.id)}
                                 {this.renderWebsite(place.url)}
+                            </View>
+
+                            <View>
+                                <Text style={STYLES.header}>Share</Text>
                                 {this.renderTextMessage(place)}
                                 {this.renderEmail(place)}
                             </View>
@@ -102,7 +106,7 @@ class Place extends Component {
             return (
                 <View>
                     <Text style={STYLES.header}>Description</Text>
-                    <Text style={STYLES.infoText}>{description}</Text>
+                    <Text style={STYLES.description}>{description}</Text>
                 </View>
             );
         }
@@ -321,6 +325,10 @@ const STYLES = {
     infoText: {
         fontFamily: 'Montserrat-Light',
         textDecorationLine: 'underline'
+    },
+
+    description: {
+        fontFamily: 'Montserrat-Light'
     },
 
     infoIcon: {

@@ -18,7 +18,7 @@ class Messaging: UIViewController, MFMailComposeViewControllerDelegate, MFMessag
 
     //set up text message view controller
     let messageVC = MFMessageComposeViewController()
-    messageVC.body = "Enter a message";
+    messageVC.body = "Check out \(name) at \(address)! I found it on Curato, download it on the App Store!";
     messageVC.messageComposeDelegate = self;
     
     currentController.presentViewController(messageVC, animated: false, completion: nil)
@@ -29,7 +29,8 @@ class Messaging: UIViewController, MFMailComposeViewControllerDelegate, MFMessag
 
     //set up mail view controller
     let mailVC = MFMailComposeViewController()
-    mailVC.setSubject("Enter a message");
+    mailVC.setSubject("Check out this place I found on Curato!");
+    mailVC.setMessageBody("Check out \(name) at \(address)! I found it on Curato, download it on the App Store!", isHTML: false)
     mailVC.mailComposeDelegate = self;
     
     currentController.presentViewController(mailVC, animated: true, completion: nil)
