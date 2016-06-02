@@ -77,7 +77,7 @@ class Preferences extends Component {
 
 const STYLES = {
     scrollContainer: {
-        height: 1350,
+        height: 1300,
         marginTop: 70
     },
     container: {
