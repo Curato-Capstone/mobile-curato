@@ -18,6 +18,8 @@ import { Actions as routerActions } from 'react-native-router-flux';
 import { user as userActions, global as globalActions } from '../../modules/index';
 import { primaryColor } from '../../utils/colors';
 
+const { call, email, text } = NativeModules.Messaging;
+
 class Place extends Component {
     static defaultProps = {};
     props: {
@@ -80,6 +82,7 @@ class Place extends Component {
                                 {this.renderFourSquare(place.id)}
                                 {this.renderWebsite(place.url)}
                                 {this.renderTextMessage(place)}
+                                {this.renderEmail(place)}
                             </View>
 
                             <View>
@@ -188,9 +191,26 @@ class Place extends Component {
                     style={[{ color: 'orange' }, STYLES.infoIcon]}
                 />
                 <TouchableOpacity
-                    onPress={() => console.log(NativeModules.Messaging.addEvent("hi"))}
+                    onPress={() => text(place.name, place.location.address)}
                 >
                     <Text style={STYLES.infoText}>Text to a friend!</Text>
+                </TouchableOpacity>
+            </View>
+        );
+    }
+
+    renderEmail(place) {
+        return (
+            <View style={STYLES.info}>
+                <Icon
+                    name="envelope"
+                    size={25}
+                    style={[{ color: 'red' }, STYLES.infoIcon]}
+                />
+                <TouchableOpacity
+                    onPress={() => email(place.name, place.location.address)}
+                >
+                    <Text style={STYLES.infoText}>Email to a friend!</Text>
                 </TouchableOpacity>
             </View>
         );

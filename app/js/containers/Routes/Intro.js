@@ -35,8 +35,7 @@ export default class Intro extends Component {
                         <Button
                             raised
                             label="Sign up!"
-                            // handlePress={() => routerActions.prefIntro()}
-                            handlePress={() => NativeModules.Messaging.addEvent("HI")}
+                            handlePress={() => routerActions.prefIntro()}
                         />
                         </View>
                         <View style={STYLES.buttonContainer}>
