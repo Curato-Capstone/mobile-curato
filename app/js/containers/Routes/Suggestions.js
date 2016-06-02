@@ -66,7 +66,7 @@ class Suggestions extends Component {
 const STYLES = StyleSheet.create({
     container: {
         marginTop: 70,
-        height: 1100
+        height: 1040
     },
 
     suggestion: {

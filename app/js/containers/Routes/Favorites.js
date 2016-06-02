@@ -28,7 +28,7 @@ class Favorites extends Component {
         return (
             <ScrollView
                 contentContainerStyle={
-                    [STYLES.container, {height: favorites.length * 355}]
+                    [STYLES.container, {height: favorites.length * 317}]
                 }
             >
                 <View>
