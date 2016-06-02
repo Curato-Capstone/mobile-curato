@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {
+  NativeModules,
   StyleSheet,
   ScrollView,
   Text,
@@ -187,7 +188,7 @@ class Place extends Component {
                     style={[{ color: 'orange' }, STYLES.infoIcon]}
                 />
                 <TouchableOpacity
-                    onPress={() => console.log(place)}
+                    onPress={() => console.log(NativeModules.Messaging.addEvent("hi"))}
                 >
                     <Text style={STYLES.infoText}>Text to a friend!</Text>
                 </TouchableOpacity>

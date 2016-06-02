@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {
+  NativeModules,
   StyleSheet,
   Text,
   View,
@@ -34,7 +35,8 @@ export default class Intro extends Component {
                         <Button
                             raised
                             label="Sign up!"
-                            handlePress={() => routerActions.prefIntro()}
+                            // handlePress={() => routerActions.prefIntro()}
+                            handlePress={() => NativeModules.Messaging.addEvent("HI")}
                         />
                         </View>
                         <View style={STYLES.buttonContainer}>
