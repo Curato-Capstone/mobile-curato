@@ -44,7 +44,7 @@ class Preferences extends Component {
                                 <Slider
                                     value={prefValue}
                                     key={pref.name}
-                                    onSlidingComplete={(value) => {
+                                    onValueChange={(value) => {
                                         actions.changePreference(
                                             pref.name.toLowerCase(), value
                                         );
@@ -53,7 +53,7 @@ class Preferences extends Component {
                                     thumbTintColor={pref.color}
                                     style={STYLES.slider}
                                 />
-                                <Text style={STYLES.text}>
+                                <Text style={STYLES.text(pref)}>
                                     {pref.tooltipValues[prefValue -  1]}
                                 </Text>
                             </View>
@@ -77,7 +77,7 @@ class Preferences extends Component {
 
 const STYLES = {
     scrollContainer: {
-        height: 1350,
+        height: 1300,
         marginTop: 70
     },
     container: {
@@ -110,9 +110,12 @@ const STYLES = {
         color: pref.color,
         fontFamily: 'Montserrat-Light'
     }),
-    text: {
-        fontFamily: 'Montserrat-Regular'
-    },
+
+    text: (pref) => ({
+        fontFamily: 'Montserrat-Regular',
+        color: pref.color
+    }),
+
     button: {
         marginTop: 20
     }

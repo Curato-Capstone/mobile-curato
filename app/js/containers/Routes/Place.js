@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {
+  NativeModules,
   StyleSheet,
   ScrollView,
   Text,
@@ -16,6 +17,8 @@ import MapView from 'react-native-maps';
 import { Actions as routerActions } from 'react-native-router-flux';
 import { user as userActions, global as globalActions } from '../../modules/index';
 import { primaryColor } from '../../utils/colors';
+
+const { call, email, text } = NativeModules.Messaging;
 
 class Place extends Component {
     static defaultProps = {};
@@ -81,6 +84,12 @@ class Place extends Component {
                             </View>
 
                             <View>
+                                <Text style={STYLES.header}>Share</Text>
+                                {this.renderTextMessage(place)}
+                                {this.renderEmail(place)}
+                            </View>
+
+                            <View>
                                 {this.renderHours(place.hours)}
                             </View>
                         </View>
@@ -97,7 +106,7 @@ class Place extends Component {
             return (
                 <View>
                     <Text style={STYLES.header}>Description</Text>
-                    <Text style={STYLES.infoText}>{description}</Text>
+                    <Text style={STYLES.description}>{description}</Text>
                 </View>
             );
         }
@@ -175,6 +184,40 @@ class Place extends Component {
                 </View>
             );
         }
+    }
+
+    renderTextMessage(place) {
+        return (
+            <View style={STYLES.info}>
+                <Icon
+                    name="comment"
+                    size={25}
+                    style={[{ color: 'orange' }, STYLES.infoIcon]}
+                />
+                <TouchableOpacity
+                    onPress={() => text(place.name, place.location.address)}
+                >
+                    <Text style={STYLES.infoText}>Text to a friend!</Text>
+                </TouchableOpacity>
+            </View>
+        );
+    }
+
+    renderEmail(place) {
+        return (
+            <View style={STYLES.info}>
+                <Icon
+                    name="envelope"
+                    size={25}
+                    style={[{ color: 'red' }, STYLES.infoIcon]}
+                />
+                <TouchableOpacity
+                    onPress={() => email(place.name, place.location.address)}
+                >
+                    <Text style={STYLES.infoText}>Email to a friend!</Text>
+                </TouchableOpacity>
+            </View>
+        );
     }
 
     renderHours(hours: Object) {
@@ -280,6 +323,11 @@ const STYLES = {
     },
 
     infoText: {
+        fontFamily: 'Montserrat-Light',
+        textDecorationLine: 'underline'
+    },
+
+    description: {
         fontFamily: 'Montserrat-Light'
     },
 
